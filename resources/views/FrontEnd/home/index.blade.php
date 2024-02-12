@@ -362,7 +362,7 @@
 <!-- Verified Part End -->
 
 <!-- Services Part Start -->
-{{-- <section class="services container owl-carousel owl-theme owl-loaded mt-5 bg-white p-3">
+<section class="services container owl-carousel owl-theme owl-loaded mt-5 bg-white p-3 d-none">
     <div class="owl-stage-outer">
         <div class="row owl-stage g-1">
             <div class="col owl-item">
@@ -419,11 +419,11 @@
             </div>
         </div>
     </div>
-</section> --}}
+</section>
 <!-- Services Part End -->
 
 <!-- Flash Sale Start -->
-{{-- <section class="flash-sale container owl-carousel owl-theme owl-loaded mt-5">
+<section class="flash-sale container owl-carousel owl-theme owl-loaded mt-5 d-none">
     <h2>Flash Sale</h2>
     <div class="owl-stage-outer bg-white py-3 px-1">
         <div class="d-flex justify-content-between align-items-center px-3">
@@ -579,7 +579,7 @@
         </div>
     </div>
 
-</section> --}}
+</section>
 <!-- Flash Sale End -->
 
 <!-- Categories Part Start -->
@@ -588,97 +588,14 @@
     <hr>
     <div class="owl-stage-outer">
         <div class="row owl-stage g-1">
+            @foreach($featured_category as $fc)
             <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/sofas.jpg" class="card-img-top" alt="...">
-                    <p class="product-text">Sofas</p>
+                <a class="card" href="{{ route('product.category', $fc->slug) }}"><img src="{{ asset($fc->image) }}" class="card-img-top" alt="...">
+                    <p class="product-text">{{ $fc->name_en }}</p>
                 </a>
             </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/wardrobe.jpg" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Wardrobe Organisers</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/trimmers.jpg" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Trimmers & Groomers</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/moisturizers.png" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Moisturizers & Cream</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/dried.jpg" class="card-img-top" alt="...">
-                    <p class="product-text">Dried Fruit Nuts</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/drawing.jpg" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Drawing Pad</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/shirts.jpg" class="card-img-top" alt="...">
-                    <p class="product-text">Blouses & Shirts</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/fashion.jpg" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Fashion</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/wardrobe.jpg" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Sofas</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/wardrobe.jpg" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Wardrobe Organisers</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/trimmers.jpg" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Trimmers & Groomers</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/moisturizers.png" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Moisturizers & Cream</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/dried.jpg" class="card-img-top" alt="...">
-                    <p class="product-text">Dried Fruit Nuts</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/drawing.jpg" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Drawing Pad</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/shirts.jpg" class="card-img-top" alt="...">
-                    <p class="product-text">Blouses & Shirts</p>
-                </a>
-            </div>
-            <div class="col owl-item">
-                <a class="card" href="#"><img src="{{ asset('FrontEnd') }}/assect/img/categories/fashion.jpg" class="card-img-top"
-                        alt="...">
-                    <p class="product-text">Fashion</p>
-                </a>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </section>
@@ -688,290 +605,46 @@
 <section class="just-for-you container mt-5">
     <h2>Just For You</h2>
     <hr>
-    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-2">
+
+    <div id="product-container" class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-2">
         @foreach ($product_trendings as $product_trending )
         <div class="col">
+            <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
             <div class="card h-100">
                 <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product/man-watch.jpg" class="card-img-top" alt="...">
+                <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
+                    <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}......</p>
+                    <h5 class="product-price">৳{{ $product_trending->discount_price }}</h5>
+                    <p class="discount-percent"><span class="discount-price">৳{{ $product_trending->regular_price }}</span> - {{ $discountPercentage }}%</p>
                     <small class="product-ratings">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
+                        <i class="ratings">({{ $product_trending->stock_qty }})</i>
                     </small>
                     <div class="text-center">
                         <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
+                        @if($product_trending->is_varient == 1)
+                        <button type="button" id="{{ $product_trending->id }}" onclick="productView(this.id)" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
+                        @else
+                        <input type="hidden" id="pfrom" value="direct">
+                        <input type="hidden" id="product_product_id" value="{{ $product_trending->id }}"  min="1">
+                        <input type="hidden" id="{{ $product_trending->id }}-product_pname" value="{{ $product_trending->name_en }}">
+                        <button type="button" onclick="addToCartDirect({{ $product_trending->id }})" class="buy_now">Add to Cart</button>
+                        @endif
+
                     </div>
                 </div>
             </div>
         </div>
         @endforeach
-
-        {{-- <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product/watch.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product//bracelet.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product/card-holder.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product//t-shirt.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product/room-slipper.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product/man-watch.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product/watch.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product//bracelet.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product/card-holder.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product//t-shirt.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset('FrontEnd') }}/assect/img/product/room-slipper.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                    <h5 class="product-price">BDT 581</h5>
-                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">(105)</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
-                        <button type="button" class="buy_now">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
 </section>
 <div class="text-center my-5">
-    <button type="button" class="view_more">View More</button>
+    <button type="button" id="load-more-btn" class="view_more">View More</button>
 </div>
 <!-- Just For You End -->
 @endsection
@@ -1182,53 +855,6 @@
             });
         }
 
-        function miniCart(){
-            $.ajax({
-                type: 'GET',
-                url: '/product/mini/cart',
-                dataType:'json',
-                success:function(response){
-                    // alert(response);
-                    //checkout();
-                    $('span[id="cartSubTotal"]').text(response.cartTotal);
-                    $('#cartSubTotalShi').val(response.cartTotal);
-                    $('.cartQty').text(Object.keys(response.carts).length);
-                    $('#total_cart_qty').text(Object.keys(response.carts).length);
-
-                    var miniCart = "";
-
-                    if(Object.keys(response.carts).length > 0){
-                        $.each(response.carts, function(key,value){
-                            //console.log(value);
-                            var slug = value.options.slug;
-                            var base_url = window.location.origin;
-                          miniCart += `
-
-                            <div class="item-cart mb-20">
-                                            <div class="cart-image"><img src="/${value.options.image}" alt="Ecom"></div>
-                                    <div class="cart-info">
-                                      <a  id="${value.rowId}" onclick="miniCartRemove(this.id)" style='float:right;padding: 2px;'><i class="fa-solid fa-xmark"></i></a>
-                                      <a class="font-sm-bold color-brand-3" href="${base_url}/product-details/${slug}">${value.name}</a>
-                                     <p><span class="color-brand-2 font-sm-bold">${value.qty} x ${value.price}</span></p>
-                            </div>
-                        </div>`
-
-                        });
-
-                        $('#miniCart').html(miniCart);
-                        $('#miniCart_empty_btn').hide();
-                        $('#miniCart_btn').show();
-                    }else{
-                        html = '<h4 class="text-center">Cart empty!</h4>';
-                        $('#miniCart').html(html);
-                        $('#miniCart_btn').hide();
-                        $('#miniCart_empty_btn').show();
-                    }
-                }
-            });
-        }
-        /* ============ Function Call ========== */
-        miniCart();
 
         function miniCartRemove(rowId){
             $.ajax({
@@ -1263,5 +889,69 @@
                }
             });
           }
+</script>
+<script>
+    var offset = 12;
+
+    $('#load-more-btn').click(function() {
+        $.ajax({
+            url: '/load-more-products',
+            method: 'GET',
+            data: { offset: offset },
+            success: function(response) {
+                var products = response.products;
+
+                if (products.length > 0) {
+                    products.forEach(function(product) {
+                        // Make sure to use the correct attribute names based on your actual product model
+                        var discountPercentage = Math.round(((product.regular_price - product.discount_price) / product.regular_price) * 100);
+
+                        // Append the new products to the container
+                        $('#product-container').append(`
+                        <div class="col">
+            <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
+            <div class="card h-100">
+                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
+                <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}......</p>
+                    <h5 class="product-price">৳{{ $product_trending->discount_price }}</h5>
+                    <p class="discount-percent"><span class="discount-price">৳{{ $product_trending->regular_price }}</span> - {{ $discountPercentage }}%</p>
+                    <small class="product-ratings">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="ratings">({{ $product_trending->stock_qty }})</i>
+                    </small>
+                    <div class="text-center">
+                        <button type="button" class="buy_now">Buy Now</button>
+                        @if($product_trending->is_varient == 1)
+                        <button type="button" id="{{ $product_trending->id }}" onclick="productView(this.id)" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
+                        @else
+                        <input type="hidden" id="pfrom" value="direct">
+                        <input type="hidden" id="product_product_id" value="{{ $product_trending->id }}"  min="1">
+                        <input type="hidden" id="{{ $product_trending->id }}-product_pname" value="{{ $product_trending->name_en }}">
+                        <button type="button" onclick="addToCartDirect({{ $product_trending->id }})" class="buy_now">Add to Cart</button>
+                        @endif
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                        `);
+                    });
+
+                    offset += products.length;
+                } else {
+                    $('#load-more-btn').hide();
+                }
+            },
+            error: function(error) {
+                console.error(error);
+            }
+        });
+    });
 </script>
 @endpush

@@ -4,11 +4,11 @@
 
 <!-- Owl Carousel -->
 <script src="{{ asset('FrontEnd') }}/assect/js/owl.carousel.min.js"></script>
-<script src="{{ asset('FrontEnd') }}/assets/js/vendors/select2.min.js"></script>
+<script src="{{ asset('FrontEnd') }}/assets/js/select2.min.js"></script>
  <!-- Count down-->
- <script src="{{ asset('FrontEnd') }}/assets/js/vendors/counterup.js"></script>
- <script src="{{ asset('FrontEnd') }}/assets/js/vendors/jquery.countdown.min.js"></script>
- <!-- Count down--><script src="{{ asset('FrontEnd') }}/assets/js/vendors/jquery.elevatezoom.js"></script>
+ <script src="{{ asset('FrontEnd') }}/assets/js/counterup.js"></script>
+ <script src="{{ asset('FrontEnd') }}/assets/js/jquery.countdown.min.js"></script>
+ <!-- Count down--><script src="{{ asset('FrontEnd') }}/assets/js/jquery.elevatezoom.js"></script>
 <!-- Custom Js -->
 <script src="{{ asset('FrontEnd') }}/assect/js/custom.js"></script>
 <script src="{{ asset('FrontEnd') }}/assect/js/sweetalert2@11.js"></script>
@@ -37,5 +37,54 @@
                 return false;
             });
         });
+        </script>
+        <script>
+            function miniCart(){
+            $.ajax({
+                type: 'GET',
+                url: '/product/mini/cart',
+                dataType:'json',
+                success:function(response){
+                    // alert(response);
+                    //checkout();
+                    $('span[id="cartSubTotal"]').text(response.cartTotal);
+                    $('#cartSubTotalShi').val(response.cartTotal);
+                    $('.cartQty').text(Object.keys(response.carts).length);
+                    $('#total_cart_qty').text(Object.keys(response.carts).length);
+
+                    var miniCart = "";
+
+                    if(Object.keys(response.carts).length > 0){
+                        $.each(response.carts, function(key,value){
+                            //console.log(value);
+                            var slug = value.options.slug;
+                            var base_url = window.location.origin;
+                          miniCart += `
+
+                            <div class="item-cart mb-20">
+                                            <div class="cart-image"><img src="/${value.options.image}" alt="Ecom"></div>
+                                    <div class="cart-info">
+                                      <a  id="${value.rowId}" onclick="miniCartRemove(this.id)" style='float:right;padding: 2px;'><i class="fa-solid fa-xmark"></i></a>
+                                      <a class="font-sm-bold color-brand-3" href="${base_url}/product-details/${slug}">${value.name}</a>
+                                     <p><span class="color-brand-2 font-sm-bold">${value.qty} x ${value.price}</span></p>
+                            </div>
+                        </div>`
+
+                        });
+
+                        $('#miniCart').html(miniCart);
+                        $('#miniCart_empty_btn').hide();
+                        $('#miniCart_btn').show();
+                    }else{
+                        html = '<h4 class="text-center">Cart empty!</h4>';
+                        $('#miniCart').html(html);
+                        $('#miniCart_btn').hide();
+                        $('#miniCart_empty_btn').show();
+                    }
+                }
+            });
+        }
+        /* ============ Function Call ========== */
+        miniCart();
         </script>
 

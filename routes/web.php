@@ -188,4 +188,10 @@ Route::post('/creat-contact',[ContactController::class, 'newcontact'])->name('ne
 Route::post('/apply-coupon',[FrontendController::class, 'applycoupon'])->name('apply-coupon');
 
 
+Route::get('/load-more-products',[FrontendController::class, 'loadMoreProducts']);
+
+
+
+
+
 require __DIR__.'/auth.php';

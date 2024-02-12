@@ -60,7 +60,7 @@ class FrontendController extends Controller
         // Product Top Selling
         $product_top_sellings = Product::where('status',1)->orderBy('id','ASC')->limit(9)->get();
         //Product Trending
-        $product_trendings = Product::where('status',1)->orderBy('id','ASC')->limit(9)->get();
+        $product_trendings = Product::where('status',1)->orderBy('id','ASC')->limit(12)->get();
         //Product Recently Added
         $product_recently_adds = Product::where('status',1)->latest()->skip(2)->limit(9)->get();
 
@@ -160,6 +160,20 @@ class FrontendController extends Controller
     } // end method
 
     /* ========== Start ProductDetails Method ======== */
+
+    public function loadMoreProducts(Request $request)
+    {
+        $count = $request->input('count', 12); // Number of products to load (default is 12)
+        $offset = $request->input('offset', 0); // Offset for pagination
+
+        $products = Product::where('status', 1)
+            ->orderBy('id', 'ASC')
+            ->skip($offset)
+            ->limit($count)
+            ->get();
+
+        return response()->json(['products' => $products]);
+    }
     public function productDetails($slug){
 
         $product = Product::where('slug', $slug)->first();

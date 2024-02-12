@@ -37,7 +37,7 @@
 						<h3>Basic Info</h3>
 					</div>
 		        	<div class="card-body">
-                        <div class="row">
+                        <div class="row d-none">
                             <div class="col-md-12 mb-4">
                                 <label for="product_type" class="col-form-label" style="font-weight: bold;">Product Type:</label>
                                 <select class="form-control" id="product_type" name="product_type" onchange="toggleProductFields()">
@@ -47,14 +47,14 @@
                             </div>
                         </div>
 		        		<div class="row">
-		                	<div class="col-md-6 mb-4">
-		                        <label for="product_name_en" class="col-form-label" style="font-weight: bold;">Product Name (En): <span class="text-danger">*</span></label>
+		                	<div class="col-md-12 mb-4">
+		                        <label for="product_name_en" class="col-form-label" style="font-weight: bold;">Product Name : <span class="text-danger">*</span></label>
 		                        <input class="form-control" id="product_name_en" type="text" name="name_en" placeholder="Write product name english" value="{{old('name_en')}}">
 		                        @error('name_en')
 		                            <p class="text-danger">{{$message}}</p>
 		                        @enderror
 		                    </div>
-		                    <div class="col-md-6 mb-4">
+		                    <div class="col-md-6 mb-4 d-none">
 	                           	<label for="product_name_bn" class="col-form-label" style="font-weight: bold;">Product Name (Bn):</label>
 	                           	<input class="form-control" id="product_name_bn" type="text" name="name_bn" placeholder="Write product name bangla" value="{{old('name_bn')}}">
 		                    </div>
@@ -104,7 +104,7 @@
 		        			    @if(Auth::guard('admin')->user()->role == '2')
 		        			        <input type="hidden" name="vendor_id" id="vendor_id" value="{{ Auth::guard('admin')->user()->id }}" />
 		        			    @else
-								<div class="col-md-6 mb-4" id="vendor_field">
+								<div class="col-md-6 mb-4 d-none" id="vendor_field">
 									<label for="vendor_id" class="col-form-label" style="font-weight: bold;">Vendor: <span class="text-danger">*</span></label>
 									<div class="custom_select">
 										<select class="form-control select-active w-100 form-select select-nice" name="vendor_id" id="vendor_id">
@@ -122,7 +122,7 @@
 								@endif
 							@endif
 
-	                        <div class="col-md-6 mb-4" id="supplier_field">
+	                        <div class="col-md-12 mb-4" id="supplier_field">
 								<label for="supplier_id" class="col-form-label" style="font-weight: bold;">Supplier:</label>
 								<div class="custom_select">
 									<select class="form-control select-active w-100 form-select select-nice" name="supplier_id" id="supplier_id">
@@ -133,7 +133,7 @@
 									</select>
 								</div>
 						   	</div>
-							<div class="col-md-6 mb-4" id="unit_field">
+							<div class="col-md-6 mb-4 d-none" id="unit_field">
 								<label for="unit_id" class="col-form-label" style="font-weight: bold;">Unit Type:</label>
 								<div class="custom_select">
 									<select class="form-control select-active w-100 form-select select-nice" name="unit_id" id="unit_id">
@@ -144,7 +144,7 @@
 									</select>
 								</div>
 						   	</div>
-							<div class="col-md-6 mb-4" id="unit_weight_field">
+							<div class="col-md-6 mb-4 d-none" id="unit_weight_field">
 								<label for="unit_weight" class="col-form-label" style="font-weight: bold;">Unit Weight (e.g. 10 mg, 1 Carton, 15 Pcs)</label>
 								<input class="form-control" id="unit_weight" type="number" name="unit_weight" placeholder="Write unit weight" value="{{old('unit_weight')}}">
 						   	</div>
@@ -196,7 +196,7 @@
 		        	</div>
 		        </div>
 
-			    <div class="card" id="product_variation_field">
+			    <div class="card d-none" id="product_variation_field">
 					<div class="card-header" style="background-color: #fff !important;">
 						<h3 style="color: #4f5d77 !important">Product Variation</h3>
 					</div>
@@ -231,36 +231,36 @@
 					</div>
 		        	<div class="card-body">
 		        		<div class="row">
-		        			<div class="col-md-6 mb-4 ">
+		        			<div class="col-md-12 mb-4 ">
 	                          	<label for="purchase_price" class="col-form-label" style="font-weight: bold;">Product Buying Price: <span class="text-danger">*</span></label>
-	                            <input class="form-control" id="totalBuyingPriceInput" type="number" name="purchase_price" placeholder="Write product bying price">
+	                            <input class="form-control" type="number" name="purchase_price" placeholder="Write product bying price">
 		                        @error('purchase_price')
                                     <p class="text-danger">{{$message}}</p>
                                 @enderror
 		                    </div>
-		                    <div class="col-md-6 mb-4" id="whole_sell_price_field">
+		                    <div class="col-md-6 mb-4 d-none" id="whole_sell_price_field">
 	                          	<label for="whole_sell_price" class="col-form-label" style="font-weight: bold;">Whole Sell Price:</label>
 	                            <input class="form-control" id="whole_sell_price" type="number" name="wholesell_price" placeholder="Write product whole sell price" min="0" value="{{old('wholesell_price', 0)}}" >
 	                        </div>
-	                        <div class="col-md-6 mb-4 " id="whole_sell_quantity_field">
+	                        <div class="col-md-6 mb-4 d-none " id="whole_sell_quantity_field">
 	                          	<label for="whole_sell_qty" class="col-form-label" style="font-weight: bold;">Whole Sell Minimum Quantity:</label>
 	                            <input class="form-control" id="whole_sell_qty" type="number" name="wholesell_minimum_qty" placeholder="Write product whole sell qty" value="{{old('wholesell_minimum_qty', 0)}}">
 	                        </div>
 		        		</div>
 		        		<!-- Row //-->
 		        		<div class="row">
-			        		<div class="col-md-4 mb-4">
+			        		<div class="col-md-6 mb-4">
 	                          	<label for="regular_price" class="col-form-label" style="font-weight: bold;">Regular Price: <span class="text-danger">*</span></label>
-	                            <input class="form-control" type="number" name="regular_price" placeholder="Write product regular price" id="totalRegularPriceInput">
+	                            <input class="form-control" type="number" name="regular_price" placeholder="Write product regular price" >
 		                        @error('regular_price')
 	                                <p class="text-danger">{{$message}}</p>
 	                            @enderror
 	                        </div>
-	                        <div class="col-md-4 mb-4">
+	                        <div class="col-md-6 mb-4">
 	                          	<label for="discount_price" class="col-form-label" style="font-weight: bold;">Discount Price:</label>
 	                            <input class="form-control" id="discount_price" type="number" name="discount_price" value="{{old('discount_price', 0)}}" min="0" placeholder="Write product discount price">
 	                        </div>
-	                        <div class="col-md-4 mb-4 ">
+	                        <div class="col-md-4 mb-4 d-none">
 	                         	<label for="discount_type" class="col-form-label" style="font-weight: bold;">Discount Type:</label>
 				                <div class="custom_select">
                                     <select class="form-control select-active w-100 form-select select-nice" name="discount_type" id="discount_type">
@@ -269,14 +269,14 @@
                                     </select>
                                 </div>
 	                        </div>
-	                        <div class="col-md-4 mb-4 ">
+	                        <div class="col-md-4 mb-4 d-none ">
 								<label for="minimum_buy_qty" class="col-form-label" style="font-weight: bold;">Minimum Buy Quantity:</label>
 								<input class="form-control" id="minimum_buy_qty" type="number" name="minimum_buy_qty" placeholder="Write product qty" value="{{old('minimum_buy_qty', 1)}}" min="1">
 								@error('minimum_buy_qty')
 									<p class="text-danger">{{$message}}</p>
 								@enderror
 							</div>
-							<div class="col-md-6 mb-4 ">
+							<div class="col-md-12 mb-4 ">
 								<label for="stock_qty" class="col-form-label" style="font-weight: bold;">Stock Quantity: <span class="text-danger">*</span></label>
 								<input class="form-control" id="stock_qty" type="number" name="stock_qty" value="{{old('stock_qty', 0)}}" min="0" placeholder="Write product stock  qty">
 								@error('stock_qty')
@@ -285,7 +285,7 @@
 							</div>
 
 							<!-- Product Attribute Price combination Starts -->
-							<div class="col-12 mt-2 mb-2" id="variation_wrapper">
+							<div class="col-12 mt-2 mb-2 d-none" id="variation_wrapper">
 								<label for="" class="col-form-label" style="font-weight: bold;">Price Variation:</label>
 								<table class="table table-active table-success table-bordered" id="combination_table">
 									<thead>
@@ -316,11 +316,11 @@
 		        	<div class="card-body">
 		        		<div class="row">
 		        			<!-- Description Start -->
-	                        <div class="col-md-6 mb-4">
-	                          	<label for="long_descp_en" class="col-form-label" style="font-weight: bold;">Description (En):</label>
+	                        <div class="col-md-12 mb-4">
+	                          	<label for="long_descp_en" class="col-form-label" style="font-weight: bold;">Description:</label>
 	                            <textarea name="description_en" rows="2" cols="2" class="form-control summernote" placeholder="Write Long Description English">{{old('description_en')}}</textarea>
 	                        </div>
-	                        <div class="col-md-6 mb-4">
+	                        <div class="col-md-6 mb-4 d-none">
 	                          	<label for="long_descp_bn" class="col-form-label" style="font-weight: bold;">Description (Bn):</label>
 	                            <textarea name="description_bn" id="long_descp_bn" rows="2" cols="2" class="form-control summernote" placeholder="Write Long Description Bangla">{{old('description_bn')}}</textarea>
 	                        </div>
@@ -382,7 +382,7 @@
 		        	</div>
 		        </div>
 		        <!-- card -->
-                <div class="card">
+                <div class="card d-none">
 		        	<div class="card-header" style="background-color: #fff !important;">
 						<h3 style="color: #4f5d77 !important">Points</h3>
 					</div>

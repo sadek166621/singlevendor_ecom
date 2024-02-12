@@ -6,7 +6,7 @@
     --font-one: 'Montserrat', sans-serif;
     --blue: #0cc5f3;
     --gray: #83817d;
-    --yellow: #FFA500;
+    --yellow: #F7941E;
     --pink: #F8EDFF;
     --white: #ffffff;
     --black: #1f1d1d;
@@ -49,19 +49,19 @@ ul {
     padding-left: 0px;
 }
 
-.back-to-top {    display: none;
-    position: fixed;
-
-    right: 35px;
-    bottom: 35px;
-    z-index: 99;
-}
-
 .bg-primary {
     background-color: var(--blue) !important;
 }
 
 /*** Button ***/
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 35px;
+    bottom: 35px;
+    z-index: 99;
+}
+
 .btn {
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
@@ -129,15 +129,18 @@ ul {
     background: var(--blue);
 }
 
-@media (max-width: 767px) {
-    .btn.btn-primary {
+@media (max-width: 1024px) {
+    /* .btn.btn-primary {
         display: none;
+    } */
+    .buy_now {
+        width: 130px;
     }
 }
 
 .btn-square {
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
 }
 
 .btn-square {
@@ -147,6 +150,21 @@ ul {
     justify-content: center;
     font-weight: normal;
     border-radius: 0px;
+}
+
+@media (max-width: 1024px) {
+    .back-to-top {
+        position: fixed;
+        display: none;
+        right: 20px;
+        bottom: 70px;
+        z-index: 99;
+    }
+
+    .btn-square {
+        width: 28px;
+        height: 28px;
+    }
 }
 
 .card {
@@ -197,8 +215,8 @@ header .header-top .right-item ul li {
     background-color: var(--blue);
 }
 
-.navbar-brand {
-    font-weight: 900;
+.navbar-brand{
+    font-weight: 600;
     font-size: 46px !important;
     color: var(--yellow);
 }
@@ -208,13 +226,18 @@ header .header-top .right-item ul li {
 }
 
 .navbar-brand span {
-    font-weight: 900;
+    font-weight: 600;
     font-size: 46px !important;
     color: var(--white);
 }
 
 .navbar-brand:hover span {
     color: var(--yellow);
+}
+
+.navbar-brand img{
+    width: 55px;
+    height: 50px;
 }
 
 nav ul li a {
@@ -226,33 +249,52 @@ nav ul li a:hover {
     color: var(--yellow) !important;
 }
 
-/* nav ul li .dropdown-menu {
-    position: relative;
-    display: none !important;
-    top: 40px !important;
-    width: 50px !important;
-} */
+.navbar-toggler:focus {
+    box-shadow: none;
+}
 
+.navbar-toggler {
+    border: none;
+}
+
+.desktop-nav nav ul li a span {
+    font-size: 10px;
+    position: absolute;
+    z-index: 999;
+    top: 20px;
+    margin-left: 15px;
+    background-color: var(--yellow);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.desktop-nav nav ul li a:hover span {
+    color: var(--yellow);
+    background-color: var(--white);
+}
 
 .search-box {
     position: relative;
-    width: 500px;
+    width: 600px;
 }
 
 .search-icon {
-    color: var(--blue);
+    color: var(--yellow);
     position: absolute;
     z-index: 999;
-    margin-left: 450px;
+    margin-left: 550px;
 }
 
 @media screen and (max-width: 1024px) {
     .search-box {
-        width: 300px;
+        width: 400px;
     }
 
     .search-icon {
-        margin-left: 250px;
+        margin-left: 350px;
     }
 }
 
@@ -465,7 +507,7 @@ nav ul li a:hover {
     background: transparent;
 }
 
-.services a:hover p{
+.services a:hover span {
     color: var(--blue);
 }
 
@@ -564,6 +606,7 @@ nav ul li a:hover {
         height: 135px;
         width: 136px;
     }
+
     .categories .card img {
         height: 95px;
         width: 95px;
@@ -968,3 +1011,11 @@ nav.mobile ul li a span i {
 .offcanvas.offcanvas-start {
     width: 300px;
 }
+
+/* .mobile-search-box{
+    display: flex;
+    position: fixed;
+    top: 80px;
+    width: 92%;
+    z-index: 9999;
+} */

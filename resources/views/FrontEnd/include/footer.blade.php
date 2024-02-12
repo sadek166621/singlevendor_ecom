@@ -2,8 +2,8 @@
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
-                <a class="footer-brand" href="#">N<span>A</span>ND<span>O</span>N</a>
-                <p>Largest product search engine, maximum categorized online shopping mall and quickest home
+                <a class="navbar-brand" href="#"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></a>
+                <p class="mt-2">Largest product search engine, maximum categorized online shopping mall and quickest home
                     delivery system.</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -40,15 +40,15 @@
                 <div class="d-flex">
                     <div>
                         <a href="#"><img style="width: 150px;" class="bg-light btn"
-                                src="{{ asset('FrontEnd') }}/assect/img/resources/payment.png" alt=""></a>
+                                src="{{asset('FrontEnd')}}/assect/img/resources/payment.png" alt=""></a>
                     </div>
                     <div>
-                        <a href="#"><img class="bg-light w-75 btn ms-2" src="{{ asset('FrontEnd') }}/assect/img/resources/play.png"
+                        <a href="#"><img class="bg-light w-75 btn ms-2" src="{{asset('FrontEnd')}}/assect/img/resources/play.png"
                                 alt=""></a>
-                        <a href="#"><img class="bg-light w-75 btn ms-2 mt-2" src="{{ asset('FrontEnd') }}/assect/img/resources/appstore.png"
+                        <a href="#"><img class="bg-light w-75 btn ms-2 mt-2" src="{{asset('FrontEnd')}}/assect/img/resources/appstore.png"
                                 alt=""></a>
                         <a href="#"><img class="bg-light w-75 btn ms-2 mt-2"
-                                src="{{ asset('FrontEnd') }}/assect/img/resources/appgallery.png" alt=""></a>
+                                src="{{asset('FrontEnd')}}/assect/img/resources/appgallery.png" alt=""></a>
                     </div>
                 </div>
             </div>
