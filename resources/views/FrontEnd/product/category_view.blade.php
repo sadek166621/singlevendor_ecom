@@ -48,88 +48,50 @@
     <section class="just-for-you container mt-2">
 {{--        <h2>Sale On Now</h2>--}}
 {{--        <hr>--}}
-        {{-- <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-2">
-            @foreach($products as $product)
-                @php
-                    if($product->discount_type == 1){
-                        $product_price = $product->regular_price - $product->discount_price;
-                    }
-                    else{
-                        $product_price = $product->regular_price - ($product->regular_price*$product->discount_price/100);
-                    }
-                @endphp
-                <div class="col">
-                    <div class="card h-100">
-                        <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                        <img src="{{ asset($product->product_thumbnail) }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="product-text">{{ Str::limit($product->name_en,15 )}}</p>
-                            <h5 class="product-price"> ৳{{$product_price}}</h5>
-                            <p class="discount-percent"><span class="discount-price">৳{{$product->regular_price}}</span>
-                              - {{$product->discount_type == 1 ? '৳':''}}{{$product->discount_price}}{{$product->discount_type == 2 ? '%':''}}
-                            </p>
-                            <small class="product-ratings">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="ratings">(105)</i>
-                            </small>
-                            <div class="text-center">
-                                <button type="button" class="buy_now">Buy Now</button>
-                                <button type="button" class="buy_now"><i class="fa-solid fa-cart-plus"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach --}}
-            <div id="product-container" class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-2">
-                @foreach ($products as $product )
-                <div class="col">
-                    <?php $discountPercentage = round((($product->regular_price - $product->discount_price) / $product->regular_price) * 100); ?>
-                    <div class="card h-100">
-                        <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                        <img src="{{ asset($product->product_thumbnail) }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="product-text">{!! Str::substr($product->name_en, 0, 20) !!}......</p>
-                            <h5 class="product-price">৳{{ $product->discount_price }}</h5>
-                            <p class="discount-percent"><span
-                                    class="discount-price">৳{{ $product->regular_price }}</span> -
-                                {{ $discountPercentage }}%</p>
-                            <small class="product-ratings">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="ratings">({{ $product->stock_qty }})</i>
-                            </small>
-                            <div class="text-center">
-                                <button type="button" class="buy_now">Buy Now</button>
-                                @if($product->is_varient == 1)
-                                <button type="button" id="{{ $product->id }}" onclick="productView(this.id)"
-                                    data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
-                                @else
-                                <input type="hidden" id="pfrom" value="direct">
-                                <input type="hidden" id="product_product_id" value="{{ $product->id }}" min="1">
-                                <input type="hidden" id="{{ $product->id }}-product_pname"
-                                    value="{{ $product->name_en }}">
-                                <button type="button" onclick="addToCartDirect({{ $product->id }})" class="buy_now">Add
-                                    to Cart</button>
-                                @endif
+<div id="product-container" class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-2">
+    @foreach ($products as $product_trending )
+    <div class="col">
+        <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
+        <div class="card h-100">
+            <span class="favorite"><i class="fa-regular fa-heart"></i></span>
+            <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}......</p>
+                <h5 class="product-price">৳{{ $product_trending->discount_price }}</h5>
+                <p class="discount-percent"><span
+                        class="discount-price">৳{{ $product_trending->regular_price }}</span> -
+                    {{ $discountPercentage }}%</p>
+                <small class="product-ratings">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="ratings">({{ $product_trending->stock_qty }})</i>
+                </small>
+                <div class="text-center">
+                    <button type="button" class="buy_now">Buy Now</button>
+                    @if($product_trending->is_varient == 1)
+                    <button type="button" id="{{ $product_trending->id }}" onclick="productView(this.id)"
+                        data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
+                    @else
+                    <input type="hidden" id="pfrom" value="direct">
+                    <input type="hidden" id="product_product_id" value="{{ $product_trending->id }}" min="1">
+                    <input type="hidden" id="{{ $product_trending->id }}-product_pname"
+                        value="{{ $product_trending->name_en }}">
+                    <button type="button" onclick="addToCartDirect({{ $product_trending->id }})" class="buy_now">Add
+                        to Cart</button>
+                    @endif
 
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                @endforeach
             </div>
-
         </div>
+    </div>
+    @endforeach
+</div>
     </section>
     <div class="text-center my-5">
-        {{-- <button type="button" id="load-more-btn" class="view_more">View More</button> --}}
+        {{-- <button type="button" class="view_more">View More</button> --}}
     </div>
 @endsection
 @push('js')
@@ -388,7 +350,6 @@
     var offset = 12;
 
     $('#load-more-btn').click(function () {
-
         $.ajax({
             url: '/load-more-products',
             method: 'GET',
@@ -407,31 +368,31 @@
                         // Append the new products to the container
                         $('#product-container').append(`
                         <div class="col">
-            <?php $discountPercentage = round((($product->regular_price - $product->discount_price) / $product->regular_price) * 100); ?>
+            <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
             <div class="card h-100">
                 <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                <img src="{{ asset($product->product_thumbnail) }}" class="card-img-top" alt="...">
+                <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="product-text">{!! Str::substr($product->name_en, 0, 20) !!}......</p>
-                    <h5 class="product-price">৳{{ $product->discount_price }}</h5>
-                    <p class="discount-percent"><span class="discount-price">৳{{ $product->regular_price }}</span> - {{ $discountPercentage }}%</p>
+                    <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}......</p>
+                    <h5 class="product-price">৳{{ $product_trending->discount_price }}</h5>
+                    <p class="discount-percent"><span class="discount-price">৳{{ $product_trending->regular_price }}</span> - {{ $discountPercentage }}%</p>
                     <small class="product-ratings">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
-                        <i class="ratings">({{ $product->stock_qty }})</i>
+                        <i class="ratings">({{ $product_trending->stock_qty }})</i>
                     </small>
                     <div class="text-center">
                         <button type="button" class="buy_now">Buy Now</button>
-                        @if($product->is_varient == 1)
-                        <button type="button" id="{{ $product->id }}" onclick="productView(this.id)" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
+                        @if($product_trending->is_varient == 1)
+                        <button type="button" id="{{ $product_trending->id }}" onclick="productView(this.id)" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
                         @else
                         <input type="hidden" id="pfrom" value="direct">
-                        <input type="hidden" id="product_product_id" value="{{ $product->id }}"  min="1">
-                        <input type="hidden" id="{{ $product->id }}-product_pname" value="{{ $product->name_en }}">
-                        <button type="button" onclick="addToCartDirect({{ $product->id }})" class="buy_now">Add to Cart</button>
+                        <input type="hidden" id="product_product_id" value="{{ $product_trending->id }}"  min="1">
+                        <input type="hidden" id="{{ $product_trending->id }}-product_pname" value="{{ $product_trending->name_en }}">
+                        <button type="button" onclick="addToCartDirect({{ $product_trending->id }})" class="buy_now">Add to Cart</button>
                         @endif
 
                     </div>
