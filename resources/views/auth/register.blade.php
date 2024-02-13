@@ -92,7 +92,7 @@ Register
             </div>
         </div>
     </main> --}}
-    <section class="section-box shop-template mt-60">
+    {{-- <section class="section-box shop-template mt-60">
         <div class="container">
           <div class="row mb-100">
             <div class="col-lg-1"></div>
@@ -109,7 +109,7 @@ Register
                                                     <div class="text-danger" style="font-weight: bold;">{{ $message }}</div>
                                                 @enderror
                 </div>
-                
+
                 <div class="form-group">
                   <label class="mb-5 font-sm color-gray-700">Username *</label>
                   <input class="form-control"  name="username" placeholder="Username" id="username" value="{{ old('username') }}">
@@ -159,7 +159,7 @@ Register
                 <div class="mt-20"><span class="font-xs color-gray-500 font-medium">Already have an account?</span><a class="font-xs color-brand-3 font-medium" href="{{route('login')}}"> Login In</a></div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </section>
@@ -180,7 +180,96 @@ Register
             </div>
           </div>
         </div>
-      </section>
+      </section> --}}
+      <div class="container-fluid py-5 page-header">
+        <div class="container ">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="display-3 fw-bold">Bokcho</h2>
+                    <h5 class="display-6 fw-semibold">Happing Shopping</h5>
+                    <div class="d-flex justify-content-center mt-3">
+                        <p class="m-0"><a href="{{ route('home') }}">Home</a></p>
+                        <p class="m-0 px-2">-</p>
+                        <p class="m-0">Sign Up</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Sign In Start -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <h2>Create an account</h2>
+            <span>Already have an account? <a href="{{ route('login') }}"><small>Sign In</small></a></span>
+            <form class="row g-3 mt-3" method="POST" action="{{ route('register') }}">
+                @csrf
+                <div class="col-md-12">
+                    <label for="name" class="form-label fw-semibold">Full Name <span
+                            class="text-danger">*</span></label>
+                            <input class="form-control" type="text" name="name" placeholder="Name" id="name" value="{{ old('name') }}" required>
+                            @error('name')
+                                                              <div class="text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                                          @enderror
+                </div>
+                <div class="col-md-12">
+                    <label for="username" class="form-label fw-semibold">Username <span
+                            class="text-danger">*</span></label>
+                            <input class="form-control"  name="username" placeholder="Username" id="username" value="{{ old('username') }}" required>
+                            @error('username')
+                                                              <div class="text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                                          @enderror
+                </div>
+                <div class="col-md-12">
+                    <label for="email" class="form-label fw-semibold">Email <span
+                            class="text-danger">*</span></label>
+                            <input class="form-control" type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required>
+                            @error('email')
+                                                              <div class="text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                                          @enderror
+                </div>
+                <div class="col-md-12">
+                    <label for="number" class="form-label fw-semibold">Phone <span
+                            class="text-danger">*</span></label>
+                            <input class="form-control" type="number" name="phone" id="phone" placeholder="Phone Number" value="{{ old('phone') }}" required>
+                            @error('phone')
+                                                            <div class="text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                                        @enderror
+                </div>
+                <div class="col-md-12">
+                    <label for="pa" class="form-label fw-semibold">Password <span
+                            class="text-danger">*</span></label>
+                            <input class="form-control" type="password" name="password" placeholder="Password" id="password" autocomplete="new-password" required>
+                            <span>password must be at least 8 characters</span>
+                                                          @error('password')
+                                                              <div class="text-danger" style="font-weight: bold;">{{ $message }}</div>
+                                                          @enderror
+                </div>
+                <div class="col-md-12">
+                    <label for="re-password" class="form-label fw-semibold">Re-Password <span
+                            class="text-danger">*</span></label>
+                            <input class="form-control" type="password" placeholder="Confirm password" name="password_confirmation" required>
+                            @error('password')
+                            <div class="text-danger" style="font-weight: bold;">{{ $message }}</div>
+                        @enderror
+                </div>
+                <div class="col-md-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                        <label class="form-check-label" for="flexCheckDefault">By clicking Register button, you
+                            agree our terms and policy,</label>
+                    </div>
+                </div>
+                <div class="col-md-12 my-3">
+                    <button type="submit" class="btn btn-primary px-5 py-2">Submit & Register</button>
+                </div>
+            </form>
+            </div>
+
+        </div>
+    </div>
 @endsection
 
 @push('js')
@@ -207,5 +296,5 @@ Register
     })
 })()
 </script>
-    
+
 @endpush
