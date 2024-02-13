@@ -3,6 +3,7 @@
 <!-- Option & Slider Part Start -->
 
 <section class="option-slider container mt-5">
+{{--    @php dd($home_banners) @endphp--}}
     <div class="row">
         <div class="col-md-3 d-none d-lg-block">
             <div class="sidemenu">
@@ -85,9 +86,11 @@
 
 <!-- Camping Part Start -->
 <section class="camping container d-none d-xl-block mt-5">
-    <div class="camp-img">
-        <a href=""><img src="{{ asset('FrontEnd') }}/assect/img/slider/free delevery.jpg" alt=""></a>
-    </div>
+        @foreach($home_banners as $banner)
+        <div class="camp-img">
+            <a href=""><img src="{{ asset($banner->banner_img) }}" style="width: 1100px; height: 200px" alt=""></a>
+        </div>
+        @endforeach
 </section>
 <!-- Camping Part End -->
 
