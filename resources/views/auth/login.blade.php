@@ -62,8 +62,8 @@ Login
                 </div>
             </div>
         </div>
-    </main> --}}
-    <section class="section-box shop-template mt-60">
+    </main> -
+     <section class="section-box shop-template mt-60">
         <div class="container">
           <div class="row mb-100">
             <div class="col-lg-1"></div>
@@ -74,8 +74,8 @@ Login
                 <div class="form-group">
                   <form method="POST" action="{{ route('login') }}" class="row g-3 needs-validation" novalidate>
                     @csrf
-                  
-                  {{-- <input class="form-control" type="text" placeholder="stevenjob@gmail.com"> --}}
+
+                  {{-- <input class="form-control" type="text" placeholder="stevenjob@gmail.com">
                   <label class="mb-5 font-sm color-gray-700">Email *</label>
                   <input class="form-control" type="email" name="email" placeholder="Login@gmail.com" value="{{ old('email') }}" autofocus/>
                       @error('email')
@@ -83,7 +83,7 @@ Login
                       @enderror
                 </div>
                 <div class="form-group">
-                        
+
                   <label class="mb-5 font-sm color-gray-700">Password *</label>
                   <input class="form-control" type="password" name="password" placeholder="Your password *" autocomplete="current-password" value="{{ old('password')}}">
                   @error('password')
@@ -129,8 +129,61 @@ Login
             </div>
           </div>
         </div>
-      </section>
+      </section> --}}
+      <div class="container-fluid py-5 page-header">
+        <div class="container ">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="display-3 fw-bold">Bokcho</h2>
+                    <h5 class="display-6 fw-semibold">Happing Shopping</h5>
+                    <div class="d-flex justify-content-center mt-3">
+                        <p class="m-0"><a href="#">Home</a></p>
+                        <p class="m-0 px-2">-</p>
+                        <p class="m-0">Sign In</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
 
+    <!-- Sign In Start -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6 m-auto p-4">
+                <h2>User Login</h2>
+                <span>Have not an account? <a href="#"><small>Sign Up</small></a></span>
+                <form class="row g-3 mt-3">
+                    <div class="col-md-12">
+                        <label for="email" class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
+                        <input name="email" type="text" class="form-control" id="email"
+                            placeholder="Login@gmail.com" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputPassword4" class="form-label fw-semibold">Password <span class="text-danger">*</span></label>
+                        <input name="password" type="password" class="form-control" id="inputPassword4"
+                            placeholder="********" required>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">Remember me</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-md-end">
+                                <div class="form-group"><a class="" href="#"><small>Forgot your password?</small></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 my-3">
+                        <button type="submit" class="btn btn-primary px-5 py-2">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 @endsection
 
