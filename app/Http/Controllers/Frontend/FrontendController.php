@@ -66,7 +66,7 @@ class FrontendController extends Controller
 
         $product_top_rates = Product::where('status',1)->orderBy('regular_price')->limit(9)->get();
         // Home Banner
-        $home_banners = Banner::where('status',1)->where('position',1)->orderBy('id','DESC')->limit(2)->get();
+        $home_banners = Banner::where('status',1)->where('position',1)->orderBy('id','DESC')->limit(1)->get();
 
         // Daily Best Sells
         //dd(date('Y-m-d'));

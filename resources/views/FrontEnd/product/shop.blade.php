@@ -49,7 +49,7 @@
     <h2>Sale On Now</h2>
     <hr>
     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-2">
-            @foreach ($product_trendings as $product_trending )
+            @foreach ($products as $product_trending )
                 <div class="col">
                         <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
                     <div class="card h-100">
