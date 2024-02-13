@@ -98,7 +98,7 @@
                         <div class="d-flex">
                             <h4 class="mb-30 col-9">Billing Details</h4>
                         </div>
-                            
+
                         <div class="row">
                             <div class="form-group col-lg-6">
                                 <label for="name" class="fw-bold text-black"><span class="text-danger">*</span> Name </label>
@@ -114,7 +114,7 @@
                                     <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group col-lg-6">
                                 <label for="email" class="fw-bold text-black">Email</label>
                                 <input id="email" type="email" name="email" placeholder="Email address *" value="{{ Auth::user()->email ?? old('email') }}">
@@ -342,7 +342,7 @@
 
                             </div>
                         <!-- </div> -->
-                            
+
 
                         <!-- <div class="payment_option">
                             <div class="custome-radio">
@@ -581,7 +581,7 @@
 
 <!-- create address ajax -->
 <script type="text/javascript">
-    $(document).ready(function() {   
+    $(document).ready(function() {
         $('#addressStore').on('click', function() {
             var division_id = $('#division_id').val();
             var district_id = $('#district_id').val();
@@ -615,7 +615,7 @@
                     $('select[name="district_id"]').html('<option value="" selected="" disabled="">Select District</option>');
                     $('select[name="upazilla_id"]').html('<option value="" selected="" disabled="">Select Upazilla</option>');
 
-                    // Start Message 
+                    // Start Message
                     const Toast = Swal.mixin({
                           toast: true,
                           position: 'top-end',

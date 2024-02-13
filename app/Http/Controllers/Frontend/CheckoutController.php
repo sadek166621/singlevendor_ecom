@@ -68,16 +68,16 @@ class CheckoutController extends Controller
     /* ============= End GetCheckoutProduct Method ============== */
 
     /* ============= Start getdivision Method ============== */
-    public function getdivision($division_id){
-    $division = District::where('division_id', $division_id)->orderBy('district_name_en','ASC')->get();
+    public function getdivision(){
+    $division = District::where('division_id', $_GET['division_id'])->orderBy('district_name_en','ASC')->get();
 
         return json_encode($division);
     }
     /* ============= End getdivision Method ============== */
 
     /* ============= Start getupazilla Method ============== */
-    public function getupazilla($district_id){
-        $upazilla = Upazilla::where('district_id', $district_id)->orderBy('name_en','ASC')->get();
+    public function getupazilla(){
+        $upazilla = Upazilla::where('district_id', $_GET['district_id'])->orderBy('name_en','ASC')->get();
 
         return json_encode($upazilla);
     }
