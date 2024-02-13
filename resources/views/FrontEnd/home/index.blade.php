@@ -704,7 +704,6 @@
                         <i class="ratings">({{ $product_trending->stock_qty }})</i>
                     </small>
                     <div class="text-center">
-                        <button type="button" class="buy_now">Buy Now</button>
                         @if($product_trending->is_varient == 1)
                         <button type="button" id="{{ $product_trending->id }}" onclick="productView(this.id)" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
                         @else
