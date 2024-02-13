@@ -94,12 +94,13 @@ ul {
 }
 
 .buy_now {
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 600;
     margin-top: 10px;
     color: var(--yellow);
     border: 1px solid var(--yellow);
     background: transparent;
+    width: 171px;
 }
 
 .buy_now:hover {
