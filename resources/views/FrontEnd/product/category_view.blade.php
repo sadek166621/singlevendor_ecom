@@ -1,4 +1,4 @@
-@extends('Frontend.master')
+@extends('FrontEnd.master')
 @section('content')
     <div class="container-fluid py-5 page-header">
         <div class="container ">
