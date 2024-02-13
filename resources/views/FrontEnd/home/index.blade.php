@@ -17,7 +17,7 @@
                                     <ul>
                                         @foreach($categories as $subcategory)
                                             @if($subcategory->parent_id == $category->id)
-                                                <li class="dropdown_two"><a href="{{route('product.category', $category->slug)}}">{{$subcategory->name_en}}</a>
+                                                <li class="dropdown_two"><a href="{{route('product.category', $subcategory->slug)}}">{{$subcategory->name_en}}</a>
 {{--                                                    @php $child = findChildCategory($category->id) @endphp--}}
 {{--                                                    @if(count($child)>0)--}}
 {{--                                                        <ul>--}}
