@@ -289,7 +289,7 @@
 
         <div class="container">
             <form class="d-flex mobile-search-box mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" type="text"  aria-label="Search">
                 <button class="btn btn-outline-success" type="submit"><i
                         class="fa-solid fa-magnifying-glass"></i></button>
             </form>
