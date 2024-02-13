@@ -7,7 +7,7 @@
         <div class="col-md-3 d-none d-lg-block">
             <div class="sidemenu">
                 <ul>
-                    <li class="dropdown"><a href="#">All Categories</a>
+                    <li class="dropdown"><a href="#">All Categories<span>&rsaquo;</span></a>
                     @foreach($categories as $category)
                         @if($category->type == 1)
                             @php $parent = $category->id @endphp
