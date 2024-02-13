@@ -80,26 +80,26 @@ class CartController extends Controller
             }
         }
 
-        if($request->product_price){
-            $price = $request->product_price;
-        }else{
-            if($product->discount_price > 0){
-                if($product->discount_type == 1){
-                    $price = $product->regular_price - $product->discount_price;
-                }else{
-                    $price = $product->regular_price - ($product->discount_price * $product->regular_price / 100);
-                }
-            }else{
-                $price = $product->regular_price;
-            }
-        }
+        // if($request->product_price){
+        //     $price = $request->product_price;
+        // }else{
+        //     if($product->discount_price > 0){
+        //         if($product->discount_type == 1){
+        //             $price = $product->regular_price - $product->discount_price;
+        //         }else{
+        //             $price = $product->regular_price - ($product->discount_price * $product->regular_price / 100);
+        //         }
+        //     }else{
+        //         $price = $product->regular_price;
+        //     }
+        // }
 
     	if($product->is_varient){
             Cart::add([
                 'id' => $id,
                 'name' => $request->product_name,
                 'qty' => $request->quantity,
-                'price' => $price,
+                'price' => $product->discount_price,
                 'weight' => 1,
                 'options' => [
                     'image' => $product->product_thumbnail,
@@ -118,7 +118,7 @@ class CartController extends Controller
                 'id' => $id,
                 'name' => $request->product_name,
                 'qty' => $request->quantity,
-                'price' => $price,
+                'price' => $product->discount_price,
                 'weight' => 1,
                 'options' => [
                     'image' => $product->product_thumbnail,
