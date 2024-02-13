@@ -7,26 +7,31 @@
         <div class="col-md-3 d-none d-lg-block">
             <div class="sidemenu">
                 <ul>
+                    <li class="dropdown"><a href="#">All Categories</a>
                     @foreach($categories as $category)
                         @if($category->type == 1)
                             @php $parent = $category->id @endphp
                             <li class="dropdown"><a href="{{route('product.category', $category->slug)}}">{{$category->name_en}}<span>&rsaquo;</span></a>
-                                @foreach($categories as $subcategory)
-                                    @if($subcategory->parent_id == $category->id)
-                                        <ul>
-                                            <li class="dropdown_two"><a href="{{route('product.category', $category->slug)}}">{{$subcategory->name_en}}</a>
-                                                @php $products = (get_category_products($subcategory->slug)) @endphp
-                                                @if($products)
-                                                    <ul>
-                                                        @foreach($products as $product)
-                                                            <li><a href="#">{{$product->name_en}}</a></li>
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
-                                            </li>
-                                        </ul>
-                                    @endif
-                                @endforeach
+                                @php $child = findChildCategory($category->id) @endphp
+                                @if(count($child)>0)
+                                    <ul>
+                                        @foreach($categories as $subcategory)
+                                            @if($subcategory->parent_id == $category->id)
+                                                <li class="dropdown_two"><a href="{{route('product.category', $category->slug)}}">{{$subcategory->name_en}}</a>
+{{--                                                    @php $child = findChildCategory($category->id) @endphp--}}
+{{--                                                    @if(count($child)>0)--}}
+{{--                                                        <ul>--}}
+{{--                                                            @foreach($categories as $childSubCategory)--}}
+{{--                                                                <li>{{$childSubCategory->name_en}}</li>--}}
+{{--                                                            @endforeach--}}
+{{--                                                        </ul>--}}
+{{--                                                    @endif--}}
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                @endif
+
                             </li>
                         @endif
                     @endforeach

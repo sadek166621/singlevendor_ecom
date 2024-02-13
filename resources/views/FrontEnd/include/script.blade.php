@@ -88,6 +88,36 @@
         miniCart();
         </script>
 <script>
+    function search_result_hide(){
+        $(".searchProducts").slideUp();
+    }
 
+    function search_result_show(){
+        $(".searchProducts").slideDown();
+    }
+
+    $("body").on("keyup", ".search", function(){
+        let text = $(".search").val();
+        let category_id = $("#searchCategory").val();
+        // alert(category_id);
+        // console.log(text);
+
+        if(text.length > 0){
+            $.ajax({
+                data: {search: text,},
+                url : "/search-product",
+                method : 'get',
+                beforSend : function(request){
+                    return request.setReuestHeader('X-CSRF-Token',("meta[name='csrf-token']"))
+
+                },
+                success:function(result){
+                    $(".searchProducts").html(result);
+                }
+
+            }); // end ajax
+        } // end if
+        if (text.length < 1 ) $(".searchProducts").html("");
+    }); // end function
 </script>
 
