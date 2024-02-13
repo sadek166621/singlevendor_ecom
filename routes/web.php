@@ -65,7 +65,7 @@ Route::get('/categories',[CategoryController::class, 'index'])->name('category_l
 /* =============== Product Search  ============= */
 Route::post('/product/search', [FrontendController::class, 'productSearch'])->name('product.search');
 /* =============== Advance Search ============= */
-Route::post('search-product', [FrontendController::class, 'advanceProduct']);
+Route::get('search-product', [FrontendController::class, 'advanceProduct']);
 
 /* =============== Hot Deals  ============= */
 Route::get('/hot-deals', [FrontendController::class, 'hotDeals'])->name('hot_deals.all');

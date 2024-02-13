@@ -54,16 +54,16 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <form class="ms-auto d-flex">
-                            <input class="form-control me-2 search-box" type="search" placeholder="Search"
-                                aria-label="Search">
+                        <form class="ms-auto d-flex " action="{{ route('product.search')}}" method="post">
+                            @csrf
+                            <input class="form-control me-2 search-box search" type="text" onfocus="search_result_show()" onblur="search_result_hide()"  name="search" placeholder="Search here..." >
                             <button class="btn search-icon" type="submit"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('dashboard')}}"">My Account</a>
+                                <a class="nav-link" href="{{route('dashboard')}}">My Account</a>
                             </li>
                             <li class="nav-item">
                                 <span class="nav-link text-light">|</span>
@@ -78,7 +78,7 @@
                             @endauth
                             @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"">Log in</a>
+                                <a class="nav-link" href="{{ route('login') }}">Log in</a>
                             </li>
                             <li class="nav-item">
                                 <span class="nav-link text-light">|</span>
@@ -97,9 +97,18 @@
                             </li>
                         </ul>
                     </div>
+
                 </div>
+
             </nav>
+            <div class="row">
+                <div class="col-md-6 m-auto" >
+                    <div class=" searchProducts" style="position: absolute;z-index: 99999; margin-left: 40px"></div>
+                </div>
+            </div>
         </div>
+
+
     </section>
     <!-- Desktop Nav End-->
 
@@ -289,7 +298,7 @@
 
         <div class="container">
             <form class="d-flex mobile-search-box mt-3" role="search">
-                <input class="form-control me-2" type="text"  aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit"><i
                         class="fa-solid fa-magnifying-glass"></i></button>
             </form>

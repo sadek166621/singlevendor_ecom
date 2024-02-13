@@ -49,8 +49,7 @@ class FrontendController extends Controller
         // Search Start
 
         // Header Category Start
-        //$categories = Category::orderBy('name_en','DESC')->where('status','=',1)->limit(9)->get();
-        $categories = Category::orderBy('name_en','DESC')->where('status','=',1)->get();
+        $categories = Category::orderBy('name_en','ASC')->where('status','=',1)->limit(11)->get();
         // Header Category End
 
         // Category Featured all

@@ -213,3 +213,8 @@ if (!function_exists('get_category_products')) {
         return $products;
     }
 }
+function findChildCategory($id)
+{
+    $categories = Category::where('parent_id', $id)->get();
+    return $categories;
+}
