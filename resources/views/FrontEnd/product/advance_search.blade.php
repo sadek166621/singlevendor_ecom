@@ -63,7 +63,7 @@
 
 @if($products -> isEmpty())
     <div class="row">
-        <div class="col-md-12" style="width: 600px" >
+        <div class="col-md-12" >
             <div class="card card-body">
                 <h5 class="text-center text-danger p-4">Product Not Found </h5>
             </div>
@@ -74,7 +74,7 @@
 
 <div class="">
     <div class="row">
-        <div class="col-md-12" style="width: 600px" >
+        <div class="col-md-12">
             <div class="card"  style="background-color: #fdfdfd; padding-top: 0">
                 @php $i=1; @endphp
                 @foreach($products as $product)

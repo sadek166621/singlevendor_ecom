@@ -58,9 +58,9 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="index.html">NANDON</a> || All Right Reserved.
+                    &copy; <a class="border-bottom" href="{{route('home')}}">BOKCHO</a> || All Right Reserved.
 
-                    Designed By || <a class="border-bottom" href="#">Nando Ghosh</a>
+                    Designed By || <a class="border-bottom" href="https://skydreamit.com/" target="_blank">Sky Dream IT</a>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">

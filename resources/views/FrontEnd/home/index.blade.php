@@ -1,4 +1,7 @@
 @extends('FrontEnd.master')
+@section('title')
+    Home
+@endsection
 @section('content')
 <!-- Option & Slider Part Start -->
 
@@ -8,7 +11,7 @@
         <div class="col-md-3 d-none d-lg-block">
             <div class="sidemenu">
                 <ul>
-                    <li class="dropdown"><a href="#">All Categories<span>&rsaquo;</span></a>
+                    <li class="dropdown"><a href="{{route('category_list.index')}}">All Categories<span>&rsaquo;</span></a>
                     @foreach($categories as $category)
                         @if($category->type == 1)
                             @php $parent = $category->id @endphp
@@ -32,7 +35,6 @@
                                         @endforeach
                                     </ul>
                                 @endif
-
                             </li>
                         @endif
                     @endforeach

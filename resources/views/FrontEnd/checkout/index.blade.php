@@ -1,4 +1,7 @@
 @extends('FrontEnd.master')
+@section('title')
+    Checkout
+@endsection
 @section('content')
 <!-- Header Start -->
 <div class="container-fluid py-5 page-header">
