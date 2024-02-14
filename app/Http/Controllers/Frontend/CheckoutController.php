@@ -33,9 +33,9 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        if(!guest_checkout() && !auth()->check()){
-            return redirect()->route('login');
-        }
+        // if(!guest_checkout() && !auth()->check()){
+        //     return redirect()->route('login');
+        // }
         $addresses = Address::where('status', 1)->get();
         $shippings = Shipping::where('status', 1)->get();
 
