@@ -49,7 +49,7 @@
 		        		<div class="row">
 		                	<div class="col-md-12 mb-4">
 		                        <label for="product_name_en" class="col-form-label" style="font-weight: bold;">Product Name : <span class="text-danger">*</span></label>
-		                        <input class="form-control" id="product_name_en" type="text" name="name_en" placeholder="Write product name english" value="{{old('name_en')}}">
+		                        <input class="form-control" id="product_name_en" type="text" name="name_en" required placeholder="Write product name english" value="{{old('name_en')}}">
 		                        @error('name_en')
 		                            <p class="text-danger">{{$message}}</p>
 		                        @enderror
@@ -89,9 +89,9 @@
 
 							<div class="col-md-6 mb-4" id="brand_field">
 		        				<a style="background-color: #365486 !important; " type="button" class="btn btn-sm float-end" id="closeModal1" data-bs-toggle="modal" data-bs-target="#brand"><i class="fa-solid fa-plus text-white"></i></a>
-	                           <label for="brand_id" class="col-form-label" style="font-weight: bold;">Brand:</label>
+	                           <label for="brand_id" class="col-form-label" style="font-weight: bold;">Brand: <span class="text-danger">*</span></label>
 				                <div class="custom_select">
-                                    <select class="form-control select-active w-100 form-select select-nice" name="brand_id" id="brand_id">
+                                    <select class="form-control select-active w-100 form-select select-nice" name="brand_id" id="brand_id" required>
                                     	<option {{old('brand_id') ? '' : 'selected'}} readonly value="">--Select Brand--</option>
 		                                @foreach ($brands as $brand)
 		                                    <option value="{{ $brand->id }}" {{ old('brand_id')== $brand->id ? 'selected' : '' }}>{{ $brand->name_en }}</option>
@@ -123,9 +123,9 @@
 							@endif
 
 	                        <div class="col-md-12 mb-4" id="supplier_field">
-								<label for="supplier_id" class="col-form-label" style="font-weight: bold;">Supplier:</label>
+								<label for="supplier_id" class="col-form-label" style="font-weight: bold;">Supplier: <span class="text-danger">*</span></label>
 								<div class="custom_select">
-									<select class="form-control select-active w-100 form-select select-nice" name="supplier_id" id="supplier_id">
+									<select class="form-control select-active w-100 form-select select-nice" name="supplier_id" id="supplier_id" required>
 										<option {{old('supplier_id') ? '' : 'selected'}} readonly value="">--Select Supplier--</option>
 										@foreach($suppliers as $supplier)
 											<option value="{{ $supplier->id }}" {{ old('supplier_id')== $supplier->id ? 'selected' : '' }}>{{ $supplier->name }}</option>
@@ -233,7 +233,7 @@
 		        		<div class="row">
 		        			<div class="col-md-12 mb-4 ">
 	                          	<label for="purchase_price" class="col-form-label" style="font-weight: bold;">Product Buying Price: <span class="text-danger">*</span></label>
-	                            <input class="form-control" type="number" name="purchase_price" placeholder="Write product bying price">
+	                            <input class="form-control" type="number" name="purchase_price" placeholder="Write product bying price" required>
 		                        @error('purchase_price')
                                     <p class="text-danger">{{$message}}</p>
                                 @enderror
@@ -251,19 +251,19 @@
 		        		<div class="row">
 			        		<div class="col-md-6 mb-4">
 	                          	<label for="regular_price" class="col-form-label" style="font-weight: bold;">Regular Price: <span class="text-danger">*</span></label>
-	                            <input class="form-control" type="number" name="regular_price" placeholder="Write product regular price" >
+	                            <input class="form-control" type="number" name="regular_price" required placeholder="Write product regular price" >
 		                        @error('regular_price')
 	                                <p class="text-danger">{{$message}}</p>
 	                            @enderror
 	                        </div>
 	                        <div class="col-md-6 mb-4">
-	                          	<label for="discount_price" class="col-form-label" style="font-weight: bold;">Discount Price:</label>
-	                            <input class="form-control" id="discount_price" type="number" name="discount_price" value="{{old('discount_price', 0)}}" min="0" placeholder="Write product discount price">
+	                          	<label for="discount_price" class="col-form-label" style="font-weight: bold;">Discount Price: <span class="text-danger">*</span></label>
+	                            <input class="form-control" id="discount_price" type="number" name="discount_price" required value="{{old('discount_price', 0)}}" min="0" placeholder="Write product discount price">
 	                        </div>
 	                        <div class="col-md-4 mb-4 d-none">
 	                         	<label for="discount_type" class="col-form-label" style="font-weight: bold;">Discount Type:</label>
 				                <div class="custom_select">
-                                    <select class="form-control select-active w-100 form-select select-nice" name="discount_type" id="discount_type">
+                                    <select class="form-control select-active w-100 form-select select-nice" name="discount_type" id="discount_type" >
 					                	<option value="1">Flat</option>
 	                            		<option value="2">Parcent %</option>
                                     </select>
@@ -278,7 +278,7 @@
 							</div>
 							<div class="col-md-12 mb-4 ">
 								<label for="stock_qty" class="col-form-label" style="font-weight: bold;">Stock Quantity: <span class="text-danger">*</span></label>
-								<input class="form-control" id="stock_qty" type="number" name="stock_qty" value="{{old('stock_qty', 0)}}" min="0" placeholder="Write product stock  qty">
+								<input class="form-control" id="stock_qty" type="number" name="stock_qty" value="{{old('stock_qty', 0)}}" min="0" placeholder="Write product stock  qty" required>
 								@error('stock_qty')
 								   <p class="text-danger">{{$message}}</p>
 							   	@enderror
@@ -317,8 +317,8 @@
 		        		<div class="row">
 		        			<!-- Description Start -->
 	                        <div class="col-md-12 mb-4">
-	                          	<label for="long_descp_en" class="col-form-label" style="font-weight: bold;">Description:</label>
-	                            <textarea name="description_en" rows="2" cols="2" class="form-control summernote" placeholder="Write Long Description English">{{old('description_en')}}</textarea>
+	                          	<label for="long_descp_en" class="col-form-label" style="font-weight: bold;">Description: <span class="text-danger">*</span></label>
+	                            <textarea required name="description_en" rows="2" cols="2" class="form-control summernote" placeholder="Write Long Description English">{{old('description_en')}}</textarea>
 	                        </div>
 	                        <div class="col-md-6 mb-4 d-none">
 	                          	<label for="long_descp_bn" class="col-form-label" style="font-weight: bold;">Description (Bn):</label>
@@ -338,7 +338,7 @@
 	        			<!-- Porduct Image Start -->
                         <div class="mb-4">
 							<label for="product_thumbnail" class="col-form-label" style="font-weight: bold;">Product Image: <span class="text-danger">*</span></label>
-							<input type="file" name="product_thumbnail" class="form-control" id="product_thumbnail" onChange="mainThamUrl(this)">
+							<input required type="file" name="product_thumbnail" class="form-control" id="product_thumbnail" onChange="mainThamUrl(this)">
 							<img src="" class="p-2" id="mainThmb">
 							@error('product_thumbnail')
 								<p class="text-danger">{{$message}}</p>
@@ -353,7 +353,7 @@
 						<!-- Porduct Image End -->
 		        		<!-- Checkbox Start -->
                         <div class="mb-4 ">
-                        	<div class="row">
+                        	{{-- <div class="row">
                           		<div class="custom-control custom-switch">
                                     <input type="checkbox" class="form-check-input me-2 cursor" name="is_deals" id="is_deals" value="1">
                                     <label class="form-check-label cursor" for="is_deals">Today's Deal</label>
@@ -370,7 +370,7 @@
                                     <input type="checkbox" class="form-check-input me-2 cursor" name="is_featured" id="is_featured" value="1">
                                     <label class="form-check-label cursor" for="is_featured">Featured</label>
                                 </div>
-                          	</div>
+                          	</div> --}}
                           	<div class="row">
                           		<div class="custom-control custom-switch">
                                     <input type="checkbox" class="form-check-input me-2 cursor" name="status" id="status" checked value="1">
