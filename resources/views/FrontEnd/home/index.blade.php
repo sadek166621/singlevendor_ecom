@@ -616,7 +616,6 @@
 </script>
 <script>
     var offset = 12;
-
     $('#load-more-btn').click(function () {
         $.ajax({
             url: '/load-more-products',
@@ -655,7 +654,7 @@
                                     <div class="text-center">
                                         <button type="submit" onclick="buyNow(${product.id})" class="buy_now">Buy Now</button>
                                         ${product.is_varient == 1 ?
-                            <button type="button" onclick="productView(${product.id})" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button> :
+                            `<button type="button" onclick="productView(${product.id})" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>` :
                             `<input type="hidden" id="pfrom" value="direct">
                                             <input type="hidden" id="product_product_id" value="${product.id}" min="1">
                                             <input type="hidden" id="${product.id}-product_pname" value="${product.name_en}">
