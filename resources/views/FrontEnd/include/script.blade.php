@@ -12,6 +12,7 @@
 <!-- Custom Js -->
 <script src="{{ asset('FrontEnd') }}/assect/js/custom.js"></script>
 <script src="{{ asset('FrontEnd') }}/assect/js/sweetalert2@11.js"></script>
+<script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -43,7 +44,6 @@
     addToCartDirect(id, true, qty);
 }
     function addToCartDirect(id, redirectToCheckout, qty=null) {
-
     var product_name = $('#' + id + '-product_pname').val();
     var quantity = 1;
     if(qty > 1){
@@ -184,4 +184,18 @@
         if (text.length < 1 ) $(".searchProducts").html("");
     }); // end function
 </script>
+<script>
+    document.getElementById('downloadButton').addEventListener('click', function () {
+      // Get the HTML content of your invoice
+      var invoiceContent = document.getElementById('downloadinvoice').innerHTML;
 
+      // Convert HTML to PDF
+      html2pdf(invoiceContent, {
+        margin: 10,
+        filename: 'invoice.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      });
+    });
+  </script>

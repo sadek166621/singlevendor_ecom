@@ -155,7 +155,7 @@ a, button, img, input, span, h4 {
 }
 </style>
 
-    <div class="page-content pt-150 pb-150">
+    <div class="page-content" style="padding-top: 45px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 m-auto">

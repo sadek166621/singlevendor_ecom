@@ -177,8 +177,8 @@
                     <li><a href='{{ route('cart.show') }}'><span><i class="fa-solid fa-cart-shopping"></i> <small class="cartQty">0</small></span>
                             <span>Cart</span></a> </li>
 
-{{--                    <li><a href='#'><span><i class="fa-solid fa-heart"></i> <small>0</small></span>--}}
-{{--                            <span>Wishlist</span></a></li>--}}
+                    <li><a href='#'><span><i class="fa-solid fa-heart"></i> <small>0</small></span>
+                            <span>Wishlist</span></a></li>
                     <li><a href='#'><span><i class="fa-regular fa-user"></i></span>
                             <span>Profile</span></a></li>
                 </ul>

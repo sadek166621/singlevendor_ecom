@@ -24,9 +24,25 @@
 
 <!-- Check Out Information Start -->
 <section class="container my-5">
+    {{-- <div class="row">
+        <div class="mb-40">
+            <h1 class="heading-2 mb-10">Checkout</h1>
+            <div class="d-flex justify-content-between">
+                <h6 class="text-body">There are <span class="text-brand" id="total_cart_qty"></span> products in your cart</h6>
+            </div>
+        </div>
+    </div> --}}
     <div class="pt-5">
         <div class="row px-xl-5">
+
             <div class="col-lg-8 p-5 bg-white">
+                {{-- <div class="mb-40">
+                    <h1 class="heading-2 mb-10">Checkout</h1>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="text-body">There are <span class="text-brand" id="total_cart_qty"></span> products in your cart</h6>
+                    </div>
+
+                </div> --}}
                 <form action="{{ route('checkout.payment') }}" method="post">
                     @csrf
                 <div class="mb-4">
@@ -255,7 +271,13 @@
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-end">
+                    @auth
                     <button type="submit" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</button>
+                    @endauth
+                    @guest
+                    {{-- <button type="submit" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</button> --}}
+                    <a href="{{ route('login') }}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</a></span>
+                    @endguest
                 </div>
             </div>
         </form>
