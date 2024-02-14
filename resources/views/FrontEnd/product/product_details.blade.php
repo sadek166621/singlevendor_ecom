@@ -69,7 +69,7 @@
                     <input type="hidden" id="product_id" value="{{ $product->id }}" min="1">
                     <input type="hidden" id="{{ $product->id }}-product_pname"
                            value="{{ $product->name_en }}">
-                    <button class="like btn" type="button">Buy Now</button>
+                    <button class="like btn" id="buy_now" type="button">Buy Now</button>
 {{--                    <button class="like btn" style="margin-left: 5px" type="button" onclick="addToCartDirect({{$product->id}})">Add to cart</button>--}}
                     <button class="like btn" style="margin-left: 5px" type="button" onclick="addCart({{$product->id}})">Add to cart</button>
                 </div>
@@ -225,6 +225,13 @@
             var qty = $('.qty-val').val();
             addToCartDirect(id, false, qty);
         }
+
+        $('#buy_now').on('click', function (){
+            var qty = $('.qty-val').val();
+            var id = {{$product->id}};
+            buyNow(id, qty);
+
+        });
 
 
 

@@ -39,8 +39,8 @@
         });
         </script>
         <script>
-            function buyNow(id) {
-    addToCartDirect(id, true);
+            function buyNow(id, qty=0) {
+    addToCartDirect(id, true, qty);
 }
     function addToCartDirect(id, redirectToCheckout, qty=null) {
 
