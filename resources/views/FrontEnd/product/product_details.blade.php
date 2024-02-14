@@ -1,4 +1,4 @@
-@extends('Frontend.master')
+@extends('FrontEnd.master')
 @section('title')
     {{$product->name_en}} Details
 @endsection
