@@ -3,6 +3,7 @@
     {{$product->name_en}} Details
 @endsection
 @section('content')
+
     <!-- Product Information Start -->
     <section class="container bg-white my-5 p-5">
         <div class="row">
