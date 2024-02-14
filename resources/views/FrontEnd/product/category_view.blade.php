@@ -78,7 +78,7 @@
                             <i class="ratings">({{ $product_trending->stock_qty }})</i>
                         </small>
                         <div class="text-center">
-                            <button type="button" class="buy_now d-none">Buy Now</button>
+                            <button type="submit" onclick="buyNow({{ $product_trending->id }})" class="buy_now">Buy Now</button>
                             @if($product_trending->is_varient == 1)
                                 <button type="button" id="{{ $product_trending->id }}" onclick="productView(this.id)"
                                         data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
@@ -105,66 +105,6 @@
 @endsection
 @push('js')
 <script>
-    function addToCartDirect(id) {
-        var product_name = $('#' + id + '-product_pname').val();
-        // alert(product_name);
-        var quantity = 1;
-
-        // Start Message
-        // const Toast = Swal.mixin({
-        //         toast: true,
-        //         position: 'top-end',
-        //         icon: 'success',
-        //         showConfirmButton: false,
-        //         timer: 1200
-        // });
-
-        $.ajax({
-            type: 'POST',
-            url: '/cart/data/store/' + id,
-            dataType: 'json',
-            data: {
-                quantity: quantity,
-                product_name: product_name,
-                _token: "{{ csrf_token() }}",
-            },
-            success: function (data) {
-                console.log(data);
-                miniCart();
-                $('#closeModel').click();
-
-                // Start Sweertaleart Message
-                if ($.isEmptyObject(data.error)) {
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        icon: 'success',
-                        showConfirmButton: false,
-                        timer: 1200
-                    })
-                    Toast.fire({
-                        type: 'success',
-                        title: data.success
-                    })
-                } else {
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        icon: 'error',
-                        showConfirmButton: false,
-                        timer: 1200
-                    })
-                    Toast.fire({
-                        type: 'error',
-                        title: data.error
-                    })
-                }
-                // Start Sweertaleart Message
-
-
-            }
-        });
-    }
 
     function addToCart() {
         var total_attributes = parseInt($('#total_attributes').val());

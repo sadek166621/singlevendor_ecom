@@ -39,6 +39,60 @@
         });
         </script>
         <script>
+            function buyNow(id) {
+    addToCartDirect(id, true);
+}
+    function addToCartDirect(id, redirectToCheckout) {
+    var product_name = $('#' + id + '-product_pname').val();
+    var quantity = 1;
+
+    $.ajax({
+        type: 'POST',
+        url: '/cart/data/store/' + id,
+        dataType: 'json',
+        data: {
+            quantity: quantity,
+            product_name: product_name,
+            _token: "{{ csrf_token() }}",
+        },
+        success: function (data) {
+            console.log(data);
+            miniCart();
+            $('#closeModel').click();
+
+            if ($.isEmptyObject(data.error)) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1200
+                });
+                Toast.fire({
+                    type: 'success',
+                    title: data.success
+                });
+
+                if (redirectToCheckout) {
+                    // Redirect to the checkout page
+                    window.location.href = '/checkout';
+                }
+            } else {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'error',
+                    showConfirmButton: false,
+                    timer: 1200
+                });
+                Toast.fire({
+                    type: 'error',
+                    title: data.error
+                });
+            }
+        }
+    });
+}
             function miniCart(){
             $.ajax({
                 type: 'GET',
