@@ -57,7 +57,7 @@
             <div class="col">
                     <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
                 <div class="card h-100">
-                    <span class="favorite"><i class="fa-regular fa-heart"></i></span>
+{{--                    <span class="favorite"><i class="fa-regular fa-heart"></i></span>--}}
                     <a href="{{route('product.details', $product_trending->slug)}}">
                         <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
                     </a>

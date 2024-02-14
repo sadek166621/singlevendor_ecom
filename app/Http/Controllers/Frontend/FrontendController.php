@@ -294,7 +294,7 @@ class FrontendController extends Controller
         $categories = Category::orderBy('name_en','ASC')->where('status','=',1)->get();
         // dd($products);
 
-        return view('frontend.product.vendor_view',compact('products','categories','vendor'));
+        return view('frontEnd.product.vendor_view',compact('products','categories','vendor'));
     } // end method
     /* ========== End CatWiseProduct Method ======== */
 
@@ -339,7 +339,7 @@ class FrontendController extends Controller
 
     public function pageAbout($slug){
         $page = Page::where('slug', $slug)->first();
-        return view('frontend.settings.page.about',compact('page'));
+        return view('frontEnd.settings.page.about',compact('page'));
     }
 
     /* ================= Start Product Search =================== */
