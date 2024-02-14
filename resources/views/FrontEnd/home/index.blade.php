@@ -615,71 +615,70 @@
 
 </script>
 <script>
-    var offset = 12;
+   var offset = 12;
 
-    $('#load-more-btn').click(function () {
-        $.ajax({
-            url: '/load-more-products',
-            method: 'GET',
-            data: {
-                offset: offset
-            },
-            success: function (response) {
-                var products = response.products;
+$('#load-more-btn').click(function () {
+    $.ajax({
+        url: '/load-more-products',
+        method: 'GET',
+        data: {
+            offset: offset
+        },
+        success: function (response) {
+            var products = response.products;
 
-                if (products.length > 0) {
-                    products.forEach(function (product) {
-                        // Make sure to use the correct attribute names based on your actual product model
-                        var discountPercentage = Math.round(((product.regular_price -
-                            product.discount_price) / product.regular_price) * 100);
+            if (products.length > 0) {
+                products.forEach(function (product) {
+                    var discountPercentage = Math.round(((product.regular_price - product.discount_price) / product.regular_price) * 100);
 
-                        // Append the new products to the container
-                        $('#product-container').append(`
+                    // Append the new products to the container using JavaScript variables
+                    var productHtml = `
                         <div class="col">
-            <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
-            <div class="card h-100">
+                            <div class="card h-100">
+                                <a href="{{route('product.details', '')}}/${product.slug}">
+                                    <img src="${product.product_thumbnail}" class="card-img-top" alt="...">
+                                </a>
+                                <div class="card-body">
+                                    <a href="{{route('product.details', '')}}/${product.slug}">
+                                        <p class="product-text">${product.name_en.substring(0, 20)}${product.name_en.length > 20 ? '...' : ''}</p>
+                                    </a>
+                                    <h5 class="product-price">৳${product.discount_price}</h5>
+                                    <p class="discount-percent"><span class="discount-price">৳${product.regular_price}</span> - ${discountPercentage}%</p>
+                                    <small class="product-ratings">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="ratings">(${product.stock_qty})</i>
+                                    </small>
+                                    <div class="text-center">
+                                        <button type="submit" onclick="buyNow(${product.id})" class="buy_now">Buy Now</button>
+                                        ${product.is_varient == 1 ?
+                                            `<button type="button" onclick="productView(${product.id})" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>` :
+                                            `<input type="hidden" id="pfrom" value="direct">
+                                            <input type="hidden" id="product_product_id" value="${product.id}" min="1">
+                                            <input type="hidden" id="${product.id}-product_pname" value="${product.name_en}">
+                                            <button type="button" onclick="addToCartDirect(${product.id})" class="buy_now">Add to Cart</button>`
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
 
-                <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}......</p>
-                    <h5 class="product-price">৳{{ $product_trending->discount_price }}</h5>
-                    <p class="discount-percent"><span class="discount-price">৳{{ $product_trending->regular_price }}</span> - {{ $discountPercentage }}%</p>
-                    <small class="product-ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="ratings">({{ $product_trending->stock_qty }})</i>
-                    </small>
-                    <div class="text-center">
-                        <button type="submit" onclick="buyNow({{ $product_trending->id }})" class="buy_now">Buy Now</button>
-                        @if($product_trending->is_varient == 1)
-                        <button type="button" id="{{ $product_trending->id }}" onclick="productView(this.id)" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
-                        @else
-                        <input type="hidden" id="pfrom" value="direct">
-                        <input type="hidden" id="product_product_id" value="{{ $product_trending->id }}"  min="1">
-                        <input type="hidden" id="{{ $product_trending->id }}-product_pname" value="{{ $product_trending->name_en }}">
-                        <button type="button" onclick="addToCartDirect({{ $product_trending->id }})" class="buy_now">Add to Cart</button>
-                        @endif
+                    $('#product-container').append(productHtml);
+                });
 
-                    </div>
-                </div>
-            </div>
-        </div>
-                        `);
-                    });
-
-                    offset += products.length;
-                } else {
-                    $('#load-more-btn').hide();
-                }
-            },
-            error: function (error) {
-                console.error(error);
+                offset += products.length;
+            } else {
+                $('#load-more-btn').hide();
             }
-        });
+        },
+        error: function (error) {
+            console.error(error);
+        }
     });
-
+});
 </script>
 @endpush

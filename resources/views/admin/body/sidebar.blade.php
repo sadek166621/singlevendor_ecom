@@ -79,12 +79,12 @@
                     @if(Auth::guard('admin')->user()->role == '1' || in_array('5', json_decode(Auth::guard('admin')->user()->staff->role->permissions)))
                         <a class="{{ ($prefix == 'admin/category') ? 'active':'' }}" href="{{ route('category.index') }}">Categories</a>
                     @endif
-                    @if(Auth::guard('admin')->user()->role == '1' || in_array('13', json_decode(Auth::guard('admin')->user()->staff->role->permissions)))
+                    {{-- @if(Auth::guard('admin')->user()->role == '1' || in_array('13', json_decode(Auth::guard('admin')->user()->staff->role->permissions)))
                         <a class="{{ ($route == 'attribute.index') ? 'active':'' }}" href="{{ route('attribute.index') }}">Attributes</a>
                     @endif
                     @if(Auth::guard('admin')->user()->role == '1' || in_array('53', json_decode(Auth::guard('admin')->user()->staff->role->permissions)))
                         <a class="{{ ($route == 'unit.index') ? 'active':'' }}" href="{{ route('unit.index') }}">Unit</a>
-                    @endif
+                    @endif --}}
                     @if(Auth::guard('admin')->user()->role == '1' || in_array('9', json_decode(Auth::guard('admin')->user()->staff->role->permissions)))
                         <a class="{{ ($prefix == 'admin/brand') ? 'active':'' }}" href="{{ route('brand.all') }}">Brands</a>
                     @endif
@@ -98,7 +98,7 @@
                         {{ ($route == 'vendor.edit')? 'active':'' }}
                         {{ ($route == 'vendor.create')? 'active':'' }}
                     ">
-                        <a class="menu-link" href="#">
+                        <a class="menu-link d-none" href="#">
                             <i class="icon material-icons md-person_add"></i>
                             <span class="text">Vendors</span>
                         </a>
@@ -117,7 +117,7 @@
                             {{ ($route == 'withdraw-requests.index')? 'active':'' }}
                             {{ ($route == 'withdraw-requests.create')? 'active':'' }}
                             {{ ($route == 'transaction.index')? 'active':'' }}">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link d-none" href="#">
                         <i class="icon material-icons md-attach_money"></i>
                         <span class="text">Vendor Accounts</span>
                     </a>
@@ -140,7 +140,7 @@
                 {{ ($route == 'campaing.edit')? 'active':'' }}
             ">
                 @if(Auth::guard('admin')->user()->role == '1' || in_array('41', json_decode(Auth::guard('admin')->user()->staff->role->permissions)))
-                    <a class="menu-link" href="#">
+                    <a class="menu-link d-none" href="#">
                        <i class="fa-solid fa-rectangle-ad fontawesome_icon_custom"></i>
                         <span class="text">Campaigns</span>
                     </a>
@@ -160,7 +160,7 @@
                 {{ ($route == 'coupons.create')? 'active':'' }}
                 {{ ($route == 'coupons.edit')? 'active':'' }}
             ">
-                <a class="menu-link" href="#">
+                <a class="menu-link d-none" href="#">
                     <i class="fa-solid fa-ticket fontawesome_icon_custom"></i>
                     <span class="text">Coupons</span>
                 </a>
@@ -172,7 +172,7 @@
             @endif
             <li class="menu-item has-submenu {{ ($prefix == 'admin/supplier')?'active':'' }}">
                 @if(Auth::guard('admin')->user()->role == '1' || in_array('45', json_decode(Auth::guard('admin')->user()->staff->role->permissions)))
-                    <a class="menu-link" href="#">
+                    <a class="menu-link " href="#">
                         <i class="fas fa-truck fontawesome_icon_custom"></i>
                         <span class="text">Suppliers</span>
                     </a>
@@ -330,7 +330,7 @@
                 {{ ($route == 'accounts.ledgers')? 'active':'' }}
                 {{ ($route == 'accounts.heads.create')? 'active':'' }}
                 ">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link d-none" href="#">
                         <i class="fas fa-money-check-dollar fontawesome_icon_custom"></i>
                         <span class="text">Accounts</span>
                     </a>
@@ -369,9 +369,9 @@
                     </a>
                     <div class="submenu">
                         <a class="{{ ($route == 'setting.index') ? 'active':'' }}" href="{{ route('setting.index') }}">Home</a>
-                        <a class="{{ ($route == 'setting.activation') ? 'active':'' }}" href="{{ route('setting.activation') }}">Activation</a>
+                        {{-- <a class="{{ ($route == 'setting.activation') ? 'active':'' }}" href="{{ route('setting.activation') }}">Activation</a>
                         <a class="{{ ($route == 'shipping.index')||($route == 'shipping.create')||($route == 'shipping.edit') ? 'active':'' }}" href="{{ route('shipping.index') }}">Shipping Methods</a>
-                        <a class="{{ ($route == 'paymentMethod.config') ? 'active':'' }}" href="{{ route('paymentMethod.config') }}">Payment Methods</a>
+                        <a class="{{ ($route == 'paymentMethod.config') ? 'active':'' }}" href="{{ route('paymentMethod.config') }}">Payment Methods</a> --}}
                     </div>
                 </li>
             </ul>

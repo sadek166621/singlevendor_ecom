@@ -60,7 +60,7 @@ class FrontendController extends Controller
         // Product Top Selling
         $product_top_sellings = Product::where('status',1)->orderBy('id','ASC')->limit(9)->get();
         //Product Trending
-        $product_trendings = Product::where('status',1)->orderBy('id','ASC')->limit(12)->get();
+        $product_trendings = Product::where('status',1)->orderBy('id','DESC')->limit(12)->get();
         //Product Recently Added
         $product_recently_adds = Product::where('status',1)->latest()->skip(2)->limit(9)->get();
 
@@ -172,7 +172,9 @@ class FrontendController extends Controller
             ->limit($count)
             ->get();
 
-        return response()->json(['products' => $products]);
+        $nextOffset = $offset + $count;
+
+        return response()->json(['products' => $products, 'nextOffset' => $nextOffset]);
     }
     public function productDetails($slug){
 
