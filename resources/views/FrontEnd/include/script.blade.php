@@ -42,9 +42,13 @@
             function buyNow(id) {
     addToCartDirect(id, true);
 }
-    function addToCartDirect(id, redirectToCheckout) {
+    function addToCartDirect(id, redirectToCheckout, qty=null) {
+
     var product_name = $('#' + id + '-product_pname').val();
     var quantity = 1;
+    if(qty > 1){
+        quantity = qty;
+    }
 
     $.ajax({
         type: 'POST',

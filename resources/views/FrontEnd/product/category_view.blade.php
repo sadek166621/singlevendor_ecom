@@ -63,7 +63,7 @@
                     </a>
                     <div class="card-body">
                         <a href="{{route('product.details', $product_trending->slug)}}">
-                            <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}......</p>
+                            <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}{{Str::length($product_trending->name_en) > 20 ? '...':''}}</p>
                         </a>
                         <h5 class="product-price">৳{{ $product_trending->discount_price }}</h5>
                         <p class="discount-percent"><span

@@ -40,13 +40,13 @@
                 <div>
 
                     <h4 class="price">Current Price:
-                        <span>৳{{$product->discount_price}}</span>
+                        <span id="product_price">৳{{$product->discount_price}}</span>
                         <del style="color: grey"> ৳{{$product->regular_price}}</del>
                     </h4>
                     <p class="">
                         <small>Product Category: {{$product->category->name_en??''}}</small><br>
                         <small>Brand: {{$product->brand->name_en ?? ''}}</small><br>
-                        <small>Stock:{{$product->stock_qty ?? ''}}</small><br>
+                        <small>Stock: <span id="stock_qty">{{$product->stock_qty ?? ''}}</span></small><br>
                     </p>
                 </div>
                 <div class="detail-extralink mb-3 align-items-baseline d-flex" >
@@ -65,8 +65,13 @@
                 </div>
 
                 <div class="d-flex">
+                    <input type="hidden" id="pfrom" value="direct">
+                    <input type="hidden" id="product_id" value="{{ $product->id }}" min="1">
+                    <input type="hidden" id="{{ $product->id }}-product_pname"
+                           value="{{ $product->name_en }}">
                     <button class="like btn" type="button">Buy Now</button>
-                    <button class="like btn" style="margin-left: 5px" type="button" onclick="addToCart()">Add to cart</button>
+{{--                    <button class="like btn" style="margin-left: 5px" type="button" onclick="addToCartDirect({{$product->id}})">Add to cart</button>--}}
+                    <button class="like btn" style="margin-left: 5px" type="button" onclick="addCart({{$product->id}})">Add to cart</button>
                 </div>
             </div>
 
@@ -136,150 +141,54 @@
                 <div class="py-4">
                     <h5 class="">Similar items</h5>
                     <div class="row row-cols-2 g-2">
-                        <div class="col">
-                            <div class="card h-100">
-                                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                                <img src="assect/img/product/man-watch.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                                    <h5 class="product-price">BDT 581</h5>
-                                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%
-                                    </p>
-                                    <small class="product-ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="ratings">(105)</i>
-                                    </small>
-                                    <div class="text-center">
-                                        <button type="button" class="product_page_buy_now">Buy Now</button>
-                                        <button type="button" class="product_page_buy_now">Add to Cart</button>
+                        @if(count($relatedProduct) >0)
+                            @foreach ($relatedProduct as $product_trending )
+                                <div class="col">
+                                        <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
+                                    <div class="card h-100">
+                                        {{--                        <span class="favorite"><i class="fa-regular fa-heart"></i></span>--}}
+                                        <a href="{{route('product.details', $product_trending->slug)}}">
+                                            <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
+                                        </a>
+
+                                        <div class="card-body">
+                                            <a href="{{route('product.details', $product_trending->slug)}}">
+                                                <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}{{Str::length($product_trending->name_en) > 20 ? '...':''}}</p>
+                                            </a>
+                                            <h5 class="product-price">৳{{ $product_trending->discount_price }}</h5>
+                                            <p class="discount-percent"><span
+                                                    class="discount-price">৳{{ $product_trending->regular_price }}</span> -
+                                                {{ $discountPercentage }}%</p>
+                                            <small class="product-ratings">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                                <i class="ratings">({{ $product_trending->stock_qty }})</i>
+                                            </small>
+                                            <div class="text-center">
+                                                <button type="submit" onclick="buyNow({{ $product_trending->id }})" class="buy_now">Buy Now</button>
+                                                @if($product_trending->is_varient == 1)
+                                                    <button type="button" id="{{ $product_trending->id }}" onclick="productView(this.id)"
+                                                            data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
+                                                @else
+                                                    <input type="hidden" id="pfrom" value="direct">
+                                                    <input type="hidden" id="product_product_id" value="{{ $product_trending->id }}" min="1">
+                                                    <input type="hidden" id="{{ $product_trending->id }}-product_pname"
+                                                           value="{{ $product_trending->name_en }}">
+                                                    <button type="button" onclick="addToCartDirect({{ $product_trending->id }})" class="buy_now">Add
+                                                        to Cart</button>
+                                                @endif
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                                <img src="assect/img/product/watch.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                                    <h5 class="product-price">BDT 581</h5>
-                                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%
-                                    </p>
-                                    <small class="product-ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="ratings">(105)</i>
-                                    </small>
-                                    <div class="text-center">
-                                        <button type="button" class="product_page_buy_now">Buy Now</button>
-                                        <button type="button" class="product_page_buy_now">Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                                <img src="assect/img/product//bracelet.webp" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                                    <h5 class="product-price">BDT 581</h5>
-                                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%
-                                    </p>
-                                    <small class="product-ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="ratings">(105)</i>
-                                    </small>
-                                    <div class="text-center">
-                                        <button type="button" class="product_page_buy_now">Buy Now</button>
-                                        <button type="button" class="product_page_buy_now">Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                                <img src="assect/img/product/card-holder.webp" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                                    <h5 class="product-price">BDT 581</h5>
-                                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%
-                                    </p>
-                                    <small class="product-ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="ratings">(105)</i>
-                                    </small>
-                                    <div class="text-center">
-                                        <button type="button" class="product_page_buy_now">Buy Now</button>
-                                        <button type="button" class="product_page_buy_now">Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                                <img src="assect/img/product//t-shirt.webp" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                                    <h5 class="product-price">BDT 581</h5>
-                                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%
-                                    </p>
-                                    <small class="product-ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="ratings">(105)</i>
-                                    </small>
-                                    <div class="text-center">
-                                        <button type="button" class="product_page_buy_now">Buy Now</button>
-                                        <button type="button" class="product_page_buy_now">Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
-                                <img src="assect/img/product/room-slipper.webp" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="product-text">This is Brown Round Quartx Watch With Leather......</p>
-                                    <h5 class="product-price">BDT 581</h5>
-                                    <p class="discount-percent"><span class="discount-price">BDT 800</span> - 27%
-                                    </p>
-                                    <small class="product-ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="ratings">(105)</i>
-                                    </small>
-                                    <div class="text-center">
-                                        <button type="button" class="product_page_buy_now">Buy Now</button>
-                                        <button type="button" class="product_page_buy_now">Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @else
+                            <p>No Products Found</p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -311,6 +220,12 @@
                 }
             });
         });
+
+        function addCart(id){
+            var qty = $('.qty-val').val();
+            addToCartDirect(id, false, qty);
+        }
+
 
 
     </script>

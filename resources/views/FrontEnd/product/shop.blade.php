@@ -56,17 +56,14 @@
                 <div class="col">
                         <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
                     <div class="card h-100">
-<<<<<<< HEAD
-                        <span class="favorite"><i class="fa-regular fa-heart"></i></span>
+{{--                        <span class="favorite"><i class="fa-regular fa-heart"></i></span>--}}
                         <a href="{{route('product.details', $product_trending->slug)}}">
                             <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
                         </a>
-=======
-                        <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
->>>>>>> sadek
+
                         <div class="card-body">
                             <a href="{{route('product.details', $product_trending->slug)}}">
-                                <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}......</p>
+                                <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}{{Str::length($product_trending->name_en) > 20 ? '...':''}}</p>
                             </a>
                             <h5 class="product-price">৳{{ $product_trending->discount_price }}</h5>
                             <p class="discount-percent"><span
