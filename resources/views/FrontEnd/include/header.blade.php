@@ -87,10 +87,10 @@
                                 <a class="nav-link" href="{{ route('register') }}">Sign up</a>
                             </li>
                             @endguest
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#"><i
-                                        class="fa-regular fa-heart"></i><span class="">0</span></a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" aria-current="page" href="#"><i--}}
+{{--                                        class="fa-regular fa-heart"></i><span class="">0</span></a>--}}
+{{--                            </li>--}}
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('cart.show') }}"><i
                                         class="fa-solid fa-cart-plus"><span class="cartQty">0</span></i></a>

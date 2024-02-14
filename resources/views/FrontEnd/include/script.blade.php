@@ -8,7 +8,7 @@
  <!-- Count down-->
  <script src="{{ asset('FrontEnd') }}/assets/js/counterup.js"></script>
  <script src="{{ asset('FrontEnd') }}/assets/js/jquery.countdown.min.js"></script>
- <!-- Count down--><script src="{{ asset('FrontEnd') }}/assets/js/jquery.elevatezoom.js"></script>
+ <!-- Count down--><script src="{{ asset('FrontEnd') }}/assect/js/jquery.elevatezoom.js"></script>
 <!-- Custom Js -->
 <script src="{{ asset('FrontEnd') }}/assect/js/custom.js"></script>
 <script src="{{ asset('FrontEnd') }}/assect/js/sweetalert2@11.js"></script>

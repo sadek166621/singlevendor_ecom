@@ -61,7 +61,7 @@
                             <a href="{{route('product.details', $product_trending->slug)}}">
                                 <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
                             </a>
-                            <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
+{{--                            <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">--}}
 
                             <div class="card-body">
                                 <a href="{{route('product.details', $product_trending->slug)}}">
