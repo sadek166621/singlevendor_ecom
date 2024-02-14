@@ -262,7 +262,7 @@
 	                                        <div class="detail-qty border radius">
 	                                            <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
 	                                            <input type="text" name="quantity" class="qty-val" value="1" min="1" id="qty">
-	                                            <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+	                                            <a href="#" class="qty-up"><i class="fa arrow-up"></i></a>
 	                                        </div>
 
 											<div class="row" id="qty_alert">

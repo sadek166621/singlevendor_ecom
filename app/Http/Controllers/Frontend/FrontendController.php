@@ -179,7 +179,7 @@ class FrontendController extends Controller
         $product = Product::where('slug', $slug)->first();
         if($product){
             if($product->id){
-                $multiImg = MultiImg::where('product_id',$product->id)->get();
+                $multiImg = MultiImg::where('product_id',$product->id)->limit(3)->get();
             }
 
             /* ================= Product Color Eng ================== */

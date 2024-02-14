@@ -161,7 +161,7 @@
         <div class="container">
             <form class="ms-auto d-flex " action="{{ route('product.search')}}" method="post">
                 @csrf
-                <input class="form-control me-2 search-box search" type="text" onfocus="search_result_show()" id="mobile_search" onblur="search_result_hide()"  name="search" placeholder="Search here..." >
+                <input class="form-control me-2 search-box search mt-2" type="text" onfocus="search_result_show()" id="mobile_search" onblur="search_result_hide()"  name="search" placeholder="Search here..." >
                 <button class="btn search-icon" type="submit"><i
                         class="fa-solid fa-magnifying-glass"></i></button>
             </form>

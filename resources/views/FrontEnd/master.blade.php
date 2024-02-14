@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BOKCHO | @yield('title')</title>
-
+    <link rel="shortcut icon" href="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" type="image/x-icon">
     @include('FrontEnd.include.style')
 
 </head>
