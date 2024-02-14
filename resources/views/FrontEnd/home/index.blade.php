@@ -615,6 +615,7 @@
 
 </script>
 <script>
+    
    var offset = 12;
 
 $('#load-more-btn').click(function () {
