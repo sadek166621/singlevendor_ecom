@@ -97,7 +97,12 @@
     }
 
     $("body").on("keyup", ".search", function(){
+        // alert('ok');
         let text = $(".search").val();
+        if(text.length == 0){
+            text = $('#mobile_search').val();
+        }
+        console.log(text);
         let category_id = $("#searchCategory").val();
         // alert(category_id);
         // console.log(text);
@@ -112,6 +117,7 @@
 
                 },
                 success:function(result){
+                    // console.log(result);
                     $(".searchProducts").html(result);
                 }
 

@@ -130,7 +130,7 @@
         <div class="mobile-nav">
             <nav id="mobile_navbar_top" class="navbar py-2 nav-bg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></a>
+                    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
                         aria-label="Toggle navigation">
@@ -139,156 +139,18 @@
                     <div class="offcanvas offcanvas-start nav-bg" tabindex="-1" id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
-                            <h5 class="navbar-brand" href="#"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></h5>
+                            <h5 class="navbar-brand" href="{{route('home')}}"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close" style="color: aliceblue;"></button>
                         </div>
                         <div class="offcanvas-body">
                             <ul class="navbar-nav flex-grow-1 pe-3">
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Women's & Girl's Fashion <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Health & Beauty<span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Watches,Gags,Jewellery <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Men's & Boy's Fashion <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Mother & Baby <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Electronic Devices <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">TV & Home Appliances <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Electronic Accessories <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Groceries <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Home & Lifestyle <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Sports & Outdoors <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a class="nav-link" href="#"
-                                        data-bs-toggle="dropdown">Automotive & Motorbike <span>&rsaquo;</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Traditional Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Muslim Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Western Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Inner Wear</a></li>
-                                        <li><a class="dropdown-item" href="#">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="#">Bags</a></li>
-                                        <li><a class="dropdown-item" href="#">Watches</a></li>
-                                    </ul>
-                                </li>
+                                <li class="dropdown-item"><a href="{{route('category_list.index')}}">All Categories<span></span></a></li>
+                                @foreach($categories as $category)
+                                    <li class="dropdown-item"><a href="{{route('product.category', $category->slug)}}">
+                                        {{$category->name_en}}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -297,20 +159,22 @@
         </div>
 
         <div class="container">
-            <form class="d-flex mobile-search-box mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i
+            <form class="ms-auto d-flex " action="{{ route('product.search')}}" method="post">
+                @csrf
+                <input class="form-control me-2 search-box search" type="text" onfocus="search_result_show()" id="mobile_search" onblur="search_result_hide()"  name="search" placeholder="Search here..." >
+                <button class="btn search-icon" type="submit"><i
                         class="fa-solid fa-magnifying-glass"></i></button>
             </form>
+            <div class="m-auto searchProducts" style="position: absolute;z-index: 99999;"></div>
         </div>
 
         <div>
             <nav class='mobile'>
                 <ul>
-                    <li><a href='#'><span><i class="fa-solid fa-house-chimney"></i>
+                    <li><a href='{{route('home')}}'><span><i class="fa-solid fa-house-chimney"></i>
                             </span><span>Home</span></a></li>
 
-                    <li><a href='#'><span><i class="fa-solid fa-cart-shopping"></i> <small>0</small></span>
+                    <li><a href='{{ route('cart.show') }}'><span><i class="fa-solid fa-cart-shopping"></i> <small class="cartQty">0</small></span>
                             <span>Cart</span></a> </li>
 
                     <li><a href='#'><span><i class="fa-solid fa-heart"></i> <small>0</small></span>
