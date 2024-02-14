@@ -133,8 +133,9 @@ ul {
     /* .btn.btn-primary {
         display: none;
     } */
-    .buy_now ,  .add_to_cart {
-        width: 130px;
+    .buy_now,
+    .add_to_cart {
+        width: 130px !important;
     }
 }
 
@@ -294,7 +295,8 @@ nav ul li a:hover {
     }
 
     .search-icon {
-        margin-left: 350px;
+        margin-top: 10px;
+        margin-left: 300px;
     }
 }
 

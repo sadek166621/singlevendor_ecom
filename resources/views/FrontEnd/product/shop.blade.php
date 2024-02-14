@@ -7,7 +7,7 @@
     <div class="container ">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h2 class="display-3 fw-bold">Flash Sales</h2>
+                <h2 class="display-3 fw-bold">All Products</h2>
                 <h5 class="display-6 fw-semibold">Deals updated daily</h5>
             </div>
         </div>
@@ -49,8 +49,8 @@
 
 <!-- Product Start -->
 <section class="just-for-you container mt-2">
-    <h2>Sale On Now</h2>
-    <hr>
+{{--    <h2>Sale On Now</h2>--}}
+{{--    <hr>--}}
     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-2">
             @foreach ($products as $product_trending )
                 <div class="col">

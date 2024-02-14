@@ -139,7 +139,7 @@
                     <div class="offcanvas offcanvas-start nav-bg" tabindex="-1" id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
-                            <h5 class="navbar-brand" href="{{route('home')}}"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></h5>
+                            <a href="{{route('home')}}"><h5 class="navbar-brand" ><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></h5></a>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close" style="color: aliceblue;"></button>
                         </div>
@@ -158,7 +158,7 @@
             </nav>
         </div>
 
-        <div class="container">
+        <div class="container mb-2">
             <form class="ms-auto d-flex " action="{{ route('product.search')}}" method="post">
                 @csrf
                 <input class="form-control me-2 search-box search mt-2" type="text" onfocus="search_result_show()" id="mobile_search" onblur="search_result_hide()"  name="search" placeholder="Search here..." >
@@ -177,8 +177,8 @@
                     <li><a href='{{ route('cart.show') }}'><span><i class="fa-solid fa-cart-shopping"></i> <small class="cartQty">0</small></span>
                             <span>Cart</span></a> </li>
 
-                    <li><a href='#'><span><i class="fa-solid fa-heart"></i> <small>0</small></span>
-                            <span>Wishlist</span></a></li>
+{{--                    <li><a href='#'><span><i class="fa-solid fa-heart"></i> <small>0</small></span>--}}
+{{--                            <span>Wishlist</span></a></li>--}}
                     <li><a href='#'><span><i class="fa-regular fa-user"></i></span>
                             <span>Profile</span></a></li>
                 </ul>

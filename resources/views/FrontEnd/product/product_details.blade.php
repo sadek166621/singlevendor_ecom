@@ -8,12 +8,12 @@
         <div class="row">
             <div class="col-md-6 m-auto">
                 <!-- default start -->
-                <section id="default" class="padding-top0" style="margin: 0 25%">
+                <section id="default" class="padding-top0">
                     <div class="">
                         <div class="">
                             <div class="xzoom-container">
                                 <img class="xzoom" id="xzoom-default" src="{{asset($product->product_thumbnail)}}"
-                                     xoriginal="{{asset($product->product_thumbnail)}}" width="350px" height="350px"/>
+                                     xoriginal="{{asset($product->product_thumbnail)}}" width="300px" height="300px"/>
                                 <div class="xzoom-thumbs mt-4 m-auto" >
                                     <a href="{{asset($product->product_thumbnail)}}"><img class="xzoom-gallery"
                                                                                 width="40" src="{{asset($product->product_thumbnail)}}"

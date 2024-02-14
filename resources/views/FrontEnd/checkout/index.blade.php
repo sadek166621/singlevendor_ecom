@@ -8,10 +8,10 @@
     <div class="container ">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h2 class="display-3 fw-bold">NANDON</h2>
+                <h2 class="display-3 fw-bold">BOKCHO</h2>
                 <h5 class="display-6 fw-semibold">Happing Shopping</h5>
                 <div class="d-flex justify-content-center mt-3">
-                    <p class="m-0"><a href="#">Home</a></p>
+                    <p class="m-0"><a href="{{route('home')}}">Home</a></p>
                     <p class="m-0 px-2">-</p>
                     <p class="m-0">Checkout</p>
                 </div>

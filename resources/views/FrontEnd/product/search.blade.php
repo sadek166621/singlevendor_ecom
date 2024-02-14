@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
 {{--                    <h2 class="display-3 fw-bold">{{$category->name_en}}</h2>--}}
-                    <h5 class="display-6 fw-semibold">{{count($products)}} Products Found</h5>
+                    <h5 class="display-6 fw-semibold">Related Products</h5>
                 </div>
             </div>
         </div>
@@ -49,8 +49,8 @@
 
     <!-- Product Start -->
     <section class="just-for-you container mt-2">
-{{--        <h2>Sale On Now</h2>--}}
-{{--        <hr>--}}
+        <h6>{{count($products)}} Products Found</h6>
+        <hr>
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-2">
             @if(count($products)>0)
                 @foreach ($products as $product_trending )
