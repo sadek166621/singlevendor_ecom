@@ -161,7 +161,7 @@
         <div class="container">
             <form class="ms-auto d-flex " action="{{ route('product.search')}}" method="post">
                 @csrf
-                <input class="form-control me-2 search-box search" type="text" onfocus="search_result_show()" id="mobile_search" onblur="search_result_hide()"  name="search" placeholder="Search here..." >
+                <input class="form-control me-2 search-box search mt-2" type="text" onfocus="search_result_show()" id="mobile_search" onblur="search_result_hide()"  name="search" placeholder="Search here..." >
                 <button class="btn search-icon" type="submit"><i
                         class="fa-solid fa-magnifying-glass"></i></button>
             </form>
@@ -177,27 +177,10 @@
                     <li><a href='{{ route('cart.show') }}'><span><i class="fa-solid fa-cart-shopping"></i> <small class="cartQty">0</small></span>
                             <span>Cart</span></a> </li>
 
-                    <li><a href='{{ route('category_list.index') }}'><span><i class="fas fa-list-alt "></i></span>
-                            <span>Category</span></a></li>
-                    <li>
-                        @auth
-                        <a href='{{ route('dashboard') }}'>
-                            <span>
-                                <i class="fa-regular fa-user" style="margin-right: 0px;"></i>
-                                </span>
-                            <span>Profile</span>
-                        </a>
-                        @endauth
-                        @guest
-                        <a href='{{ route('login') }}'>
-                            <span>
-                                <i class="fa-regular fa-user" style="margin-right: 0px;">
-                                    </i>
-                                </span>
-                            <span>Profile</span>
-                        </a>
-                        @endguest
-                    </li>
+                    <li><a href='#'><span><i class="fa-solid fa-heart"></i> <small>0</small></span>
+                            <span>Wishlist</span></a></li>
+                    <li><a href='#'><span><i class="fa-regular fa-user"></i></span>
+                            <span>Profile</span></a></li>
                 </ul>
             </nav>
         </div>

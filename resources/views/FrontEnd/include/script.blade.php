@@ -40,13 +40,15 @@
         });
         </script>
         <script>
-
-        function buyNow(id) {
-            addToCartDirect(id, true);
-        }
-    function addToCartDirect(id, redirectToCheckout) {
+            function buyNow(id, qty=0) {
+    addToCartDirect(id, true, qty);
+}
+    function addToCartDirect(id, redirectToCheckout, qty=null) {
     var product_name = $('#' + id + '-product_pname').val();
     var quantity = 1;
+    if(qty > 1){
+        quantity = qty;
+    }
 
     $.ajax({
         type: 'POST',

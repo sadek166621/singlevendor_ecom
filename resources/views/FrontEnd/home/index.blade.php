@@ -373,10 +373,17 @@
         <div class="col">
             <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
             <div class="card h-100">
-                {{-- <span class="favorite"><i class="fa-regular fa-heart"></i></span> --}}
-                <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
+
+{{--                <span class="favorite"><i class="fa-regular fa-heart"></i></span>--}}
+                <a href="{{route('product.details', $product_trending->slug)}}">
+                    <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
+                </a>
+
+
                 <div class="card-body">
-                    <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}......</p>
+                    <a href="{{route('product.details', $product_trending->slug)}}">
+                        <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}{{Str::length($product_trending->name_en) > 20 ? '...':''}}</p>
+                    </a>
                     <h5 class="product-price">৳{{ $product_trending->discount_price }}</h5>
                     <p class="discount-percent"><span
                             class="discount-price">৳{{ $product_trending->regular_price }}</span> -
@@ -631,7 +638,7 @@
                         <div class="col">
             <?php $discountPercentage = round((($product_trending->regular_price - $product_trending->discount_price) / $product_trending->regular_price) * 100); ?>
             <div class="card h-100">
-                <span class="favorite"><i class="fa-regular fa-heart"></i></span>
+
                 <img src="{{ asset($product_trending->product_thumbnail) }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="product-text">{!! Str::substr($product_trending->name_en, 0, 20) !!}......</p>

@@ -44,7 +44,7 @@ class CheckoutController extends Controller
 
         // dd($cartTotal);
 
-        return view('Frontend.checkout.index',compact('addresses','shippings', 'carts', 'cartTotal'));
+        return view('FrontEnd.checkout.index',compact('addresses','shippings', 'carts', 'cartTotal'));
     } // end method
 
     public function shippingAjax($shipping_id){
@@ -307,7 +307,7 @@ class CheckoutController extends Controller
             'alert-type' => 'success'
         );
 
-        return view('Frontend.order.order_confirmed', compact('order'))->with($notification);
+        return view('FrontEnd.order.order_confirmed', compact('order'))->with($notification);
     }
 
     /**
