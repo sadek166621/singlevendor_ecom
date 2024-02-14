@@ -81,7 +81,7 @@
                             <button type="submit" onclick="buyNow({{ $product_trending->id }})" class="buy_now">Buy Now</button>
                             @if($product_trending->is_varient == 1)
                                 <button type="button" id="{{ $product_trending->id }}" onclick="productView(this.id)"
-                                        data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>
+                                        data-bs-toggle="modal" data-bs-target="#quickViewModal" class="add_to_cart">Add to Cart</button>
                             @else
                                 <input type="hidden" id="pfrom" value="direct">
                                 <input type="hidden" id="product_product_id" value="{{ $product_trending->id }}" min="1">

@@ -87,7 +87,7 @@
                                     <input type="hidden" id="product_product_id" value="{{ $product_trending->id }}" min="1">
                                     <input type="hidden" id="{{ $product_trending->id }}-product_pname"
                                            value="{{ $product_trending->name_en }}">
-                                    <button type="button" onclick="addToCartDirect({{ $product_trending->id }})" class="buy_now">Add
+                                    <button type="button" onclick="addToCartDirect({{ $product_trending->id }})" class="add_to_cart">Add
                                         to Cart</button>
                                 @endif
 
