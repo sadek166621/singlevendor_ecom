@@ -654,11 +654,11 @@
                                     <div class="text-center">
                                         <button type="submit" onclick="buyNow(${product.id})" class="buy_now">Buy Now</button>
                                         ${product.is_varient == 1 ?
-                            `<button type="button" onclick="productView(${product.id})" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="buy_now">Add to Cart</button>` :
+                            `<button type="button" onclick="productView(${product.id})" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="add_to_cart">Add to Cart</button>` :
                             `<input type="hidden" id="pfrom" value="direct">
                                             <input type="hidden" id="product_product_id" value="${product.id}" min="1">
                                             <input type="hidden" id="${product.id}-product_pname" value="${product.name_en}">
-                                            <button type="button" onclick="addToCartDirect(${product.id})" class="buy_now">Add to Cart</button>`
+                                            <button type="button" onclick="addToCartDirect(${product.id})" class="add_to_cart">Add to Cart</button>`
                         }
                                     </div>
                                 </div>
