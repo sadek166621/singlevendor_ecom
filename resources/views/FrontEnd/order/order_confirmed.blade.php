@@ -3359,10 +3359,10 @@
               <div class="tm_invoice_left">
                 <div class="tm_logo">
                     @php
-                                                        $logo = get_setting('site_footer_logo');
+                                                        $logo = get_setting('site_favicon')->value;
                                                     @endphp
                                                     @if($logo != null)
-                                                        <img src="{{ asset(get_setting('site_footer_logo')->value ?? 'null') }}" style="max-width: 200px !important;" alt="{{ env('APP_NAME') }}">
+                                                        <img src="{{ asset($logo ?? 'null') }}" style="max-width: 200px !important;" alt="{{ env('APP_NAME') }}">
                                                     @else
                                                         <img src="{{ asset('upload/no_image.jpg') }}" alt="{{ env('APP_NAME') }}" style="max-width: 200px !important;">
                                                     @endif
@@ -3535,8 +3535,12 @@
                     $logo = get_setting('site_footer_logo');
                 @endphp
                 @if($logo != null)
-                    <img src="{{ asset(get_setting('site_footer_logo')->value ?? 'null') }}" style="max-width: 200px !important;" alt="{{ env('APP_NAME') }}">
-                @else
+{{--                    <img src="{{ asset(get_setting('site_footer_logo')->value ?? 'null') }}" style="max-width: 200px !important;" alt="{{ env('APP_NAME') }}">--}}
+                        <div style="display: flex; align-items: center">
+                            <img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span style="color: #F7941E; font-size: 46px; font-weight: 500">OKCHO</span>
+                        </div>
+
+                    @else
                     <img src="{{ asset('upload/no_image.jpg') }}" alt="{{ env('APP_NAME') }}" style="max-width: 200px !important;">
                 @endif
                 </div>
