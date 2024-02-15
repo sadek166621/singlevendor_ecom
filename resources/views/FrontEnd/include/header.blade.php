@@ -197,10 +197,28 @@
                     <li><a href='{{ route('cart.show') }}'><span><i class="fa-solid fa-cart-shopping"></i> <small class="cartQty">0</small></span>
                             <span>Cart</span></a> </li>
 
-{{--                    <li><a href='#'><span><i class="fa-solid fa-heart"></i> <small>0</small></span>--}}
-{{--                            <span>Wishlist</span></a></li>--}}
-                    <li><a href='#'><span><i class="fa-regular fa-user"></i></span>
-                            <span>Profile</span></a></li>
+                   <li><a href='{{ route('category_list.index') }}'><span><i class="fas fa-list"></i></span>
+                           <span>Category</span></a></li>
+                    <li>
+                        @auth
+                        <a href='{{ route('dashboard') }}'>
+                            <span>
+                                <i class="fa-regular fa-user" style="margin-left: 9px;">
+                                    </i>
+                                </span>
+                                <span>Profile</span>
+                            </a>
+                        @endauth
+                        @guest
+                        <a href='{{ route('login') }}'>
+                            <span>
+                                <i class="fa-regular fa-user" style="margin-left: 9px;">
+                                    </i>
+                                </span>
+                                <span>Profile</span>
+                            </a>
+                        @endguest
+                    </li>
                 </ul>
             </nav>
         </div>
