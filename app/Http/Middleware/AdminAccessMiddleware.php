@@ -20,7 +20,7 @@ class AdminAccessMiddleware
     {
         $userRole = Auth::guard('admin')->user()->role;
         if(Auth::guard('admin')->check()){
-            if ($userRole !== 1) {
+            if ($userRole != 1) {
                 abort(404);
             }
         }

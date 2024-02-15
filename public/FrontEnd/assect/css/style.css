@@ -1074,3 +1074,19 @@ nav.mobile ul li a span i {
 
 
 
+.header-img {
+
+    position: relative;
+    display: inline-block;
+}
+.header-img .img-top {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.header-img:hover .img-top {
+    display: inline;
+}
+

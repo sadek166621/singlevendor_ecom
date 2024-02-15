@@ -46,8 +46,12 @@
         <div class="desktop-nav">
             <nav id="navbar_top" class="navbar navbar-expand-lg nav-bg">
                 <div class="container">
-                    <!-- <a class="navbar-brand" href="#"><img src="{{asset('FrontEnd')}}/assect/img/logo/Bokcho logo1-final.png" alt="logo"></a> -->
-                    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></a>
+{{--                    <!-- <a class="navbar-brand" href="#"><img src="{{asset('FrontEnd')}}/assect/img/logo/Bokcho logo1-final.png" alt="logo"></a> -->--}}
+{{--                    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></a>--}}
+                    <a class="navbar-brand header-img" href="{{ route('home') }}" >
+                        <img id="my-img" src="{{asset(get_setting('site_logo')->value)}}" alt="logo" class="main-img" style="width: 100%">
+                        <img src="{{asset(get_setting('site_footer_logo')->value)}}" class="img-top" alt="logo" style=" width: 100%;">
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -69,8 +73,8 @@
                                 <span class="nav-link text-light">|</span>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                                <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none">
+                                <a class="nav-link" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                     {{-- <input type="hidden" name="_token" value="b8pKiZMLijvc35fMBZ3dt1aArKjvbBGZm9F4WUhW"> --}}
                                 </form>
@@ -97,6 +101,7 @@
                             </li>
                         </ul>
                     </div>
+
 
                 </div>
 
@@ -188,3 +193,4 @@
     <!-- Mobile Nav End -->
 
 </header>
+
