@@ -3343,7 +3343,7 @@
 </head>
 
 <body>
-    <div class="tm_container" id="downloadinvoice">
+    <div class="tm_container" >
       <div class="" style="display: flex; justify-content: space-between; padding: 8px 0px;">
         <div class="">
           <a style="color: green; font-weight: 900; font-size: 16px;" href="{{ route('home') }}"><i class="fa-solid fa-backward"></i> Back to
@@ -3352,8 +3352,8 @@
 
       </div>
 
-      <div class="tm_invoice_wrap" style="border: 1px solid;">
-        <div class="tm_invoice tm_style2 tm_type1 tm_accent_border tm_radius_0 tm_small_border" id="tm_download_section">
+      <div class="tm_invoice_wrap" style="border: 1px solid;" id="downloadinvoice">
+        <div class="tm_invoice tm_style2 tm_type1 tm_accent_border tm_radius_0 tm_small_border" >
           <div class="tm_invoice_in">
             <div class="tm_invoice_head tm_mb20 tm_m0_md">
               <div class="tm_invoice_left">

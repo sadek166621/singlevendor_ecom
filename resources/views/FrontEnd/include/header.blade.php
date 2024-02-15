@@ -15,7 +15,9 @@
                         <ul>
                             <li><a class="text-light" href="#">Daily Deals</a></li>
                             <li class="text-light">|</li>
-                            <li class="dropdown">
+                            <li><a class="text-light" href="#">Best Products</a></li>
+
+                            {{-- <li class="dropdown">
                                 <a class="text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     <i class="fa-solid fa-globe"></i> EN
@@ -36,7 +38,7 @@
                                         </label>
                                     </div>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
