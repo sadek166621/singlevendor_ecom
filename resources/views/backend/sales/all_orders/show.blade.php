@@ -50,7 +50,8 @@
                         @endif
 
                         <!-- <a class="btn btn-primary" href="#">Save</a> -->
-                        <a class="btn btn-secondary print ms-2" href="#" onclick="window.print();" style="background-color: transparent"><i class="icon material-icons md-print"></i></a>
+{{--                        <a class="btn btn-secondary print ms-2" href="#" onclick="window.print();" style="background-color: transparent"><i class="icon material-icons md-print"></i></a>--}}
+                        <a class="btn btn-secondary print ms-2" href="{{ route('invoice.download', $order->id) }}"  style="font-size: 18px; background-color: transparent"><i class="fa fa-file"></i></a>
                     </div>
                 </div>
             </header>
@@ -183,9 +184,12 @@
                                     <th>Payment Status</th>
                                     <td>
                                         @php
-                                            $status = $order->delivery_status;
-                                            if($order->delivery_status == 'cancelled') {
-                                                $status = 'Received';
+                                            $status = $order->payment_status;
+                                            if($order->payment_status == '1') {
+                                                $status = 'Paid';
+                                            }
+                                            else{
+                                                $status = 'Unpaid';
                                             }
                                         @endphp
                                         <span class="badge rounded-pill alert-success text-success">{!! $status !!}</span>

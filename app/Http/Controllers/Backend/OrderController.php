@@ -166,7 +166,7 @@ class OrderController extends Controller
         $order->district_id = $request->district_id;
         $order->upazilla_id = $request->upazilla_id;
         $order->payment_method = $request->payment_method;
-        $order->payment_status = $request->status;
+//        $order->payment_status = $request->status;
 
         $discount_total = ($order->sub_total - $request->discount);
         $total_ammount = ($discount_total + $request->shipping_charge);

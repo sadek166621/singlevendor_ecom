@@ -49,8 +49,9 @@
 {{--                    <!-- <a class="navbar-brand" href="#"><img src="{{asset('FrontEnd')}}/assect/img/logo/Bokcho logo1-final.png" alt="logo"></a> -->--}}
 {{--                    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></a>--}}
                     <a class="navbar-brand header-img" href="{{ route('home') }}" >
-                        <img id="my-img" src="{{asset(get_setting('site_logo')->value)}}" alt="logo" class="main-img" style="width: 100%">
-                        <img src="{{asset(get_setting('site_footer_logo')->value)}}" class="img-top" alt="logo" style=" width: 100%;">
+                        <input type="hidden" name="" id="header_img_alter" value="{{get_setting('site_footer_logo')->value}}">
+                        <input type="hidden" name="" id="header_img" value="{{get_setting('site_logo')->value}}">
+                        <img id="my-img" src="{{asset(get_setting('site_logo')->value)}}" alt="logo" class="main-img" onmouseover="newImg(this)" onmouseout="oldImg(this)" style="width: 100%">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -67,7 +68,8 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('dashboard')}}">My Account</a>
+
+                                <a class="nav-link" href="{{route('dashboard')}}" title="Dashboard">@if(Auth::user()->profile_image) <img src="{{asset(Auth::user()->profile_image)}}" class="rounded-circle" height="35px" width="35px" alt="no image"> @endif {{Str::before(Auth::user()->name, ' ')}}</a>
                             </li>
                             <li class="nav-item">
                                 <span class="nav-link text-light">|</span>

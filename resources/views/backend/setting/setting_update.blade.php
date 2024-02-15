@@ -4,7 +4,7 @@
 <section class="content-main">
     <div class="content-header">
         <h2 class="content-title">Setting</h2>
-    </div> 
+    </div>
     <div class="">
     	<form method="post" action="{{ route('update.setting') }}" enctype="multipart/form-data">
 	    	@csrf
@@ -80,12 +80,20 @@
 		                                <p class="text-danger">{{$message}}</p>
 		                            @enderror
 		                        </div>
+                                <div class="col-sm-12 mb-3">
+                                    <label for="short_description" class="col-form-label" style="font-weight: bold;">Short Bio</label>
+                                    <input type="hidden" name="types[]" value="short_description">
+                                    <textarea class="form-control" id="short_description" cols="2" name="short_description" placeholder="Write short description about your company">{{ get_setting('short_description')->value ?? '' }}</textarea>
+                                    @error('short_description')
+                                    <p class="text-danger">{{$message}}</p>
+                                    @enderror
+                                </div>
 				        	</div>
 				        	<!-- Row End// -->
 				        </div>
 				        <!-- card body .// -->
 				    </div>
-				    <!-- card .// --> 
+				    <!-- card .// -->
 
 				    <div class="card">
 						<div class="card-header">
@@ -137,7 +145,7 @@
 		                                <p class="text-danger">{{$message}}</p>
 		                            @enderror
 		                        </div>
-		                        
+
 		                        <div class="col-sm-6 mb-3">
 		                           <label for="instagram_url" class="col-form-label" style="font-weight: bold;">Instagram Link :</label>
 		                           <input type="hidden" name="types[]" value="instagram_url">
@@ -252,7 +260,7 @@
 				</div>
 			</div>
 		</form>
-		<!-- .row // --> 
+		<!-- .row // -->
 	</div>
 </section>
 
@@ -271,7 +279,7 @@
             });
         });
     </script>
-    
+
     <!--Site footer logo Show -->
     <script type="text/javascript">
         $(document).ready(function(){

@@ -25,35 +25,35 @@ class UserController extends Controller
     /* ============= Dashboard & user orders ============= */
     public function index(){
         $orders = Order::where('user_id',Auth::id())->orderBy('id','DESC')->get();
-        
+
         $all = Order::where('user_id', Auth::user()->id)
                         ->where('delivery_status', 'pending')
                         ->get();
-                        
+
         $pending = Order::where('user_id', Auth::user()->id)
                         ->where('delivery_status', 'pending')
                         ->get();
-                        
+
         $processing = Order::where('user_id', Auth::user()->id)
                         ->where('delivery_status', 'processing')
                         ->get();
-                        
+
         $shipping = Order::where('user_id', Auth::user()->id)
                         ->where('delivery_status', 'shipped')
                         ->get();
-                        
+
         $picked = Order::where('user_id', Auth::user()->id)
                         ->where('delivery_status', 'picked_up')
                         ->get();
-                        
+
         $completed = Order::where('user_id', Auth::user()->id)
                         ->where('delivery_status', 'delivered')
                         ->get();
-                        
+
         $cancelled = Order::where('user_id', Auth::user()->id)
                         ->where('delivery_status', 'cancel')
                         ->get();
-                        
+
         return view('dashboard',compact('orders', 'all', 'pending', 'processing', 'shipping', 'picked', 'completed', 'cancelled'));
     }
 
@@ -62,7 +62,7 @@ class UserController extends Controller
         // $order = Order::where('user_id',Auth::id())->orderBy('id','DESC')->first();
         $order = Order::where('invoice_no', $invoice_no)->first();
         // $orders = Order::with('address_id')->where('id',$id)->where('user_id',Auth::id())->first();
-        return view('frontend.order.order_view', compact('order'));
+        return view('frontEnd.order.order_view', compact('order'));
     }
 
     /**
@@ -117,7 +117,7 @@ class UserController extends Controller
     /* ============== Address Store Ajax ============== */
     public function getAddressStore(Request $request)
     {
-    
+
         $address = new Address();
 
         $address->division_id = $request->division_id;
@@ -249,13 +249,13 @@ class UserController extends Controller
             $user->save();
 
             $notification = array(
-                'message' => 'Password Updated Successfully.', 
+                'message' => 'Password Updated Successfully.',
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);
         }else{
             $notification = array(
-                'message' => 'Old password is not match.', 
+                'message' => 'Old password is not match.',
                 'alert-type' => 'error'
             );
             return redirect()->back()->with($notification);

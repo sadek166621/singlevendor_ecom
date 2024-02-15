@@ -78,10 +78,10 @@ class SettingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {   
+    {
         if(!demo_mode()){
 
-            // dd($request->types);
+//             dd($request->types);
             if($request->types !=null && count($request->types) > 0){
                 foreach ($request->types as $key => $type) {
                     $setting = Setting::where('name', $type)->first();
@@ -106,7 +106,7 @@ class SettingController extends Controller
                         unlink($setting->value);
                     }
                 } catch (Exception $e) {
-                    
+
                 }
                 $setting->value = $save_url_logo;
 
@@ -126,7 +126,7 @@ class SettingController extends Controller
                         unlink($setting->value);
                     }
                 } catch (Exception $e) {
-                    
+
                 }
                 $setting->value = $save_url_footer_logo;
 
@@ -139,14 +139,14 @@ class SettingController extends Controller
                 $favicon_save = time().$favicon->getClientOriginalName();
                 $favicon->move('upload/setting/favicon/',$favicon_save);
                 $save_url_favicon = 'upload/setting/favicon/'.$favicon_save;
-                
+
                 $setting = Setting::where('name', 'site_favicon')->first();
                 try {
                     if(file_exists($setting->value)){
                         unlink($setting->value);
                     }
                 } catch (Exception $e) {
-                    
+
                 }
                 $setting->value = $save_url_favicon;
 

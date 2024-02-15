@@ -199,4 +199,14 @@
       });
     });
   </script>
+    <script>
+        function newImg(e){
+            // alert();
 
+            e.src = $('#header_img_alter').val();
+        }
+        function oldImg(e){
+            // alert();
+            e.src = $('#header_img').val();
+        }
+    </script>

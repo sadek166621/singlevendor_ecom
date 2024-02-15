@@ -47,7 +47,7 @@
                     <p class="">
                         <small>Product Category: {{$product->category->name_en??''}}</small><br>
                         <small>Brand: {{$product->brand->name_en ?? ''}}</small><br>
-                        <small>Stock: <span id="stock_qty">{{$product->stock_qty ?? ''}}</span></small><br>
+                        <small>Stock: <span class="{{$product->stock_qty > 0 ? 'text-success': 'text-danger'}}">{{$product->stock_qty > 0 ? 'In Stock':'Out of Stock'}}</span> <span id="stock_qty">({{$product->stock_qty ?? '0'}})</span></small><br>
                     </p>
                 </div>
                 <div class="detail-extralink mb-3 align-items-baseline d-flex" >

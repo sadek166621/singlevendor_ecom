@@ -7,7 +7,7 @@ Dashboard Nest Online Shop
     .dashboard .card i {
     font-size: 35px;
     margin-bottom: 10px;
-    color: #3BB77E;
+    color: #0cc5f3;
 }
 .m-auto {
     margin: auto!important;
@@ -16,7 +16,7 @@ p:last-child {
     margin-bottom: 0;
 }
 .text-brand {
-    color: #3BB77E !important;
+    color: #0b9fc3 !important;
 }
 @media (min-width: 1200px)
 .fs-4 {
@@ -63,10 +63,10 @@ p:last-child {
     padding: 30px 10px;
     box-shadow: 0 1px 1px rgb(0 0 0 / 10%) !important;
 }
-}.dashboard .card i {
+.dashboard .card i {
     font-size: 35px;
     margin-bottom: 10px;
-    color: #3BB77E;
+    color: #0cc5f3;
 }.dashboard-menu ul li {
     position: relative;
     border-radius: 10px;
@@ -75,7 +75,7 @@ p:last-child {
 }
 .dashboard-menu ul li a.active {
     color: #fff;
-    background-color: #3BB77E;
+    background-color: #0cc5f3;
     border-radius: 10px;
 }.dashboard-menu ul li a {
     font-size: 16px;
@@ -170,12 +170,12 @@ a, button, img, input, span, h4 {
                                     <li class="nav-item">
                                         <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i>Orders</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i>Track Your Order</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="fi-rs-marker mr-10"></i>My Address</a>
-                                    </li>
+{{--                                    <li class="nav-item">--}}
+{{--                                        <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i>Track Your Order</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="nav-item">--}}
+{{--                                        <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="fi-rs-marker mr-10"></i>My Address</a>--}}
+{{--                                    </li>--}}
                                     <li class="nav-item">
                                         <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="fi-rs-user mr-10"></i>Account details</a>
                                     </li>

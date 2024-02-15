@@ -2,35 +2,38 @@
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
-                <a class="navbar-brand" href="#"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></a>
-                <p class="mt-2">Largest product search engine, maximum categorized online shopping mall and quickest home
-                    delivery system.</p>
+                <a class="navbar-brand" href="{{route('home')}}">
+                    <input type="hidden" name="" id="header_img_alter" value="{{get_setting('site_footer_logo')->value}}">
+                    <input type="hidden" name="" id="header_img" value="{{get_setting('site_logo')->value}}">
+                    <img id="my-img" src="{{asset(get_setting('site_logo')->value)}}" alt="logo" class="main-img"
+                         onmouseover="newImg(this)" onmouseout="oldImg(this)" style="width: 100%">
+                </a>
+                <p class="mt-2" align="justify">{{get_setting('short_description')->value}}</p>
                 <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{get_setting('facebook_url')->value}}"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{get_setting('instagram_url')->value}}"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{get_setting('twitter_url')->value}}"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{get_setting('youtube_url')->value}}"><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{get_setting('linkedin_url')->value}}"><i class="fab fa-linkedin-in"></i></a>
                 </div>
 
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-3">Let Us Help You</h4>
-                <a class="btn btn-link" href="#">Your Account</a>
-                <a class="btn btn-link" href="#">Your Order</a>
-                <a class="btn btn-link" href="#">Bye & Sell</a>
-                <a class="btn btn-link" href="#">Return & Refund</a>
+                <a class="btn btn-link" href="@if(Auth::user() && Auth::user()->role == 3) {{route('dashboard')}} @else {{route('login')}} @endif">@if(Auth::user() && Auth::user()->role == 3)Your Account @else Log in @endif</a>
+                <a class="btn btn-link" href="#">Contact Us</a>
+                <a class="btn btn-link" href="#">About Us</a>
+                <a class="btn btn-link" href="#">Privacy Policy</a>
                 <a class="btn btn-link" href="#">Terms & Condition</a>
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-3">Contact</h4>
-                <p class="mb-1"><i class="fa fa-map-marker-alt me-3"></i>house-20 ,Road-6, Dhanmondi, <span
-                        class="ms-4">Dhaka-1207</span></p>
-                <p class="mb-1"><i class="fa fa-phone-alt me-2"></i>+88 01700 000000</p>
-                <p class="mb-1"><i class="fa fa-phone-alt me-2"></i>+88 01700 000000</p>
-                <p class="mb-1"><i class="fa fa-envelope me-2"></i>info@example.com</p>
+                <p class="mb-1"><i class="fa fa-map-marker-alt me-3"></i>{{get_setting('business_address')->value}}</p>
+                <p class="mb-1"><i class="fa fa-phone-alt me-2"></i>{{get_setting('phone')->value}}</p>
+{{--                <p class="mb-1"><i class="fa fa-phone-alt me-2"></i>+88 01700 000000</p>--}}
+                <p class="mb-1"><i class="fa fa-envelope me-2"></i>{{get_setting('email')->value}}</p>
 
             </div>
 
@@ -64,8 +67,8 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
-                        <a href="#">Ad's Choice</a>
-                        <a href="#">Cookies</a>
+{{--                        <a href="#">Ad's Choice</a>--}}
+{{--                        <a href="#">Cookies</a>--}}
                         <a href="#">Help</a>
                         <a href="#">FQAs</a>
                     </div>

@@ -27,12 +27,12 @@
                             <label class="col-form-label"><span>All Orders :</span></label>
                         </div>
                         <div class="col-md-2 mt-2">
-                            <div class="custom_select">
-                               <select class=" select-active select-nice form-select d-inline-block mb-lg-0 mr-5 mw-200" name="vendor_id" id="vendor_id">
-                                    <option value="" selected="">Vendor</option>
-                                    <option value="0">AA</option>
-                                </select>
-                            </div>
+{{--                            <div class="custom_select">--}}
+{{--                               <select class=" select-active select-nice form-select d-inline-block mb-lg-0 mr-5 mw-200" name="vendor_id" id="vendor_id">--}}
+{{--                                    <option value="" selected="">Vendor</option>--}}
+{{--                                    <option value="0">AA</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
                         </div>
                         <div class="col-md-2 mt-2">
                             <div class="custom_select">
@@ -85,11 +85,12 @@
                                     <td>{{ $order->invoice_no }}</td>
                                     <td><b>{{ $order->name }}</b></td>
                                     <td>
-                                        <?php
-                                            $discount_total = $order->grand_total-$order->discount;
-                                            $total_ammount = $discount_total+$order->shipping_charge;
-                                        ?>
-                                        {{ $total_ammount }}
+                                        {{$order->grand_total}}
+{{--                                        <?php--}}
+{{--                                            $discount_total = $order->grand_total-$order->discount;--}}
+{{--                                            $total_ammount = $discount_total+$order->shipping_charge;--}}
+{{--                                        ?>--}}
+{{--                                        {{ $total_ammount }}--}}
                                     </td>
                                     <td>
                                     	@php

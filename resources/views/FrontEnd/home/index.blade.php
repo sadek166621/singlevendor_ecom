@@ -112,7 +112,7 @@
         <li><img src="{{ asset('FrontEnd') }}/assect/img/icon/right.png" alt="" /><a href="">100% Authentic Products</a>
         </li>
         <!-- <li>|</li> -->
-        <li><img src="{{ asset('FrontEnd') }}/assect/img/icon/safe.png" alt="" /><a href="">Daraz Verified</a></li>
+{{--        <li><img src="{{ asset('FrontEnd') }}/assect/img/icon/safe.png" alt="" /><a href="">Daraz Verified</a></li>--}}
 
     </ul>
 </section>
