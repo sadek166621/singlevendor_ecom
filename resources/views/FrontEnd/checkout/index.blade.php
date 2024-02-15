@@ -101,7 +101,7 @@
                             <div class="form-group">
                                 <label>Devision</label>
                               <select class="form-control font-sm select-style1 color-gray-700" name="division_id" id="division_id" required>
-                                <option value="">Select Division</option>
+                                {{-- <option value="">Select Division</option> --}}
 
                                 @foreach(get_divisions() as $division)
                                   <option value="{{ $division->id }}">{{ ucwords($division->division_name_en) }}</option>
@@ -113,7 +113,7 @@
                             <div class="form-group">
                                 <label>District</label>
                               <select class="form-control font-sm select-style1 color-gray-700"  name="district_id" id="district_id" required>
-                                <option selected=""  value="">Select District</option>
+                                {{-- <option selected=""  value="">Select District</option> --}}
                               </select>
                             </div>
                           </div>
@@ -128,7 +128,7 @@
                         <div class="col-md-6 form-group">
                             <label>Product Shipping</label>
                             <select class="form-control" name="shipping_id" id="shipping_id" required>
-                                <option value="">--Select--</option>
+                                {{-- <option value="">--Select--</option> --}}
                                                 @foreach ($shippings as $key => $shipping)
                                                     <option value="{{ $shipping->id }}">@if($shipping->type == 1) Inside Dhaka @else Outside Dhaka @endif </option>
                                                 @endforeach
