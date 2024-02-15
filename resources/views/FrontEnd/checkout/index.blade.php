@@ -271,13 +271,13 @@
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-end">
-                    @auth
+{{--                    @auth--}}
                     <button type="submit" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</button>
-                    @endauth
-                    @guest
+{{--                    @endauth--}}
+{{--                    @guest--}}
                     {{-- <button type="submit" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</button> --}}
-                    <a href="{{ route('login') }}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</a></span>
-                    @endguest
+{{--                    <a href="{{ route('login') }}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</a></span>--}}
+{{--                    @endguest--}}
                 </div>
             </div>
         </form>

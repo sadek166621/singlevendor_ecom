@@ -103,6 +103,7 @@ Route::POST('/cart/data/store/{id}',[CartController::class, 'AddToCart'])->name(
 Route::get('/product/mini/cart',[CartController::class,'AddMiniCart'])->name('minicart.add');
 Route::get('/minicart/product-remove/{rowId}',[CartController::class,'RemoveMiniCart'])->name('minicart.remove');
 
+Route::get('/login-status/check', [FrontendController::class, 'loginCheck'])->name('login.check');
 
 /* ============ Cart Show   ============= */
 Route::get('/cart',[CartController::class,'index'])->name('cart.show');

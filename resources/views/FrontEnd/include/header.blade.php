@@ -1,3 +1,20 @@
+<style>
+    .header-down{
+        border-bottom: 1px solid #ccc;
+    }
+    .header-down .menu ul{
+        display: flex;
+        list-style: none;
+        padding: 10px;
+    }
+    .header-down .menu ul li{
+        margin-left: 20px;
+    }
+    .header-down .menu ul li a{
+        font-size: 18px;
+    }
+
+</style>
 <header>
     <!-- Desktop Nav Star-->
     <section class="d-none d-lg-block">
@@ -200,8 +217,8 @@
                     <li><a href='{{ route('cart.show') }}'><span><i class="fa-solid fa-cart-shopping"></i> <small class="cartQty">0</small></span>
                             <span>Cart</span></a> </li>
 
-                   <li><a href='{{ route('category_list.index') }}'><span><i class="fas fa-list"></i></span>
-                           <span>Category</span></a></li>
+                   <li><a href='{{ route('product.show') }}'><span><i class="fas fa-list"></i></span>
+                           <span>Shop</span></a></li>
                     <li>
                         @auth
                         <a href='{{ route('dashboard') }}'>

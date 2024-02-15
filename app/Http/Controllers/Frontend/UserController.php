@@ -27,7 +27,6 @@ class UserController extends Controller
         $orders = Order::where('user_id',Auth::id())->orderBy('id','DESC')->get();
 
         $all = Order::where('user_id', Auth::user()->id)
-                        ->where('delivery_status', 'pending')
                         ->get();
 
         $pending = Order::where('user_id', Auth::user()->id)
@@ -62,7 +61,7 @@ class UserController extends Controller
         // $order = Order::where('user_id',Auth::id())->orderBy('id','DESC')->first();
         $order = Order::where('invoice_no', $invoice_no)->first();
         // $orders = Order::with('address_id')->where('id',$id)->where('user_id',Auth::id())->first();
-        return view('frontEnd.order.order_view', compact('order'));
+        return view('FrontEnd.order.order_view', compact('order'));
     }
 
     /**

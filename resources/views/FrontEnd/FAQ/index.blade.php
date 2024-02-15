@@ -13,7 +13,7 @@
                     <div class="d-flex justify-content-center mt-3">
                         <p class="m-0"><a href="{{route('home')}}">Home</a></p>
                         <p class="m-0 px-2">-</p>
-                        <p class="m-0">About Us</p>
+                        <p class="m-0">FAQ</p>
                     </div>
                 </div>
             </div>

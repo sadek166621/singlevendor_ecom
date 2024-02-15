@@ -79,7 +79,7 @@
 
                 if (redirectToCheckout) {
                     // Redirect to the checkout page
-                    window.location.href = '/checkout';
+                    window.location.href = '/login-status/check';
                 }
             } else {
                 const Toast = Swal.mixin({

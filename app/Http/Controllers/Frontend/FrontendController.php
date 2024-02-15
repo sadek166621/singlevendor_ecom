@@ -537,4 +537,15 @@ class FrontendController extends Controller
     {
         return view('FrontEnd.FAQ.index');
     }
+
+    public function loginCheck()
+    {
+        if(Auth::user() && Auth::user()->role == 3){
+            return redirect()->route('checkout');
+        }
+        else{
+            return redirect()->route('login');
+        }
+
+    }
 }

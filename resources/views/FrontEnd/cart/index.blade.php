@@ -72,8 +72,15 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('checkout')}}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Proceed To
-                        Checkout</a>
+                    @auth
+                        <a href="{{route('checkout')}}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Proceed To
+                            Checkout</a>
+                    @endauth
+                    @guest
+                        {{-- <button type="submit" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</button> --}}
+                        <a href="{{ route('login') }}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</a></span>
+                    @endguest
+
                 </div>
             </div>
         </div>
