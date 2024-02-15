@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\SubscriberController;
 use App\Http\Controllers\Backend\CompareController;
 use App\Http\Controllers\Frontend\PublicSslCommerzPaymentController;
 use App\Http\Middleware\UserMiddleware;
+use App\Http\Controllers\Frontend\UserMessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,7 +84,15 @@ Route::get('/tag-product/{id}/{slug}',[FrontendController::class, 'TagWiseProduc
 Route::get('product-details/{slug}',[FrontendController::class, 'productDetails'])->name('product.details');
 
 // Page Setting
-Route::get('/page/{slug}',[FrontendController::class, 'pageAbout'])->name('page.about');
+
+Route::get('/contact-us',[FrontendController::class, 'pageContact'])->name('page.contact');
+Route::get('/about-us',[FrontendController::class, 'pageAbout'])->name('page.about');
+Route::get('/terms-and-conditions',[FrontendController::class, 'pageTerms'])->name('page.terms');
+Route::get('/privacy-policy',[FrontendController::class, 'pagePolicy'])->name('page.policy');
+Route::get('/faq',[FrontendController::class, 'pageFaq'])->name('page.faq');
+Route::get('/help',[FrontendController::class, 'pageHelp'])->name('page.help');
+
+Route::post('/message/send',[UserMessageController::class, 'submit'])->name('message.submit');
 
 
 /* =============== Start Product View Modal With Ajax ============== */

@@ -22,10 +22,10 @@
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-3">Let Us Help You</h4>
                 <a class="btn btn-link" href="@if(Auth::user() && Auth::user()->role == 3) {{route('dashboard')}} @else {{route('login')}} @endif">@if(Auth::user() && Auth::user()->role == 3)Your Account @else Log in @endif</a>
-                <a class="btn btn-link" href="#">Contact Us</a>
-                <a class="btn btn-link" href="#">About Us</a>
-                <a class="btn btn-link" href="#">Privacy Policy</a>
-                <a class="btn btn-link" href="#">Terms & Condition</a>
+                <a class="btn btn-link" href="{{route('page.contact')}}">Contact Us</a>
+                <a class="btn btn-link" href="{{route('page.about')}}">About Us</a>
+                <a class="btn btn-link" href="{{route('page.policy')}}">Privacy Policy</a>
+                <a class="btn btn-link" href="{{route('page.terms')}}">Terms & Condition</a>
             </div>
 
             <div class="col-lg-3 col-md-6">
@@ -69,8 +69,8 @@
                     <div class="footer-menu">
 {{--                        <a href="#">Ad's Choice</a>--}}
 {{--                        <a href="#">Cookies</a>--}}
-                        <a href="#">Help</a>
-                        <a href="#">FQAs</a>
+                        <a href="{{route('page.help')}}">Help</a>
+                        <a href="{{route('page.faq')}}">FQAs</a>
                     </div>
                 </div>
             </div>

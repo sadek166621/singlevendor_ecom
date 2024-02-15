@@ -30,6 +30,7 @@ use App\Http\Controllers\Backend\VendorPaymentController;
 use App\Http\Controllers\Backend\VendorTransactionController;
 use App\Http\Controllers\Backend\WithdrawRequestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\UserMessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -373,6 +374,7 @@ Route::middleware('adminAccess')->group(function(){
 
     Route::post('/pos/customer/insert',[PosController::class,'customerInsert'])->name('customer.ajax.store.pos');
 
+
     //Admin POS All Routes
 	Route::prefix('pos')->group(function(){
 		Route::get('/', [PosController::class, 'index'])->name('pos.index');
@@ -380,6 +382,9 @@ Route::middleware('adminAccess')->group(function(){
 		Route::get('/get-products', [PosController::class, 'filter'])->name('pos.filter');
 		Route::POST('/store', [PosController::class, 'store'])->name('pos.store');
 	});
+
+    //user-message routes
+    Route::get('/messages',[UserMessageController::class,'list'])->name('messages.list');
 
 
 

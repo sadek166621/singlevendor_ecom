@@ -339,9 +339,9 @@ class FrontendController extends Controller
     /* ================= END PRODUCT VIEW WITH MODAL METHOD =================== */
 
 
-    public function pageAbout($slug){
-        $page = Page::where('slug', $slug)->first();
-        return view('frontEnd.settings.page.about',compact('page'));
+    public function pageAbout(){
+//        $page = Page::where('slug', $slug)->first();
+        return view('FrontEnd.about_us.index');
     }
 
     /* ================= Start Product Search =================== */
@@ -513,5 +513,28 @@ class FrontendController extends Controller
             // dd('invalid');
             return back()->with('message','invalid coupon code');
         }
+    }
+
+    public function PageContact()
+    {
+        return view('FrontEnd.contact.index');
+    }
+    public function PageTerms()
+    {
+        return view('FrontEnd.terms_conditions.index');
+    }
+    public function PagePolicy()
+    {
+        return view('FrontEnd.privacy_policy.index');
+    }
+
+    public function PageHelp()
+    {
+        return view('FrontEnd.help.index');
+    }
+
+    public function PageFaq()
+    {
+        return view('FrontEnd.FAQ.index');
     }
 }

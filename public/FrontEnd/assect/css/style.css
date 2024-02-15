@@ -1089,3 +1089,17 @@ nav.mobile ul li a span i {
 /*    display: inline;*/
 /*}*/
 
+.header-down{
+    border-bottom: 1px solid #ccc;
+}
+.header-down .menu ul{
+    display: flex;
+    list-style: none;
+    padding: 10px;
+}
+.header-down .menu ul li{
+    margin-left: 20px;
+}
+.header-down .menu ul li a{
+    font-size: 18px;
+}

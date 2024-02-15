@@ -17,10 +17,10 @@
     <div class="aside-top">
         <a href="{{ route('admin.dashboard') }}" class="brand-wrap" >
             @php
-                $logo = get_setting('site_footer_logo');
+                $logo = get_setting('site_logo');
             @endphp
             @if($logo != null)
-                <img src="{{ asset(get_setting('site_footer_logo')->value ?? ' ') }}" alt="{{ env('APP_NAME') }}"  style="height: 30px !important;">
+                <img src="{{ asset(get_setting('site_logo')->value ?? ' ') }}" alt="{{ env('APP_NAME') }}"  style="height: 30px !important;">
             @else
                 <img src="{{ asset('upload/no_image.jpg') }}" alt="{{ env('APP_NAME') }}" style="height: 30px !important; width: 80px !important; min-width: 80px !important;">
             @endif
@@ -348,8 +348,21 @@
                         <i class="icon material-icons md-person"></i>
                         <span class="text">Customers</span>
                     </a>
+
                     <div class="submenu">
                         <a class="{{ ($route == 'customer.index')? 'active':'' }}" href="{{ route('customer.index') }}">Customer list</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu
+                {{ ($route == 'messages.list')? 'active':'' }}
+                ">
+                    <a class="menu-link" href="#">
+                        <i class="icon material-icons md-message"></i>
+                        <span class="text">Messages</span>
+                    </a>
+
+                    <div class="submenu">
+                        <a class="{{ ($route == 'messages.list')? 'active':'' }}" href="{{ route('messages.list') }}">User Messages</a>
                     </div>
                 </li>
             @endif

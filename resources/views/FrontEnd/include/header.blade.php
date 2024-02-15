@@ -118,6 +118,19 @@
 
     </section>
     <!-- Desktop Nav End-->
+    <div class="header-down">
+        <div class="container">
+            <div class="menu">
+                <ul>
+                    <li><a href="{{route('home')}}">Home</a></li>
+                    <li>|</li>
+                    <li><a href="{{route('product.show')}}">Shop</a></li>
+                    <li>|</li>
+                    <li><a href="{{route('category_list.index')}}">Categories</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <!-- Mobile Nav Start -->
     <section class="d-block d-lg-none">
