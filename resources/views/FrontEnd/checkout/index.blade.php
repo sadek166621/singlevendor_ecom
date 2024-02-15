@@ -101,7 +101,7 @@
                             <div class="form-group">
                                 <label>Devision</label>
                               <select class="form-control font-sm select-style1 color-gray-700" name="division_id" id="division_id" required>
-                                {{-- <option value="">Select Division</option> --}}
+                                <option value="">Select Division</option>
 
                                 @foreach(get_divisions() as $division)
                                   <option value="{{ $division->id }}">{{ ucwords($division->division_name_en) }}</option>
@@ -113,7 +113,7 @@
                             <div class="form-group">
                                 <label>District</label>
                               <select class="form-control font-sm select-style1 color-gray-700"  name="district_id" id="district_id" required>
-                                {{-- <option selected=""  value="">Select District</option> --}}
+                                <option selected=""  value="">Select District</option>
                               </select>
                             </div>
                           </div>
@@ -128,7 +128,7 @@
                         <div class="col-md-6 form-group">
                             <label>Product Shipping</label>
                             <select class="form-control" name="shipping_id" id="shipping_id" required>
-                                {{-- <option value="">--Select--</option> --}}
+                                <option value="">Select Shipping</option>
                                                 @foreach ($shippings as $key => $shipping)
                                                     <option value="{{ $shipping->id }}">@if($shipping->type == 1) Inside Dhaka @else Outside Dhaka @endif </option>
                                                 @endforeach
@@ -289,59 +289,62 @@
 @push('js')
 <!--  Division To District Show Ajax -->
 <script type="text/javascript">
-$(document).ready(function() {
-$('select[name="division_id"]').on('change', function(){
-    var division_id = $(this).val();
-    if(division_id) {
-        $.ajax({
-            url: 'division-district/ajax/',
-            //url: 'division-district/ajax/'+division_id,
-            type:"GET",
-            data:{'division_id':division_id},
-            dataType:"json",
-            success:function(data) {
-                $('select[name="district_id"]').html('<option value="" selected="" disabled="">Select District</option>');
-                    $.each(data, function(key, value){
-                    $('select[name="district_id"]').append('<option value="'+ value.id +'">' + capitalizeFirstLetter(value.district_name_en) + '</option>');
+    $(document).ready(function() {
+        $('select[name="division_id"]').on('change', function(){
+            var division_id = $(this).val();
+            if(division_id) {
+                $.ajax({
+                    url: 'division-district/ajax/',
+                    type:"GET",
+                    data:{'division_id':division_id},
+                    dataType:"json",
+                    success:function(data) {
+                        // Reset district selection
+                        $('select[name="district_id"]').html('<option value="" selected="" disabled="">Select District</option>');
+                        // Populate district options
+                        $.each(data, function(key, value){
+                            $('select[name="district_id"]').append('<option value="'+ value.id +'">' + capitalizeFirstLetter(value.district_name_en) + '</option>');
+                        });
+                        $('select[name="upazilla_id"]').html('<option value="" selected="" disabled="">Select Upazila</option>');
+                    },
                 });
+            } else {
+                // Reset district selection if division is not selected
+                $('select[name="district_id"]').html('<option value="" selected="" disabled="">Select District</option>');
                 $('select[name="upazilla_id"]').html('<option value="" selected="" disabled="">Select Upazila</option>');
-            },
+            }
         });
-    } else {
-       alert('danger');
-    }
-});
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+        // Function to capitalize first letter of a string
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
 
-// Address Realtionship Division/District/Upazilla Show Data Ajax //
-$('select[name="address_id"]').on('change', function(){
-    var address_id = $(this).val();
-    $('.selected_address').removeClass('d-none');
-    if(address_id) {
-        $.ajax({
-            url: "{{  url('/address/ajax') }}/"+address_id,
-            type:"GET",
-            dataType:"json",
-            success:function(data) {
-
-                $('#dynamic_division').text(capitalizeFirstLetter(data.division_name_en));
-                $('#dynamic_division_input').val(data.division_id);
-                $("#dynamic_district").text(capitalizeFirstLetter(data.district_name_en));
-                $('#dynamic_district_input').val(data.district_id);
-                $("#dynamic_upazilla").text(capitalizeFirstLetter(data.upazilla_name_en));
-                $('#dynamic_upazilla_input').val(data.upazilla_id);
-                $("#dynamic_address").text(data.address);
-                $('#dynamic_address_input').val(data.address);
-            },
+        // Address Relationship Division/District/Upazilla Show Data Ajax
+        $('select[name="address_id"]').on('change', function(){
+            var address_id = $(this).val();
+            $('.selected_address').removeClass('d-none');
+            if(address_id) {
+                $.ajax({
+                    url: "{{  url('/address/ajax') }}/"+address_id,
+                    type:"GET",
+                    dataType:"json",
+                    success:function(data) {
+                        $('#dynamic_division').text(capitalizeFirstLetter(data.division_name_en));
+                        $('#dynamic_division_input').val(data.division_id);
+                        $("#dynamic_district").text(capitalizeFirstLetter(data.district_name_en));
+                        $('#dynamic_district_input').val(data.district_id);
+                        $("#dynamic_upazilla").text(capitalizeFirstLetter(data.upazilla_name_en));
+                        $('#dynamic_upazilla_input').val(data.upazilla_id);
+                        $("#dynamic_address").text(data.address);
+                        $('#dynamic_address_input').val(data.address);
+                    },
+                });
+            } else {
+                alert('danger');
+            }
         });
-    } else {
-       alert('danger');
-    }
-});
-});
+    });
 </script>
 
 <!--  District To Upazilla Show Ajax -->
@@ -434,32 +437,38 @@ $(document).ready(function() {
 </script>
 <script>
     $(document).ready(function() {
-        $('select[name="shipping_id"]').on('change', function(){
-            var shipping_cost = $(this).val();
-            if(shipping_cost) {
-                $.ajax({
-                    url: "{{  url('/checkout/shipping/ajax') }}/"+shipping_cost,
-                    type:"GET",
-                    dataType:"json",
-                    success:function(data) {
-                        // console.log(data);
-                        $('#ship_amount').text(data.shipping_charge);
-                        $('.ship_amount').val(data.shipping_charge);
-                        $('.shipping_name').val(data.name);
-                        $('.shipping_type').val(data.type);
+    $('select[name="shipping_id"]').on('change', function(){
+        var shipping_id = $(this).val();
+        if(shipping_id) {
+            $.ajax({
+                url: "{{  url('/checkout/shipping/ajax') }}/"+shipping_id,
+                type:"GET",
+                dataType:"json",
+                success:function(data) {
+                    $('#ship_amount').text(data.shipping_charge);
+                    $('.ship_amount').val(data.shipping_charge);
+                    $('.shipping_name').val(data.name);
+                    $('.shipping_type').val(data.type);
 
-                        let shipping_price = parseInt(data.shipping_charge);
-                        let grand_total_price = parseInt($('#cartSubTotalShi').val());
-                        // console.log(grand_total_price);
-                        grand_total_price += shipping_price;
-                        $('#grand_total_set').html(grand_total_price);
-                        $('#grand_total').val(grand_total_price);
-                    },
-                });
-            } else {
-                alert('danger');
-            }
-        });
+                    let shipping_price = parseInt(data.shipping_charge);
+                    let grand_total_price = parseInt($('#cartSubTotalShi').val());
+                    grand_total_price += shipping_price;
+                    $('#grand_total_set').html(grand_total_price);
+                    $('#grand_total').val(grand_total_price);
+                },
+            });
+        } else {
+            // Reset the elements if no shipping option is selected
+            $('#ship_amount').text('0');
+            $('.ship_amount').val('0');
+            $('.shipping_name').val('');
+            $('.shipping_type').val('');
+
+            let grand_total_price = parseInt($('#cartSubTotalShi').val());
+            $('#grand_total_set').html(grand_total_price);
+            $('#grand_total').val(grand_total_price);
+        }
     });
+});
 </script>
 @endpush
