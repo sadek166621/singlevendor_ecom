@@ -50,6 +50,7 @@ Route::get('/refresh-csrf', function() {
 
 /* ====================  User Order Route ================== */
 Route::get('/user/orders/{invoice_no}',[UserController::class, 'orderView'])->name('order.view');
+Route::get('/user/orders/download/{invoice_no}',[UserController::class, 'orderDownload'])->name('order.download');
 /* ==================== End User dashboard Route ================== */
 
 
@@ -200,6 +201,7 @@ Route::post('/apply-coupon',[FrontendController::class, 'applycoupon'])->name('a
 
 
 Route::get('/load-more-products',[FrontendController::class, 'loadMoreProducts']);
+Route::get('/order/summary/download',[FrontendController::class, 'loadMoreProducts']);
 
 
 

@@ -31,12 +31,12 @@
                         $delivery_status = $order->delivery_status;
                     @endphp
                     <div class="col-lg-8 col-md-8 ms-auto text-md-end">
-                        <select class="form-select d-inline-block mb-lg-0 mr-5 mw-200 bg-white" id="update_payment_status">
+                        <select class="form-select d-inline-block mb-lg-0 mr-5 mw-200 bg-white" onchange="window.location.reload();" id="update_payment_status">
                             <option value="0" @if ($payment_status == '0') selected @endif>Unpaid</option>
                             <option value="1" @if ($payment_status == '1') selected @endif>Paid</option>
                         </select>
                         @if($delivery_status != 'delivered' && $delivery_status != 'cancelled')
-                            <select class="form-select d-inline-block mb-lg-0 mr-5 mw-200" style="background-color: white" id="update_delivery_status">
+                            <select class="form-select d-inline-block mb-lg-0 mr-5 mw-200" onchange="window.location.reload();" style="background-color: white" id="update_delivery_status">
                                 <option value="pending" @if ($delivery_status == 'pending') selected @endif>Pending</option>
                                 <option value="confirmed" @if ($delivery_status == 'confirmed') selected @endif>Confirmed</option>
                                 <option value="shipped" @if ($delivery_status == 'shipped') selected @endif>Shipped</option>

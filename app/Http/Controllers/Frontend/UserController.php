@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Auth;
 use DB;
 use Session;
+use PDF;
 
 class UserController extends Controller
 {
@@ -304,6 +305,14 @@ class UserController extends Controller
             'alert-type' => 'error'
         );
         return redirect()->back()->with($notification);
+    }
+
+    public function orderDownload($invoice_no)
+    {
+        $order =  Order::where('invoice_no', $invoice_no)->first();
+        $pdf = PDF::loadView('FrontEnd.order.order_confirmed', compact('order'));
+
+        return $pdf->stream('Invoice-'.$order->invoice_no.'.pdf');
     }
 
 }

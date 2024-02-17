@@ -307,7 +307,7 @@ class CheckoutController extends Controller
             'alert-type' => 'success'
         );
 
-        return view('FrontEnd.order.order_confirmed', compact('order'))->with($notification);
+        return view('FrontEnd.order.order_view', compact('order'))->with($notification);
     }
 
     /**

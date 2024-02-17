@@ -3345,6 +3345,7 @@
 <body>
 <div class="tm_container" >
     <div class="" style="display: flex; justify-content: space-between; padding: 8px 0px;">
+        <h3 style="text-align: center; color:green">{{session('message')}}</h3>
         <div class="">
             <a style="color: green; font-weight: 900; font-size: 16px;" href="{{ route('home') }}"><i class="fa-solid fa-backward"></i> Back to
                 Home</a>
@@ -3495,7 +3496,7 @@
                                     <tbody>
                                     <tr>
                                         <td class="tm_width_3 tm_primary_color tm_border_none tm_medium">Subtotal :</td>
-                                        <td class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_medium">৳{{ $order->sub_total ?? ' ' }}</td>
+                                        <td class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_medium">{{ $order->sub_total ?? ' ' }}</td>
                                     </tr>
                                     <tr>
                                         <td class="tm_width_3 tm_primary_color tm_border_none tm_pt0">Shipping Cost:</td>
@@ -3537,7 +3538,7 @@
                             @if($logo != null)
                                 {{--                    <img src="{{ asset(get_setting('site_footer_logo')->value ?? 'null') }}" style="max-width: 200px !important;" alt="{{ env('APP_NAME') }}">--}}
                                 <div style="display: flex; align-items: center">
-                                    <img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span style="color: #F7941E; font-size: 46px; font-weight: 500">OKCHO</span>
+                                    <img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span style="color: #F7941E; font-size: 55px; font-weight: 500">OKCHO</span>
                                 </div>
 
                             @else
@@ -3578,7 +3579,7 @@
               <span class="tm_btn_text">Print</span>
             </a> --}}
 
-            <button id="downloadButton" class="tm_invoice_btn tm_color3">
+            <a href="{{route('order.download', $order->invoice_no)}}" id="" class="tm_invoice_btn tm_color3">
             <span class="tm_btn_icon">
               <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
                 <path
@@ -3587,7 +3588,7 @@
               </svg>
             </span>
                 <span class="tm_btn_text">Download</span>
-            </button>
+            </a>
         </div>
     </div>
 </div>

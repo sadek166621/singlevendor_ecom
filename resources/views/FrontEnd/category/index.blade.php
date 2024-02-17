@@ -29,12 +29,12 @@
                 <div class="shop-product-fillter-header">
                     <div class="row">
                         @foreach(get_categories() as $category)
-                            <div class="col-md-6 col-12">
-                                <div class="card">
-                                    <div class="category_header">
+                            <div class="col-md-6 col-12 my-2 ">
+                                <div class="card shadow-lg p-4" style="border-radius: 20px">
+                                    <div class="card-body category_header px-2">
                                         <a href="{{ route('product.category', $category->slug) }}" class="align-items-center d-flex d-inline-block">
                                             <img src="{{ asset($category->image) }}" class="img-fluid category_image" alt="{{ env('APP_NAME') }}" height="100px" width="100px">
-                                            <h5 class="category-title" style="margin-left: 5px">
+                                            <h5 class="category-title" style="margin-left: 10px">
                                                 @if(session()->get('language') == 'bangla')
                                                     {{ $category->name_bn }}
                                                 @else
