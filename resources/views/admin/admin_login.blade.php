@@ -26,9 +26,9 @@
     </head>
 
     <body>
-        <main>
+        <main >
             <section class="content-main">
-                <div class="card mx-auto card-login shadow-lg" style="margin-top: 70px;">
+                <div class="card mx-auto card-login shadow-lg" style="margin-top: 140px;">
                     <div class="card-body">
 
                         <!-- start login aleart message show -->
