@@ -19,7 +19,8 @@ class ReportController extends Controller
     public function index(Request $request)
     {
         $sort_by =null;
-        $products = Product::orderBy('created_at', 'desc')->where('vendor_id', Auth::guard('admin')->user()->id);
+        $products = Product::orderBy('created_at', 'desc');
+//        $products = Product::orderBy('created_at', 'desc')->where('vendor_id', Auth::guard('admin')->user()->id);
 
         if(Auth::guard('admin')->user()->role == '2'){
             if ($request->has('category_id')){
@@ -37,6 +38,8 @@ class ReportController extends Controller
             }
             $products = $products->paginate(20);
         }
+
+//        return $products;
 
         return view('backend.reports.index', compact('products'));
     }

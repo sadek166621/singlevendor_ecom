@@ -20,21 +20,21 @@
 		            <div class="row">
 		                <div class="col-md-12">
 		                   <div class="card-body">
-				                <form action="{{ route('stock_report.index') }}" method="GET">
+				                <form action="{{ route('stock_report.index') }}" id="filterForm" method="GET">
 				                    <div class="form-group row mb-3">
 				                        <label class="col-md-6 col-form-label">Sort by Category :</label>
-				                        <div class="col-md-4">
+				                        <div class="col-md-6">
 				                        	<div class="custom_select">
-				                        		<select class="form-select select-active select-nice" aria-label="Default select example" name="category_id" required>
+				                        		<select class="form-select select-active select-nice" onchange="$('#filterForm').submit()" aria-label="Default select example" name="category_id" required>
 											  @foreach (\App\Models\Category::all() as $key => $category)
 				                                    <option value="{{ $category->id }}">{{ $category->name_en }}</option>
 				                                @endforeach
 											</select>
 				                        	</div>
 				                        </div>
-				                        <div class="col-md-2">
-				                            <button class="btn btn-primary" style="padding-bottom: 12px;" type="submit"><i class="fa fa-filter" style="padding-top: 10px;"></i></button>
-				                        </div>
+{{--				                        <div class="col-md-2">--}}
+{{--				                            <button class="btn btn-primary" style="padding-bottom: 12px;" type="submit"><i class="fa fa-filter" style="padding-top: 10px;"></i></button>--}}
+{{--				                        </div>--}}
 				                    </div>
 				                </form>
 				                <table  class="table table-bordered table-hover mb-0">
