@@ -3208,7 +3208,7 @@
                 <td>
                     <div class="tm_border tm_accent_border_20 tm_radius_0 tm_accent_bg_10 tm_curve_35 tm_text_center" style="transform: skewX(-35deg); margin-left: 12px">
                         <div style="transform: skewX(35deg)">
-                            <b class="tm_accent_color tm_f30 tm_bold tm_body_lineheight" >NEWSOM LOGISTICS</b>
+                            <b class="tm_accent_color tm_f30 tm_bold tm_body_lineheight" >BOKCHO</b>
                         </div>
                     </div>
                 </td>
@@ -3288,7 +3288,7 @@
                                     <p class="tm_m0">Payment Method: Cash On Delivery</p>
                                     <p class="tm_m0">Payment Status: Unpaid</p>
                             </td>
-                            <td class="tm_width_3 tm_primary_color tm_border_none tm_medium">Subtoal</td>
+                            <td class="tm_width_3 tm_primary_color tm_border_none tm_medium">Subtotal</td>
                             <td colspan="2" class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_medium"><span style="font-family: 'DejaVu Sans', sans-serif;"></span>{{$order->sub_total}} TK</td>
                         </tr>
                         <tr>
