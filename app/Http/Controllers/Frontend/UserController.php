@@ -312,7 +312,7 @@ class UserController extends Controller
         $order =  Order::where('invoice_no', $invoice_no)->first();
         $pdf = PDF::loadView('FrontEnd.order.order_confirmed', compact('order'));
 
-        return $pdf->download('Invoice-'.$order->invoice_no.'.pdf');
+        return $pdf->stream('Invoice-'.$order->invoice_no.'.pdf');
     }
 
 }
