@@ -13,7 +13,7 @@
 			font-size: 0.875rem;
             font-weight: normal;
 			padding:0;
-			margin:0; 
+			margin:0;
 		}
 		.gry-color *,
 		.gry-color{
@@ -54,13 +54,16 @@
 			<table>
 				<tr>
 					<td>
-						@php
-                            $logo = get_setting('site_logo');
+                        @php
+                            $logo = get_setting('site_favicon')->value;
                         @endphp
                         @if($logo != null)
-                            <img src="{{ asset(get_setting('site_logo')->value ?? '') }}" alt="{{ env('APP_NAME') }}" height="30" style="display:inline-block;">
+                        <div style="display: inline; align-items:center">
+                            <img align="" src="data:image/jpg;base64,{{base64_encode(file_get_contents(base_path('public/'.$logo)))}}" style="height: 1.5rem; width: 1.5rem; margin-bottom:-3px!important;"><span style="color: #F7941E; font-size: 1.5rem;">OKCHO</span>
+
+                        </div>
                         @else
-                            <img src="{{ asset('upload/no_image.jpg') }}" alt="{{ env('APP_NAME') }}" height="30" style="display:inline-block;">
+                            <img src="{{ asset('upload/no_image.jpg') }}" alt="{{ env('APP_NAME') }}" style="max-width: 200px !important;">
                         @endif
 					</td>
 					<td style="font-size: 1.5rem;" class="text-right strong">INVOICE</td>
@@ -68,16 +71,15 @@
 			</table>
 			<table>
 				<tr>
-					<td style="font-size: 1rem;" class="strong">{{ get_setting('site_name')->value }}</td>
 					<td class="text-right"></td>
 				</tr>
 				<tr>
-					<td class="gry-color small">Email:  {{ $order->email }} </td>
-					<td class="text-right small"><span class="gry-color small">Order ID
+					<td class="gry-color small">Email:{{ $order->email }} </td>
+					<td class="text-right small"><span class="gry-color small">Invoice No:
 					:</span> <span class="strong">{{ $order->invoice_no }}</span></td>
 				</tr>
 				<tr>
-					<td class="gry-color small">Phone:  {{ $order->phone }}</td>
+					<td class="gry-color small">Phone:{{ $order->phone }}</td>
 					<td class="text-right small"><span class="gry-color small">Order Date:</span> <span class=" strong">{{ date('d-m-Y', $order->date) }}</span></td>
 				</tr>
 				<tr>
@@ -151,7 +153,7 @@
 		        <tbody>
 			        <tr>
 			            <td class="text-left">
-                          
+
 			            </td>
 			            <td>
 					        <table class="text-right sm-padding small strong">

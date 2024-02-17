@@ -4,7 +4,26 @@
 @endsection
 @section('content')
 <!-- Option & Slider Part Start -->
+<style>
+    /* Add loading styles as needed */
+    .loading::after {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #fff;
+        border-top: 2px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-left: 5px; /* Adjust as needed */
+        vertical-align: middle;
+    }
 
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
 <section class="option-slider container mt-5">
 {{--    @php dd($home_banners) @endphp--}}
     <div class="row">
@@ -421,6 +440,7 @@
 <div class="text-center my-5">
     <button type="button" id="load-more-btn" class="view_more">View More</button>
 </div>
+
 <!-- Just For You End -->
 @endsection
 @push('js')
@@ -616,7 +636,11 @@
 </script>
 <script>
     var offset = 12;
+
     $('#load-more-btn').click(function () {
+        // Show loader
+        showLoader();
+
         $.ajax({
             url: '/load-more-products',
             method: 'GET',
@@ -629,55 +653,69 @@
                 if (products.length > 0) {
                     products.forEach(function (product) {
                         var discountPercentage = Math.round(((product.regular_price - product.discount_price) / product.regular_price) * 100);
-
                         // Append the new products to the container using JavaScript variables
                         var productHtml = `
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="{{route('product.details', '')}}/${product.slug}">
-                                    <img src="${product.product_thumbnail}" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
+                            <div class="col">
+                                <div class="card h-100">
                                     <a href="{{route('product.details', '')}}/${product.slug}">
-                                        <p class="product-text">${product.name_en.substring(0, 20)}${product.name_en.length > 20 ? '...' : ''}</p>
+                                        <img src="${product.product_thumbnail}" class="card-img-top" alt="...">
                                     </a>
-                                    <h5 class="product-price">৳${product.discount_price}</h5>
-                                    <p class="discount-percent"><span class="discount-price">৳${product.regular_price}</span> - ${discountPercentage}%</p>
-                                    <small class="product-ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="ratings">(${product.stock_qty})</i>
-                                    </small>
-                                    <div class="text-center">
-                                        <button type="submit" onclick="buyNow(${product.id})" class="buy_now">Buy Now</button>
-                                        ${product.is_varient == 1 ?
-                            `<button type="button" onclick="productView(${product.id})" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="add_to_cart">Add to Cart</button>` :
-                            `<input type="hidden" id="pfrom" value="direct">
-                                            <input type="hidden" id="product_product_id" value="${product.id}" min="1">
-                                            <input type="hidden" id="${product.id}-product_pname" value="${product.name_en}">
-                                            <button type="button" onclick="addToCartDirect(${product.id})" class="add_to_cart">Add to Cart</button>`
-                        }
+                                    <div class="card-body">
+                                        <a href="{{route('product.details', '')}}/${product.slug}">
+                                            <p class="product-text">${product.name_en.substring(0, 20)}${product.name_en.length > 20 ? '...' : ''}</p>
+                                        </a>
+                                        <h5 class="product-price">৳${product.discount_price}</h5>
+                                        <p class="discount-percent"><span class="discount-price">৳${product.regular_price}</span> - ${discountPercentage}%</p>
+                                        <small class="product-ratings">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="ratings">(${product.stock_qty})</i>
+                                        </small>
+                                        <div class="text-center">
+                                            <button type="submit" onclick="buyNow(${product.id})" class="buy_now">Buy Now</button>
+                                            ${product.is_varient == 1 ?
+                                                `<button type="button" onclick="productView(${product.id})" data-bs-toggle="modal" data-bs-target="#quickViewModal" class="add_to_cart">Add to Cart</button>` :
+                                                `<input type="hidden" id="pfrom" value="direct">
+                                                <input type="hidden" id="product_product_id" value="${product.id}" min="1">
+                                                <input type="hidden" id="${product.id}-product_pname" value="${product.name_en}">
+                                                <button type="button" onclick="addToCartDirect(${product.id})" class="add_to_cart">Add to Cart</button>`
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    `;
+                        `;
 
                         $('#product-container').append(productHtml);
                     });
 
                     offset += products.length;
                 } else {
+                    // If no more products to load, hide the "Load More" button
                     $('#load-more-btn').hide();
                 }
             },
             error: function (error) {
                 console.error(error);
+            },
+            complete: function () {
+                // Hide loader regardless of success or error
+                hideLoader();
             }
         });
     });
+
+    function showLoader() {
+        // Add loader class to the button or any other container you want
+        $('#load-more-btn').addClass('loading');
+    }
+
+    function hideLoader() {
+        // Remove loader class from the button or any other container
+        $('#load-more-btn').removeClass('loading');
+    }
 </script>
 @endpush

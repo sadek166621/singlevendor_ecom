@@ -3320,9 +3320,12 @@
 
             </td>
             <td align="right">
+                @php
+                $logo = get_setting('site_favicon');
+                @endphp
                 @if($logo != null)
                     <div style="display: inline; align-items: center">
-                        <img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" height="50px" width="50px" alt="logo"><span style="color: #F7941E; font-size: 50px; font-weight: 500">OKCHO</span>
+                        <img src="data:image/jpg;base64,{{base64_encode(file_get_contents($logo))}} " height="50px" width="50px" alt="logo"><span style="color: #F7941E; font-size: 50px; font-weight: 500">OKCHO</span>
                     </div>
                 @else
                     <img src="{{ asset('upload/no_image.jpg') }}" alt="{{ env('APP_NAME') }}">

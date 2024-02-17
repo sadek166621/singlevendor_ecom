@@ -123,9 +123,9 @@
 							@endif
 
 	                        <div class="col-md-12 mb-4" id="supplier_field">
-								<label for="supplier_id" class="col-form-label" style="font-weight: bold;">Supplier: <span class="text-danger">*</span></label>
+								<label for="supplier_id" class="col-form-label" style="font-weight: bold;">Supplier:</label>
 								<div class="custom_select">
-									<select class="form-control select-active w-100 form-select select-nice" name="supplier_id" id="supplier_id" required>
+									<select class="form-control select-active w-100 form-select select-nice" name="supplier_id" id="supplier_id" >
 										<option {{old('supplier_id') ? '' : 'selected'}} readonly value="">--Select Supplier--</option>
 										@foreach($suppliers as $supplier)
 											<option value="{{ $supplier->id }}" {{ old('supplier_id')== $supplier->id ? 'selected' : '' }}>{{ $supplier->name }}</option>

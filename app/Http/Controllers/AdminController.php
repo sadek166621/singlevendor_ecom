@@ -98,7 +98,7 @@ class AdminController extends Controller
                 ->first();
         }
 
-        $orders = DB::table('orders')->where('delivery_status', '=' , 'pending')->paginate(6);
+        $orders = DB::table('orders')->where('delivery_status', '=' , 'pending')->latest()->paginate(6);
 
         //dd($userCount->total_users);
 

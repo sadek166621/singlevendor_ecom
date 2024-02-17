@@ -64,7 +64,7 @@
 
         </div>
         <div>
-            <a href="{{ route('pos.index') }}" class="btn btn-primary p-3"><i class="fab fa-product-hunt"></i></a>
+            {{-- <a href="{{ route('pos.index') }}" class="btn btn-primary p-3"><i class="fab fa-product-hunt"></i></a> --}}
         </div>
     </div>
     <div class="row">

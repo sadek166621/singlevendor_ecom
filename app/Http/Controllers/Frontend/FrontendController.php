@@ -167,7 +167,7 @@ class FrontendController extends Controller
         $offset = $request->input('offset', 0); // Offset for pagination
 
         $products = Product::where('status', 1)
-            ->orderBy('id', 'ASC')
+            ->orderBy('id', 'DESC')
             ->skip($offset)
             ->limit($count)
             ->get();
