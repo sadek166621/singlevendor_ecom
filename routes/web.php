@@ -201,7 +201,7 @@ Route::post('/apply-coupon',[FrontendController::class, 'applycoupon'])->name('a
 
 
 Route::get('/load-more-products',[FrontendController::class, 'loadMoreProducts']);
-Route::get('/order/summary/download',[FrontendController::class, 'loadMoreProducts']);
+//Route::get('/order/summary/download',[FrontendController::class, 'loadMoreProducts']);
 
 
 
