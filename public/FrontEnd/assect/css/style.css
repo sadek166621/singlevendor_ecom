@@ -766,6 +766,26 @@ nav ul li a:hover {
     border-right: none;
 }
 
+
+.payment-img{
+    max-width: 127px;
+}
+
+@media screen and (max-width: 767px) {
+    .payment-img{
+        max-width: 140px;
+    }
+    .footer{
+        font-size: 12px;
+    }
+    .footer h4{
+        font-size: 16px;
+    }
+    .footer a{
+        font-size: 12px;
+    }
+}
+
 /* Shop Page */
 
 .shop-option {
@@ -1103,3 +1123,4 @@ nav.mobile ul li a span i {
 .header-down .menu ul li a{
     font-size: 18px;
 }
+

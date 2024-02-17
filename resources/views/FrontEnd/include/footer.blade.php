@@ -9,7 +9,7 @@
                          onmouseover="newImg(this)" onmouseout="oldImg(this)" style="width: 100%; height: 55%">
                 </a>
                 <p class="mt-2" align="justify">{{get_setting('short_description')->value}}</p>
-                <div class="d-flex pt-2">
+                <div class="d-flex justify-content-center pt-2">
                     <a class="btn btn-outline-light btn-social" href="{{get_setting('facebook_url')->value}}"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social" href="{{get_setting('instagram_url')->value}}"><i class="fab fa-instagram"></i></a>
                     <a class="btn btn-outline-light btn-social" href="{{get_setting('twitter_url')->value}}"><i class="fab fa-twitter"></i></a>
@@ -19,7 +19,7 @@
 
             </div>
 
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 col-6">
                 <h4 class="text-white mb-3">Let Us Help You</h4>
                 <a class="btn btn-link" href="@if(Auth::user() && Auth::user()->role == 3) {{route('dashboard')}} @else {{route('login')}} @endif">@if(Auth::user() && Auth::user()->role == 3)Your Account @else Log in @endif</a>
                 <a class="btn btn-link" href="{{route('page.contact')}}">Contact Us</a>
@@ -28,7 +28,7 @@
                 <a class="btn btn-link" href="{{route('page.terms')}}">Terms & Condition</a>
             </div>
 
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 col-6">
                 <h4 class="text-white mb-3">Contact</h4>
                 <p class="mb-1"><i class="fa fa-map-marker-alt me-3"></i>{{get_setting('business_address')->value}}</p>
                 <p class="mb-1"><i class="fa fa-phone-alt me-2"></i>{{get_setting('phone')->value}}</p>
@@ -42,7 +42,7 @@
                 <p>Easy To Life</p>
                 <div class="d-flex">
                     <div>
-                        <a href="#"><img style="width: 150px;" class="bg-light btn"
+                        <a href="#"><img class="payment-img bg-light btn"
                                 src="{{asset('FrontEnd')}}/assect/img/resources/payment.png" alt=""></a>
                     </div>
                     <div>
