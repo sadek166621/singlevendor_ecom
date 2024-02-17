@@ -59,13 +59,13 @@
                                 @enderror
                             </div>
                             <!-- form-group// -->
-                            <div class="mb-3">
-                                <a href="{{ route('password.request') }}" class="float-end font-sm text-muted">Forgot password?</a>
-                                <label class="form-check">
-                                    <input type="checkbox" class="form-check-input" checked="" />
-                                    <span class="form-check-label">Remember</span>
-                                </label>
-                            </div>
+{{--                            <div class="mb-3">--}}
+{{--                                <a href="{{ route('password.request') }}" class="float-end font-sm text-muted">Forgot password?</a>--}}
+{{--                                <label class="form-check">--}}
+{{--                                    <input type="checkbox" class="form-check-input" checked="" />--}}
+{{--                                    <span class="form-check-label">Remember</span>--}}
+{{--                                </label>--}}
+{{--                            </div>--}}
                             <!-- form-group form-check .// -->
                             <div class="mb-4">
                                 <button type="submit" class="btn btn-primary w-100 justify-content-center">Login</button>
@@ -88,20 +88,20 @@
                                 width: 72px;
                             }
                         </style>
-                        <div class="mt-4">
-                            <table class="table table-bordered custom_input">
-                                <tbody>
-                                    <tr>
-                                        <td>admin@gmail.com</td>
-                                        <td><input type="password" name="" value="12345678" disabled></td>
-                                        <td><button  class="btn btn-info btn-xs" onclick="autoFill()">Copy</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="text-center small text-muted mb-15">or sign up with</p>
-                       
-                        <p class="text-center mb-4">Don't have account? <a href="{{ route('admin.regester') }}">Sign up</a></p>
+{{--                        <div class="mt-4">--}}
+{{--                            <table class="table table-bordered custom_input">--}}
+{{--                                <tbody>--}}
+{{--                                    <tr>--}}
+{{--                                        <td>admin@gmail.com</td>--}}
+{{--                                        <td><input type="password" name="" value="12345678" disabled></td>--}}
+{{--                                        <td><button  class="btn btn-info btn-xs" onclick="autoFill()">Copy</button></td>--}}
+{{--                                    </tr>--}}
+{{--                                </tbody>--}}
+{{--                            </table>--}}
+{{--                        </div>--}}
+{{--                        <p class="text-center small text-muted mb-15">or sign up with</p>--}}
+
+{{--                        <p class="text-center mb-4">Don't have account? <a href="{{ route('admin.regester') }}">Sign up</a></p>--}}
                     </div>
                 </div>
             </section>
@@ -134,9 +134,9 @@
 
                 case 'error':
                 toastr.error(" {{ Session::get('message') }} ");
-                break; 
+                break;
             }
-            @endif 
+            @endif
         </script>
 
         <!-- 3 color toastr message show -->
