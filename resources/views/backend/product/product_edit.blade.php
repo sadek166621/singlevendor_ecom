@@ -35,8 +35,8 @@
 					</div>
 		        	<div class="card-body">
 		        		<div class="row">
-		                	<div class="col-md-6 mb-4">
-		                        <label for="product_name_en" class="col-form-label" style="font-weight: bold;">Product Name (En):</label>
+		                	<div class="col-md-12 mb-4">
+		                        <label for="product_name_en" class="col-form-label" style="font-weight: bold;">Product Name:</label>
 		                        <input class="form-control" id="product_name_en" type="text" name="name_en" placeholder="Write product name english" value="{{ $product->name_en }}">
 		                        @error('product_name_en')
 		                            <p class="text-danger">{{$message}}</p>
@@ -140,7 +140,7 @@
 	                        @if ($product->supplier_id == '0')
 
                             @else
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-12 mb-4">
                                 <label for="supplier_id" class="col-form-label" style="font-weight: bold;">Supplier:</label>
                                <div class="custom_select">
                                    <select class="form-control select-active w-100 form-select select-nice" name="supplier_id" id="supplier_id">
@@ -353,7 +353,7 @@
 									<p class="text-danger">{{$message}}</p>
 								@enderror
 							</div>
-							<div class="col-md-6 mb-4">
+							<div class="col-md-12 mb-4">
 								<label for="stock_qty" class="col-form-label" style="font-weight: bold;">Stock Quantity:</label>
 								<input class="form-control" type="number" name="stock_qty" value="{{$product->stock_qty}}" placeholder="Write product stock qty">
 								@error('stock_qty')
@@ -405,8 +405,8 @@
 		        	<div class="card-body">
 		        		<div class="row">
 		        			<!-- Description Start -->
-	                        <div class="col-md-6 mb-4">
-	                          	<label for="long_descp_en" class="col-form-label" style="font-weight: bold;">Description (En):</label>
+	                        <div class="col-md-12 mb-4">
+	                          	<label for="long_descp_en" class="col-form-label" style="font-weight: bold;">Description:</label>
 	                            <textarea name="description_en" rows="2" cols="2" class="form-control summernote" placeholder="Write Long Description English">{{ $product->description_en }}</textarea>
 	                        </div>
 	                        <div class="col-md-6 mb-4 d-none">
