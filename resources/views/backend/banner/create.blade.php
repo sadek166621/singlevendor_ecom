@@ -25,7 +25,7 @@
                                     <p class="text-danger">{{$message}}</p>
                                 @enderror
 	                        </div>
-	                        <div class="col-sm-6 mb-4">
+	                        <div class="col-sm-6 mb-4 d-none">
 	                          	<label for="title_bn" class="col-form-label" style="font-weight: bold;"> Title (Bangla):</label>
 	                            <input class="form-control" id="title_bn" type="text" name="title_bn" placeholder="Write banner title bangla" value="{{old('title_bn')}}">
 	                        </div>
@@ -35,11 +35,11 @@
 	                            <input class="form-control" id="description_en" type="text" name="description_en" placeholder="Write banner description english" value="{{old('description_en')}}">
 	                        </div>
 
-	                        <div class="col-sm-6 mb-4">
+	                        <div class="col-sm-6 mb-4 d-none">
 	                          	<label for="description_bn" class="col-form-label" style="font-weight: bold;"> Description (Bangla):</label>
 	                            <input class="form-control" id="description_bn" type="text" name="description_bn" placeholder="Write banner description bangla" value="{{old('description_bn')}}">
 	                        </div>
-	                                
+
                             <div class="col-sm-6 mb-4">
 	                          	<label for="banner_url" class="col-form-label" style="font-weight: bold;"> Banner Url:</label>
 	                            <input class="form-control" type="text" name="banner_url" placeholder="Write banner url" value="{{old('banner_url')}}">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
 	                       <div class="mb-2 col-sm-6">
-	                       		<img id="showImage" class="rounded avatar-lg mb-3" src="{{ (!empty($editData->profile_image))? url('upload/admin_images/'.$editData->profile_image):url('upload/no_image.jpg') }}" alt="Card image cap" width="100px" height="80px;">	
+	                       		<img id="showImage" class="rounded avatar-lg mb-3" src="{{ (!empty($editData->profile_image))? url('upload/admin_images/'.$editData->profile_image):url('upload/no_image.jpg') }}" alt="Card image cap" width="100px" height="80px;">
 	                       </div>
 	                        <div class="col-sm-12 mb-4">
 	                         	<label for="image" class="col-form-label" style="font-weight: bold;">Banner Photo:</label>
@@ -75,7 +75,7 @@
 									<input type="submit" class="btn btn-primary" value="Submit">
 								</div>
 							</div>
-			                
+
 			            </div>
 			            <!-- .row // -->
 			        </div>

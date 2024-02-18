@@ -118,7 +118,7 @@ class BannerController extends Controller
         $this->validate($request,[
             'title_en' => 'required',
         ]);
-        
+
         $banner = Banner::find($id);
         // //banner Photo Update
         if($request->hasfile('banner_img')){
@@ -127,7 +127,7 @@ class BannerController extends Controller
                     unlink($banner->banner_img);
                 }
             } catch (Exception $e) {
-                
+
             }
             $banner_img = $request->banner_img;
             $banner_save = time().$banner_img->getClientOriginalName();
@@ -180,7 +180,7 @@ class BannerController extends Controller
                 unlink($banner->banner_img);
             }
         } catch (Exception $e) {
-            
+
         }
 
     	$banner->delete();

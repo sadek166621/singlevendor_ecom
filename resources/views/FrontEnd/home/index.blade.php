@@ -440,7 +440,7 @@
 <div class="text-center my-5">
     <button type="button" id="load-more-btn" class="view_more">View More</button>
 </div>
-
+ 
 <!-- Just For You End -->
 @endsection
 @push('js')

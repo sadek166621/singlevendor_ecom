@@ -42,7 +42,7 @@
 		                            <p class="text-danger">{{$message}}</p>
 		                        @enderror
 		                    </div>
-		                    <div class="col-md-6 mb-4">
+		                    <div class="col-md-6 mb-4 d-none">
 	                           	<label for="product_name_bn" class="col-form-label" style="font-weight: bold;">Product Name (Bn):</label>
 	                           	<input class="form-control" id="product_name_bn" type="text" name="name_bn" placeholder="Write product name bangla" value="{{ $product->name_bn }}">
 		                    </div>
@@ -230,7 +230,7 @@
 		        	</div>
 		        </div>
                 @else
-                <div class="card">
+                <div class="card d-none">
 					<div class="card-header" style="background-color: #fff !important;">
 						<h3 style="color: #4f5d77 !important">Product Variation</h3>
 					</div>
@@ -326,18 +326,18 @@
 		        		</div>
 		        		<!-- Row //-->
 		        		<div class="row">
-			        		<div class="col-md-4 mb-4">
+			        		<div class="col-md-6 mb-4">
 	                          	<label for="regular_price" class="col-form-label" style="font-weight: bold;">Regular Price:</label>
 	                            <input class="form-control" type="number" id="totalRegularPriceInput" name="regular_price" placeholder="Write product regular price" value="{{ $product->regular_price }}">
 		                        @error('regular_price')
 	                                <p class="text-danger">{{$message}}</p>
 	                            @enderror
 	                        </div>
-	                        <div class="col-md-4 mb-4">
+	                        <div class="col-md-6 mb-4">
 	                          	<label for="discount_price" class="col-form-label" style="font-weight: bold;">Discount Price:</label>
 	                            <input class="form-control" id="discount_price" type="number" name="discount_price" value="{{ $product->discount_price }}" min="0" placeholder="Write product discount price">
 	                        </div>
-	                        <div class="col-md-4 mb-4">
+	                        <div class="col-md-4 mb-4 d-none">
 	                         	<label for="discount_type" class="col-form-label" style="font-weight: bold;">Discount Type:</label>
 				                <div class="custom_select">
                                     <select class="form-control select-active w-100 form-select select-nice" name="discount_type" id="discount_type">
@@ -346,7 +346,7 @@
                                     </select>
                                 </div>
 	                        </div>
-	                        <div class="col-md-4 mb-4">
+	                        <div class="col-md-4 mb-4 d-none">
 								<label for="minimum_buy_qty" class="col-form-label" style="font-weight: bold;">Minimum Buy Quantity:</label>
 								<input class="form-control" id="minimum_buy_qty" type="number" name="minimum_buy_qty" placeholder="Write product qty" value="{{ $product->minimum_buy_qty }}" min="1">
 								@error('minimum_buy_qty')
@@ -409,7 +409,7 @@
 	                          	<label for="long_descp_en" class="col-form-label" style="font-weight: bold;">Description (En):</label>
 	                            <textarea name="description_en" rows="2" cols="2" class="form-control summernote" placeholder="Write Long Description English">{{ $product->description_en }}</textarea>
 	                        </div>
-	                        <div class="col-md-6 mb-4">
+	                        <div class="col-md-6 mb-4 d-none">
 	                          	<label for="long_descp_bn" class="col-form-label" style="font-weight: bold;">Description (Bn):</label>
 	                            <textarea name="description_bn" rows="2" cols="2" class="form-control summernote" placeholder="Write Long Description Bangla">{{$product->description_bn}}</textarea>
 	                        </div>
@@ -463,19 +463,19 @@
 						<!-- Porduct Image End -->
 		        		<!-- Checkbox Start -->
                         <div class="mb-4">
-                        	<div class="row">
+                        	<div class="row d-none">
                           		<div class="custom-control custom-switch">
                                     <input type="checkbox" class="form-check-input me-2 cursor" name="is_deals" id="is_deals" {{ $product->is_deals == 1 ? 'checked': '' }} value="1">
                                     <label class="form-check-label cursor" for="is_deals">Today's Deal</label>
                                 </div>
                           	</div>
-                          	<div class="row">
+                          	<div class="row d-none">
                           		<div class="custom-control custom-switch">
                                     <input type="checkbox" class="form-check-input me-2 cursor" name="is_digital" id="is_digital" {{ $product->is_digital == 1 ? 'checked': '' }} value="1">
                                     <label class="form-check-label cursor" for="is_digital">Digital</label>
                                 </div>
                           	</div>
-                          	<div class="row">
+                          	<div class="row d-none">
                           		<div class="custom-control custom-switch">
                                     <input type="checkbox" class="form-check-input me-2 cursor" name="is_featured" id="is_featured" {{ $product->is_featured == 1 ? 'checked': '' }} value="1">
                                     <label class="form-check-label cursor" for="is_featured">Featured</label>
@@ -492,7 +492,7 @@
 		        	</div>
 		        </div>
 		        <!-- card -->
-                <div class="card">
+                <div class="card d-none">
 		        	<div class="card-header" style="background-color: #fff !important;">
 						<h3 style="color: #4f5d77 !important">Points</h3>
 					</div>
