@@ -68,8 +68,8 @@
 {{--                    <!-- <a class="navbar-brand" href="#"><img src="{{asset('FrontEnd')}}/assect/img/logo/Bokcho logo1-final.png" alt="logo"></a> -->--}}
 {{--                    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{asset('FrontEnd')}}/assect/img/logo/favicon.png" alt="logo"><span>O</span>KCH<span>Ô</span></a>--}}
                     <a class="navbar-brand header-img" href="{{ route('home') }}" >
-                        <input type="hidden" name="" id="header_img_alter" value="{{get_setting('site_footer_logo')->value}}">
-                        <input type="hidden" name="" id="header_img" value="{{get_setting('site_logo')->value}}">
+                        <input type="hidden" name="" id="header_img_alter" value="{{asset(get_setting('site_footer_logo')->value)}}">
+                        <input type="hidden" name="" id="header_img" value="{{asset(get_setting('site_logo')->value)}}">
                         <img id="my-img" src="{{asset(get_setting('site_logo')->value)}}" alt="logo" class="main-img" onmouseover="newImg(this)" onmouseout="oldImg(this)" style="width: 100%">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
