@@ -125,7 +125,7 @@
         </div>
 
 
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <div class="card card-body mb-4 shadow bg-white rounded" style="border: 1px solid #365486">
                 <article class="icontext">
                     <span class="icon icon-sm rounded-circle bg-success-light"><i class="fa-solid fa-clipboard-user"></i></span>
@@ -139,7 +139,8 @@
             </div>
         </div>
         @endif
-        <div class="col-lg-{{$role == 1 ? '3':'4'}}">
+        {{-- <div class="col-lg-{{$role == 1 ? '3':'4'}}"> --}}
+        <div class="col-lg-4">
             <div class="card card-body mb-4 shadow bg-white rounded" style="border: 1px solid #365486">
                 <article class="icontext">
                     <span class="icon icon-sm rounded-circle bg-success-light"><i class="fa-solid fa-copyright"></i></span>
@@ -152,7 +153,7 @@
             </div>
         </div>
         @if(Auth::guard('admin')->user()->role != '2')
-        <div class="col-lg-3">
+        <div class="col-lg-3 d-none">
             <div class="card card-body mb-4 shadow bg-white rounded" style="border: 1px solid #365486">
                 <article class="icontext">
                     <span class="icon icon-sm rounded-circle bg-success-light"><i class="fa-solid fa-users"></i></span>
@@ -165,7 +166,8 @@
             </div>
         </div>
         @endif
-        <div class="col-lg-{{$role == 1 ? '3':'4'}}">
+        {{-- <div class="col-lg-{{$role == 1 ? '3':'4'}}"> --}}
+        <div class="col-lg-4">
             <div class="card card-body mb-4 shadow bg-white rounded" style="border: 1px solid #365486">
                 <article class="icontext">
                     <span class="icon icon-sm rounded-circle bg-success-light"><i class="fa-solid fa-battery-quarter"></i></span>

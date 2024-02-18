@@ -253,7 +253,7 @@
             </li>
             @endif
             @if(Auth::guard('admin')->user()->role == '1')
-            <!-- <li class="menu-item has-submenu
+            <li class="menu-item has-submenu
                 {{ ($route == 'banner.index')? 'active':'' }}
                 {{ ($route == 'banner.edit')? 'active':'' }}
                 {{ ($route == 'banner.create')? 'active':'' }}
@@ -266,7 +266,7 @@
                     <a class="{{ ($route == 'banner.index') ? 'active':'' }}" href="{{ route('banner.index') }}">Banner List</a>
                     <a class="{{ ($route == 'banner.create') ? 'active':'' }}" href="{{ route('banner.create') }}">Banner Add</a>
                 </div>
-            </li> -->
+            </li>
             @endif
 
             @if(Auth::guard('admin')->user()->role == '1')
