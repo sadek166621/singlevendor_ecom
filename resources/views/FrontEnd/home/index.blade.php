@@ -396,7 +396,7 @@
             <h2>Featured Products</h2>
         </div>
         <div>
-            <a href="{{route('product.show')}}" class="view_more btn-primary" style="float: right;padding: 10px">View More</a>
+            <a href="{{route('product.featured.show')}}" class="view_more btn-primary" style="float: right;padding: 10px">View More</a>
 
         </div>
     </div>
