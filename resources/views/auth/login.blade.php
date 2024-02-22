@@ -156,8 +156,8 @@ Login
                 <form class="row g-3 mt-3" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="col-md-12">
-                        <label for="email" class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" name="email" placeholder="Login@gmail.com" value="{{ old('email') }}" required>
+                        <label for="email" class="form-label fw-semibold">Phone or Email <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="email" placeholder="Phone or Email" value="{{ old('email') }}" required>
                         @error('email')
                         <div class="text-danger" style="font-weight: bold;">{{ $message }}</div>
                           @enderror

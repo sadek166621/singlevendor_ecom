@@ -27,7 +27,7 @@ Route::middleware('guest')->group(function () {
                 ->name('otp_login.verifyForm');
     Route::post('otp_login/verify', [AuthenticatedSessionController::class, 'otp_verify'])->name('otp_login.verify');
     // End otp login //
-    
+
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->name('password.request');
 

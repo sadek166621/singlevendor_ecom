@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
         if(get_setting('otp_system')->value){
             return view('auth.otp.otp_login',compact('categories'));
         }
-        
+
         return view('auth.login',compact('categories'));
     }
 
@@ -39,20 +39,20 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(LoginRequest $request)
+    public function store(Request $request)
     {
-        $this->validate($request,[
-            'email' =>'required',
-            'password' =>'required'
+        // return $request;
+        $credentials = $request->validate([
+            'email' => ['required'],
+            'password' => ['required'],
         ]);
-
-        // dd($request->all());
-        $check = $request->all();
-        if(Auth::guard('web')->attempt(['email' => $check['email'], 'password'=> $check['password'] ])){
+        if (Auth::attempt($credentials) ||Auth::attempt(
+            ['phone'=>$request->email, 'password'=>$request->password
+           ] )) {
 
             if(Auth::guard('web')->user()->role == "3"){
                 $notification = array(
-                    'message' => 'User Login Successfully.', 
+                    'message' => 'User Login Successfully.',
                     'alert-type' => 'success'
                 );
                 return redirect()->route('dashboard')->with($notification);
@@ -62,15 +62,15 @@ class AuthenticatedSessionController extends Controller
                 $request->session()->regenerateToken();
 
                 $notification = array(
-                    'message' => 'Invaild Email Or Password.', 
+                    'message' => 'Invaild Email Or Password.',
                     'alert-type' => 'error'
                 );
                 return back()->with($notification);
             }
-            
+
         }else{
             $notification = array(
-                'message' => 'Invaild Email Or Password.', 
+                'message' => 'Invaild Email Or Password.',
                 'alert-type' => 'error'
             );
             return back()->with($notification);
@@ -128,13 +128,13 @@ class AuthenticatedSessionController extends Controller
                     //     SendSMSUtility::sendSMS($admin_phone, $sms_body);
                     // }
                     $notification = array(
-                        'message' => 'Code sent to your number', 
+                        'message' => 'Code sent to your number',
                         'alert-type' => 'success'
                     );
                     return redirect()->route('otp_login.verifyForm')->with($notification);
                 }else{
                     $notification = array(
-                        'message' => 'Code sending failed!', 
+                        'message' => 'Code sending failed!',
                         'alert-type' => 'error'
                     );
                     return back()->with($notification);
@@ -142,14 +142,14 @@ class AuthenticatedSessionController extends Controller
             }
         }else{
             $notification = array(
-                'message' => 'No user registered with this number!', 
+                'message' => 'No user registered with this number!',
                 'alert-type' => 'error'
             );
             return back()->with($notification);
         }
 
         $notification = array(
-            'message' => 'Code sending failed!', 
+            'message' => 'Code sending failed!',
             'alert-type' => 'error'
         );
         return back()->with($notification);
@@ -174,7 +174,7 @@ class AuthenticatedSessionController extends Controller
 
                 if(Auth::guard('web')->user()->role == "3"){
                     $notification = array(
-                        'message' => 'User Login Successfully.', 
+                        'message' => 'User Login Successfully.',
                         'alert-type' => 'success'
                     );
                     return redirect()->route('dashboard')->with($notification);
@@ -182,23 +182,23 @@ class AuthenticatedSessionController extends Controller
                     Auth::guard('web')->logout();
                     $request->session()->invalidate();
                     $request->session()->regenerateToken();
-    
+
                     $notification = array(
-                        'message' => 'Invaild Email Or Password.', 
+                        'message' => 'Invaild Email Or Password.',
                         'alert-type' => 'error'
                     );
                     return back()->with($notification);
                 }
             }else{
                 $notification = array(
-                    'message' => 'Something went wrong.', 
+                    'message' => 'Something went wrong.',
                     'alert-type' => 'error'
                 );
                 return back()->with($notification);
             }
         }else{
             $notification = array(
-                'message' => 'Wrong code!', 
+                'message' => 'Wrong code!',
                 'alert-type' => 'error'
             );
             return back()->with($notification);
@@ -220,7 +220,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         $notification = array(
-                'message' => 'User Logout Successfully.', 
+                'message' => 'User Logout Successfully.',
                 'alert-type' => 'success'
         );
 
