@@ -25,7 +25,7 @@
     @include('FrontEnd.include.footer')
     <!-- Footer End -->
     <!-- Back to Top -->
-    <a href="#" class="btn btn-primary btn-square back-to-top display-tp"><i class="fa fa-arrow-up text-white"></i></a>
+    <a href="#" class="btn btn-dark btn-square back-to-top display-tp"><i class="fa fa-arrow-up text-white"></i></a>
     <!-- End Back to Top -->
     @include('FrontEnd.include.script')
     @stack('js')
