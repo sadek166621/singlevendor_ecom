@@ -15,7 +15,7 @@
     }
 
 </style>
-<header>
+<header style="background-color: ">
     <!-- Desktop Nav Star-->
     <section class="d-none d-lg-block">
         <div class="header-top">
