@@ -6,10 +6,10 @@
                     <input type="hidden" name="" id="header_img_alter" value="{{get_setting('site_footer_logo')->value}}">
                     <input type="hidden" name="" id="header_img" value="{{get_setting('site_logo')->value}}">
                     <img id="my-img" src="{{asset(get_setting('site_logo')->value)}}" alt="logo" class="main-img"
-                         onmouseover="newImg(this)" onmouseout="oldImg(this)" style="width: 100%; height: 55%">
+                         onmouseover="newImg(this)" onmouseout="oldImg(this)" style="width: 207px;height: 50px;">
                 </a>
                 <p class="mt-2" align="justify">{{get_setting('short_description')->value}}</p>
-                <div class="d-flex justify-content-center pt-2">
+                <div class="d-flex justify-content-center pt-2" style="padding-right: 63px;">
                     <a class="btn btn-outline-light btn-social" href="{{get_setting('facebook_url')->value}}"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social" href="{{get_setting('instagram_url')->value}}"><i class="fab fa-instagram"></i></a>
                     <a class="btn btn-outline-light btn-social" href="{{get_setting('twitter_url')->value}}"><i class="fab fa-twitter"></i></a>
