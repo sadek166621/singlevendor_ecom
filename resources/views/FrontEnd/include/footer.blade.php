@@ -1,4 +1,4 @@
-<footer class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
+<footer class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s" style="background-color: #332860 !important;">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
