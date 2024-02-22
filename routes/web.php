@@ -139,6 +139,7 @@ Route::get('/district-upazilla/ajax/',[CheckoutController::class,'getupazilla'])
 Route::get('/product/shop',[ProductController::class,'index'])->name('product.show');
 /* =============== sort_by  ============= */
 Route::get('/search', [ProductController::class, 'sort_by'])->name('sort_by.search');
+Route::get('/products/featured', [ProductController::class, 'featuredProduct'])->name('product.featured.show');
 // Attribute Data fetch
 Route::get('/attribute-data',[AttributeController::class,'index'])->name('attribute.index');
 

@@ -23,6 +23,11 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+    @media only screen and (max-width: 767px) {
+        .view_more{
+            font-size: x-small;
+        }
+    }
 </style>
 <section class="option-slider container mt-5">
 {{--    @php dd($home_banners) @endphp--}}
@@ -382,6 +387,133 @@
 </section>
 <!-- Categories Part End -->
 
+
+
+<!--  Featured Start -->
+<section class="feature container owl-carousel owl-theme owl-loaded mt-5">
+    <div class="d-flex justify-content-between align-items-center px-3">
+        <div class="d-flex">
+            <h2>Featured Products</h2>
+        </div>
+        <div>
+            <a href="{{route('product.show')}}" class="view_more btn-primary" style="float: right;padding: 10px">View More</a>
+
+        </div>
+    </div>
+
+
+    <div class="owl-stage-outer py-3 px-1">
+        <hr>
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 owl-stage g-2">
+            @foreach($product_featured as $product)
+                    <?php $discountPercentage = round((($product->regular_price - $product->discount_price) / $product->regular_price) * 100); ?>
+                <div class="col owl-item">
+                    <div class="card h-100">
+                        <a href="{{route('product.details', $product->slug)}}"><img src="{{asset($product->product_thumbnail)}}" class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                            <a href="{{route('product.details', $product->slug)}}">
+                                <p class="product-text">{!! Str::substr($product->name_en, 0, 20) !!}{{Str::length($product->name_en) > 20 ? '...':''}}</p>
+                            </a>
+                            <h5 class="product-price">৳{{ $product->discount_price }}</h5>
+                            <p class="discount-percent"><span
+                                    class="discount-price">৳{{ $product->regular_price }}</span> -
+                                {{ $discountPercentage }}%</p>
+                            <small class="product-ratings">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="ratings">({{ $product->stock_qty }})</i>
+                            </small>
+                            <div class="text-center">
+                                {{-- <input type="hidden" id="buyNowCheck" value="0"> --}}
+                                <button type="submit" onclick="buyNow({{ $product->id }})" class="buy_now">Buy Now</button>
+                                @if($product->is_varient == 1)
+                                    <button type="button" id="{{ $product->id }}" onclick="productView(this.id)"
+                                            data-bs-toggle="modal" data-bs-target="#quickViewModal" class="add_to_cart">Add to Cart</button>
+                                @else
+                                    <input type="hidden" id="pfrom" value="direct">
+                                    <input type="hidden" id="product_product_id" value="{{ $product->id }}" min="1">
+                                    <input type="hidden" id="{{ $product->id }}-product_pname"
+                                           value="{{ $product->name_en }}">
+                                    <button type="button" onclick="addToCartDirect({{ $product->id }})" class="add_to_cart">Add
+                                        to Cart</button>
+                                @endif
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+</section>
+
+<!-- Recently Added Start -->
+<section class="recent-add container owl-carousel owl-theme owl-loaded mt-5">
+    <div class="d-flex justify-content-between align-items-center px-3">
+        <div class="d-flex">
+            <h2>Recently Added</h2>
+        </div>
+        <div>
+            <a href="{{route('product.featured.show')}}" class="view_more btn-primary" style="float: right; padding: 10px">View More</a>
+        </div>
+    </div>
+    <div class="owl-stage-outer py-3 px-1">
+        <hr>
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 owl-stage g-2">
+            @foreach($product_recently_adds as $product)
+                    <?php $discountPercentage = round((($product->regular_price - $product->discount_price) / $product->regular_price) * 100); ?>
+                <div class="col owl-item">
+                    <div class="card h-100">
+                        <a href="{{route('product.details', $product->slug)}}"><img src="{{asset($product->product_thumbnail)}}" class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                            <a href="{{route('product.details', $product->slug)}}">
+                                <p class="product-text">{!! Str::substr($product->name_en, 0, 20) !!}{{Str::length($product->name_en) > 20 ? '...':''}}</p>
+                            </a>
+                            <h5 class="product-price">৳{{ $product->discount_price }}</h5>
+                            <p class="discount-percent"><span
+                                    class="discount-price">৳{{ $product->regular_price }}</span> -
+                                {{ $discountPercentage }}%</p>
+                            <small class="product-ratings">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="ratings">({{ $product->stock_qty }})</i>
+                            </small>
+                            <div class="text-center">
+                                {{-- <input type="hidden" id="buyNowCheck" value="0"> --}}
+                                <button type="submit" onclick="buyNow({{ $product->id }})" class="buy_now">Buy Now</button>
+                                @if($product->is_varient == 1)
+                                    <button type="button" id="{{ $product->id }}" onclick="productView(this.id)"
+                                            data-bs-toggle="modal" data-bs-target="#quickViewModal" class="add_to_cart">Add to Cart</button>
+                                @else
+                                    <input type="hidden" id="pfrom" value="direct">
+                                    <input type="hidden" id="product_product_id" value="{{ $product->id }}" min="1">
+                                    <input type="hidden" id="{{ $product->id }}-product_pname"
+                                           value="{{ $product->name_en }}">
+                                    <button type="button" onclick="addToCartDirect({{ $product->id }})" class="add_to_cart">Add
+                                        to Cart</button>
+                                @endif
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+
+        </div>
+    </div>
+
+</section>
+<!-- Recently Added End -->
+
 <!-- Just For You Start -->
 <section class="just-for-you container mt-5">
     <h2>Just For You</h2>
@@ -440,7 +572,7 @@
 <div class="text-center my-5">
     <button type="button" id="load-more-btn" class="view_more">View More</button>
 </div>
- 
+
 <!-- Just For You End -->
 @endsection
 @push('js')

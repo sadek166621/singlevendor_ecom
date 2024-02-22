@@ -165,4 +165,10 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function featuredProduct()
+    {
+        $products = Product::where('is_featured', 1)->get();
+        return view('FrontEnd.product.featured_products', compact('products'));
+    }
 }

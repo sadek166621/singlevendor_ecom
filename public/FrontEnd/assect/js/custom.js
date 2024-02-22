@@ -86,3 +86,50 @@ $('.categories').owlCarousel({
     }
   }
 })
+// Recent Add
+$('.recent-add').owlCarousel({
+    loop: true,
+    dots: false,
+    autoplay: true,
+    nav: false,
+    autoplayTimeout: 2000,
+    responsiveClass: true,
+    responsive: {
+        0: {
+            items: 2
+        },
+        600: {
+            items: 3,
+        },
+        1000: {
+            items: 5
+        },
+        1400: {
+            items: 7
+        }
+    }
+})
+
+// Feature
+$('.feature').owlCarousel({
+    loop: true,
+    dots: false,
+    autoplay: true,
+    nav: false,
+    autoplayTimeout: 2000,
+    responsiveClass: true,
+    responsive: {
+        0: {
+            items: 2
+        },
+        600: {
+            items: 3
+        },
+        1000: {
+            items: 5
+        },
+        1400: {
+            items: 7
+        }
+    }
+})

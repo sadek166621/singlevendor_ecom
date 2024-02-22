@@ -64,6 +64,9 @@ class FrontendController extends Controller
         //Product Recently Added
         $product_recently_adds = Product::where('status',1)->latest()->skip(2)->limit(9)->get();
 
+        //featured_products
+        $product_featured = Product::where('status',1)->where('is_featured', 1)->latest()->skip(2)->limit(9)->get();
+
         $product_top_rates = Product::where('status',1)->orderBy('regular_price')->limit(9)->get();
         // Home Banner
         $home_banners = Banner::where('status',1)->where('position',1)->orderBy('id','DESC')->limit(1)->get();
@@ -99,7 +102,7 @@ class FrontendController extends Controller
 
         $brands = Brand::where('status',1)->get();
 
-        return view($home_view, compact('brands','categories','sliders','featured_category','products','product_top_sellings','product_trendings','product_recently_adds','product_top_rates','home_banners','sort_search','todays_sale','home2_featured_categories','hot_deals'));
+        return view($home_view, compact('brands','categories','sliders', 'product_featured', 'featured_category','products','product_top_sellings','product_trendings','product_recently_adds','product_top_rates','home_banners','sort_search','todays_sale','home2_featured_categories','hot_deals'));
     } // end method
 
     // public function shopgrid(){
@@ -140,7 +143,10 @@ class FrontendController extends Controller
         //Product Trending
         $product_trendings = Product::where('status',1)->orderBy('id','ASC')->skip(2)->limit(2)->get();
         //Product Recently Added
-        $product_recently_adds = Product::where('status',1)->latest()->skip(2)->limit(2)->get();
+        $product_recently_adds = Product::where('status',1)->latest()->skip(2)->limit(9)->get();
+
+        //featured_products
+        $product_featured = Product::where('status',1)->where('is_featured', 1)->latest()->limit(9)->get();
 
         $product_top_rates = Product::where('status',1)->orderBy('regular_price')->limit(2)->get();
         // Home Banner
@@ -156,7 +162,7 @@ class FrontendController extends Controller
         // Hot deals product
         $hot_deals = Product::where('status',1)->where('is_deals',1)->latest()->take(4)->get();
 
-        return view('frontend.home2', compact('categories','sliders','featured_category','products','product_top_sellings','product_trendings','product_recently_adds','product_top_rates','home_banners','sort_search','todays_sale','home2_featured_categories','hot_deals'));
+        return view('frontend.home2', compact('categories', 'product_featured', 'sliders','featured_category','products','product_top_sellings','product_trendings','product_recently_adds','product_top_rates','home_banners','sort_search','todays_sale','home2_featured_categories','hot_deals'));
     } // end method
 
     /* ========== Start ProductDetails Method ======== */
