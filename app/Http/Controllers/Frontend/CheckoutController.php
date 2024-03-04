@@ -180,30 +180,30 @@ class CheckoutController extends Controller
             //'created_by' => Auth::guard('admin')->user()->id,
         ]);
 
-        if(get_setting('otp_system')){
-            $sms_template = SmsTemplate::where('name','order_message')->where('status',1)->first();
-            if($sms_template){
-                $sms_body       = $sms_template->body;
-                $sms_body       = str_replace('[[order_code]]', $order->invoice_no, $sms_body);
-                $sms_body       = str_replace('[[order_amount]]', $order->grand_total, $sms_body);
-                $sms_body       = str_replace('[[site_name]]', env('APP_NAME'), $sms_body);
-
-                if($order->pay_status == 1){
-                    $payment_info = json_decode($order->payment_info);
-                    $sms_body     = str_replace('[[payment_details]]', 'পেমেন্ট স্ট্যাটাসঃ paid'.', ট্রান্সেকশন আইডিঃ '.$order->transaction_id.', মাধ্যমঃ '.$order->payment_method.' ', $sms_body);
-                }else{
-                    $sms_body       = str_replace('[[payment_details]]', '', $sms_body);
-                }
-
-                if(substr($order->phone,0,3)=="+88"){
-                    $phone = $order->phone;
-                }elseif(substr($order->phone,0,2)=="88"){
-                    $phone = '+'.$order->phone;
-                }else{
-                    $phone = '+88'.$order->phone;
-                }
-                //dd($phone);
-                SendSMSUtility::sendSMS($phone, $sms_body);
+//        if(get_setting('otp_system')){
+//            $sms_template = SmsTemplate::where('name','order_message')->where('status',1)->first();
+//            if($sms_template){
+//                $sms_body       = $sms_template->body;
+//                $sms_body       = str_replace('[[order_code]]', $order->invoice_no, $sms_body);
+//                $sms_body       = str_replace('[[order_amount]]', $order->grand_total, $sms_body);
+//                $sms_body       = str_replace('[[site_name]]', env('APP_NAME'), $sms_body);
+//
+//                if($order->pay_status == 1){
+//                    $payment_info = json_decode($order->payment_info);
+//                    $sms_body     = str_replace('[[payment_details]]', 'পেমেন্ট স্ট্যাটাসঃ paid'.', ট্রান্সেকশন আইডিঃ '.$order->transaction_id.', মাধ্যমঃ '.$order->payment_method.' ', $sms_body);
+//                }else{
+//                    $sms_body       = str_replace('[[payment_details]]', '', $sms_body);
+//                }
+//
+//                if(substr($order->phone,0,3)=="+88"){
+//                    $phone = $order->phone;
+//                }elseif(substr($order->phone,0,2)=="88"){
+//                    $phone = '+'.$order->phone;
+//                }else{
+//                    $phone = '+88'.$order->phone;
+//                }
+//                //dd($phone);
+//                SendSMSUtility::sendSMS($phone, $sms_body);
 
                 // $sms_body = str_replace('আপনার', 'নতুন', $sms_body);
                 // $setting = Setting::where('name', 'phone')->first();
@@ -219,8 +219,8 @@ class CheckoutController extends Controller
                 //     }
                 //     SendSMSUtility::sendSMS($admin_phone, $sms_body);
                 // }
-            }
-        }
+//            }
+//        }
 
 
         // order details add //

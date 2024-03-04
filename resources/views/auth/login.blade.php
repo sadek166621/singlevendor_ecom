@@ -180,7 +180,7 @@ Login
                         </div>
                     </div> --}}
                     <div class="col-md-12 my-3">
-                        <button type="submit" class="btn btn-primary px-5 py-2">Login</button>
+                        <button type="submit" class="btn btn-primary px-5 py-2 text-white">Login</button>
                     </div>
                 </form>
             </div>

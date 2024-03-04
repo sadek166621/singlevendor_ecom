@@ -7,7 +7,7 @@
     <div class="container ">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h2 class="display-3 fw-bold">BOKCHO</h2>
+                <h2 class="display-3 fw-bold">{{get_setting('business_name')->value}}</h2>
                 <h5 class="display-6 fw-semibold">Happy Shopping</h5>
                 <div class="d-flex justify-content-center mt-3">
                     <p class="m-0"><a href="{{route('home')}}">Home</a></p>
@@ -53,7 +53,7 @@
 {{--                </form>--}}
                 <div class="card mb-3">
                     <div class="card-header bg-primary">
-                        <h4 class="fw-semibold">Cart Summary</h4>
+                        <h4 class="fw-semibold text-white">Cart Summary</h4>
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
@@ -73,12 +73,12 @@
                 </div>
                 <div class="d-flex justify-content-end">
                     @auth
-                        <a href="{{route('checkout')}}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Proceed To
+                        <a href="{{route('checkout')}}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4 text-white">Proceed To
                             Checkout</a>
                     @endauth
                     @guest
                         {{-- <button type="submit" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</button> --}}
-                        <a href="{{ route('login') }}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</a></span>
+                        <a href="{{ route('login') }}" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4 text-white">Place Order</a></span>
                     @endguest
 
                 </div>
@@ -132,7 +132,7 @@
 
                                         <input type="text" value="${value.qty}" min="1" max="100" disabled="" style="width: 36px; height:40px; text-align: center; padding-left:0px;">
 
-                                        <button type="submit" style="margin-left: 5px; font-size: 12px; border-radius: 0.25rem" class="btn btn-sm btn-primary" id="${value.rowId}" onclick="cartIncrement(this.id)" ><i class="fa fa-plus"></i></button>
+                                        <button type="submit" style="margin-left: 5px; font-size: 12px; border-radius: 0.25rem" class="btn btn-sm bg-primary text-white" id="${value.rowId}" onclick="cartIncrement(this.id)" ><i class="fa fa-plus"></i></button>
                                         </div>
                                     </div>
                                 </td>

@@ -7,7 +7,7 @@ Dashboard Nest Online Shop
     .dashboard .card i {
     font-size: 35px;
     margin-bottom: 10px;
-    color: #0cc5f3;
+    color: #332860;
 }
 .m-auto {
     margin: auto!important;
@@ -16,7 +16,7 @@ p:last-child {
     margin-bottom: 0;
 }
 .text-brand {
-    color: #0b9fc3 !important;
+    color: #332860 !important;
 }
 @media (min-width: 1200px)
 .fs-4 {
@@ -66,7 +66,7 @@ p:last-child {
 .dashboard .card i {
     font-size: 35px;
     margin-bottom: 10px;
-    color: #0cc5f3;
+    color: #332860;
 }.dashboard-menu ul li {
     position: relative;
     border-radius: 10px;
@@ -75,7 +75,7 @@ p:last-child {
 }
 .dashboard-menu ul li a.active {
     color: #fff;
-    background-color: #0cc5f3;
+    background-color: #332860;
     border-radius: 10px;
 }.dashboard-menu ul li a {
     font-size: 16px;

@@ -61,16 +61,16 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="{{route('home')}}">BOKCHO</a> || All Right Reserved.
+                    &copy; <a class="border-bottom" href="{{route('home')}}">{{get_setting('business_name')->value}}</a> || All Rights Are Reserved ||
 
-                    Designed By || <a class="border-bottom" href="https://skydreamit.com/" target="_blank">Sky Dream IT</a>
+                    Designed By <a class="border-bottom" href="https://skydreamit.com/" target="_blank">Sky Dream IT</a>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
 {{--                        <a href="#">Ad's Choice</a>--}}
 {{--                        <a href="#">Cookies</a>--}}
                         <a href="{{route('page.help')}}">Help</a>
-                        <a href="{{route('page.faq')}}">FQAs</a>
+                        <a href="{{route('page.faq')}}">FAQs</a>
                     </div>
                 </div>
             </div>

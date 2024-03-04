@@ -8,7 +8,7 @@
     <div class="container ">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h2 class="display-3 fw-bold">BOKCHO</h2>
+                <h2 class="display-3 fw-bold">{{get_setting('business_name')->value}}</h2>
                 <h5 class="display-6 fw-semibold">Happy Shopping</h5>
                 <div class="d-flex justify-content-center mt-3">
                     <p class="m-0"><a href="{{route('home')}}">Home</a></p>
@@ -206,7 +206,7 @@
             <div class="col-lg-4">
                 <div class="card mb-5">
                     <div class="card-header bg-primary">
-                        <h4 class="fw-semibold m-0">Order Total</h4>
+                        <h4 class="fw-semibold m-0 text-white">Order Total</h4>
                     </div>
                     <div class="card-body">
                         <h5 class="fw-semibold mb-3">Products</h5>
@@ -245,7 +245,7 @@
                 </div>
                 <div class="card mb-3">
                     <div class="card-header bg-primary">
-                        <h4 class="fw-semibold m-0">Payment</h4>
+                        <h4 class="fw-semibold m-0 text-white">Payment</h4>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
@@ -272,7 +272,7 @@
                 </div>
                 <div class="card-footer d-flex justify-content-end">
 {{--                    @auth--}}
-                    <button type="submit" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</button>
+                    <button type="submit" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4 text-white">Place Order</button>
 {{--                    @endauth--}}
 {{--                    @guest--}}
                     {{-- <button type="submit" class="btn btn-primary btn-lg d-block fw-semibold py-2 px-4">Place Order</button> --}}

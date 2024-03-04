@@ -8,7 +8,7 @@
         <div class="container ">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h2 class="display-3 fw-bold">BOKCHO</h2>
+                    <h2 class="display-3 fw-bold">{{get_setting('business_name')->value}}</h2>
                     <h5 class="display-6 fw-semibold">Happy Shopping</h5>
                     <div class="d-flex justify-content-center mt-3">
                         <p class="m-0"><a href="{{route('home')}}">Home</a></p>
