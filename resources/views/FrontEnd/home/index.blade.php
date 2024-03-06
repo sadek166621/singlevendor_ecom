@@ -396,7 +396,7 @@
             <h2>Featured Products</h2>
         </div>
         <div>
-            <a href="{{route('product.featured.show')}}" class="view_more btn-primary" style="float: right;padding: 10px">View More</a>
+            <a href="{{route('product.featured.show')}}" class="view_more btn-primary" style="float: right;padding: 2px 10px">View More</a>
 
         </div>
     </div>
@@ -459,7 +459,7 @@
             <h2>Recently Added</h2>
         </div>
         <div>
-            <a href="{{route('product.featured.show')}}" class="view_more btn-primary" style="float: right; padding: 10px">View More</a>
+            <a href="{{route('product.featured.show')}}" class="view_more btn-primary" style="float: right; padding: 2px 10px">View More</a>
         </div>
     </div>
     <div class="owl-stage-outer py-3 px-1">
